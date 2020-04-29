@@ -7,6 +7,20 @@
 	"content": "Chapter 1 Basics Discover what this Hugo theme is all about and the core-concepts behind it.\n"
 },
 {
+	"uri": "https://skalena.github.io/api-first/api-first/",
+	"title": "Api First",
+	"tags": [],
+	"description": "",
+	"content": "+++ title = \u0026ldquo;{{ replace .Name \u0026ldquo;-\u0026rdquo; \u0026quot; \u0026quot; | title }}\u0026rdquo; date = {{ .Date }} weight = 5 +++\nLorem Ipsum.\n"
+},
+{
+	"uri": "https://skalena.github.io/api-first/",
+	"title": "Api-firsts",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://skalena.github.io/posts/my-first-post/",
 	"title": "My First Post",
 	"tags": [],

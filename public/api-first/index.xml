@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Basics on Skalena : API Methodology</title>
-    <link>https://skalena.github.io/</link>
-    <description>Recent content in Basics on Skalena : API Methodology</description>
+    <title>Api-firsts on Skalena : API Methodology</title>
+    <link>https://skalena.github.io/api-first/</link>
+    <description>Recent content in Api-firsts on Skalena : API Methodology</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 29 Apr 2020 00:38:29 -0300</lastBuildDate>
     
-	<atom:link href="https://skalena.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://skalena.github.io/api-first/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,15 +19,6 @@
       <guid>https://skalena.github.io/api-first/api-first/</guid>
       <description>+++ title = &amp;ldquo;{{ replace .Name &amp;ldquo;-&amp;rdquo; &amp;quot; &amp;quot; | title }}&amp;rdquo; date = {{ .Date }} weight = 5 +++
 Lorem Ipsum.</description>
-    </item>
-    
-    <item>
-      <title>My First Post</title>
-      <link>https://skalena.github.io/posts/my-first-post/</link>
-      <pubDate>Tue, 28 Apr 2020 22:18:40 -0300</pubDate>
-      
-      <guid>https://skalena.github.io/posts/my-first-post/</guid>
-      <description></description>
     </item>
     
   </channel>

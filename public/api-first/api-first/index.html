@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>My First Post :: Skalena : API Methodology</title>
+    <title>Api First :: Skalena : API Methodology</title>
 
     
     <link href="/css/nucleus.css?1588131563" rel="stylesheet">
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/posts/my-first-post/">
+  <body class="" data-url="/api-first/api-first/">
     <nav id="sidebar" class="">
 
 
@@ -95,7 +95,7 @@
   
     
     <li data-nav-id="/api-first/" title="Api-firsts" class="dd-item 
-        
+        parent
         
         
         ">
@@ -121,7 +121,7 @@
  
   
     
-      <li data-nav-id="/api-first/api-first/" title="Api First" class="dd-item ">
+      <li data-nav-id="/api-first/api-first/" title="Api First" class="dd-item active">
         <a href="/api-first/api-first/">
         Api First
         
@@ -150,7 +150,7 @@
   
     
     <li data-nav-id="/posts/" title="Posts" class="dd-item 
-        parent
+        
         
         
         ">
@@ -176,7 +176,7 @@
  
   
     
-      <li data-nav-id="/posts/my-first-post/" title="My First Post" class="dd-item active">
+      <li data-nav-id="/posts/my-first-post/" title="My First Post" class="dd-item ">
         <a href="/posts/my-first-post/">
         My First Post
         
@@ -244,7 +244,7 @@
             
           
           
-            <a href='/'>Basics</a> > <a href='/posts/'>Posts</a> > My First Post
+            <a href='/'>Basics</a> > <a href='/api-first/'>Api-firsts</a> > Api First
           
         
           
@@ -273,13 +273,19 @@
           
             <h1>
               
-              My First Post
+              Api First
             </h1>
           
 
         
 
 
+<p>+++
+title = &ldquo;{{ replace .Name &ldquo;-&rdquo; &quot; &quot; | title }}&rdquo;
+date = {{ .Date }}
+weight = 5
++++</p>
+<p>Lorem Ipsum.</p>
 
 
 <footer class="footline">
@@ -317,8 +323,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -332,6 +336,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -352,6 +357,8 @@
             
                 
                     
+                        
+                        
                     
                 
                 
@@ -365,7 +372,6 @@
             
             
                 
-                    
                     
                 
                 
@@ -390,10 +396,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/posts/" title="Posts"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/api-first/" title="Api-firsts"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/api-first/" title="Api-firsts" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/posts/" title="Posts" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
