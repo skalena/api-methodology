@@ -2,23 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Api-firsts on Skalena : API Methodology</title>
-    <link>https://skalena.github.io/api-first/</link>
+    <link>https://skalena.github.io/api-methodology/public/api-first/</link>
     <description>Recent content in Api-firsts on Skalena : API Methodology</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 29 Apr 2020 00:38:29 -0300</lastBuildDate>
     
-	<atom:link href="https://skalena.github.io/api-first/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://skalena.github.io/api-methodology/public/api-first/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Api First</title>
-      <link>https://skalena.github.io/api-first/api-first/</link>
+      <link>https://skalena.github.io/api-methodology/public/api-first/api-first/</link>
       <pubDate>Wed, 29 Apr 2020 00:38:29 -0300</pubDate>
       
-      <guid>https://skalena.github.io/api-first/api-first/</guid>
+      <guid>https://skalena.github.io/api-methodology/public/api-first/api-first/</guid>
       <description>+++ title = &amp;ldquo;{{ replace .Name &amp;ldquo;-&amp;rdquo; &amp;quot; &amp;quot; | title }}&amp;rdquo; date = {{ .Date }} weight = 5 +++
-Lorem Ipsum.</description>
+Lorem Ipsum.
+foi</description>
     </item>
     
   </channel>
