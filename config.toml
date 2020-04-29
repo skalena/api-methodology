@@ -1,4 +1,4 @@
-baseURL = "https://skalena.github.io"
+baseURL = "https://skalena.github.io/api-methodology/public/"
 languageCode = "en-us"
 title = "Skalena : API Methodology"
 theme = "hugo-theme-learn"
