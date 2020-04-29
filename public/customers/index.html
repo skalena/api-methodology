@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/api-methodology/public/images/favicon.png" type="image/png">
 
-    <title>Posts :: Skalena : API Methodology</title>
+    <title>Customers :: Skalena : API Methodology</title>
 
     
     <link href="/api-methodology/public/css/nucleus.css?1588132569" rel="stylesheet">
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/api-methodology/public/posts/">
+  <body class="" data-url="/api-methodology/public/customers/">
     <nav id="sidebar" class="">
 
 
@@ -96,7 +96,7 @@
     
     <li data-nav-id="/api-methodology/public/api-first/" title="Api-firsts" class="dd-item 
         
-        active
+        
         
         ">
       <a href="/api-methodology/public/api-first/">
@@ -150,8 +150,8 @@
   
     
     <li data-nav-id="/api-methodology/public/posts/" title="Posts" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/api-methodology/public/posts/">
@@ -240,7 +240,7 @@
             
           
           
-            <a href='/api-methodology/public/'>API Methodology</a> > Posts
+            <a href='/api-methodology/public/'>API Methodology</a> > Customers
           
         
           
@@ -251,7 +251,15 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#lorem-ipsum">Lorem Ipsum.</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -267,20 +275,23 @@
           
             <h1>
               
-              Posts
+              Customers
             </h1>
           
 
         
 
 
+<p>+++
+title = &ldquo;{{ replace .Name &ldquo;-&rdquo; &quot; &quot; | title }}&rdquo;
+date = {{ .Date }}
+weight = 5
++++</p>
+<h3 id="lorem-ipsum">Lorem Ipsum.</h3>
+<p>foi</p>
 
-	
 
-
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -350,7 +361,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -363,9 +373,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -390,10 +397,8 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/api-methodology/public/api-first/api-first/" title="Api First"> <i class="fa fa-chevron-left"></i></a>
 		
-		
-			<a class="nav nav-next" href="/api-methodology/public/posts/my-first-post/" title="My First Post" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/api-methodology/public/api-first/" title="Api-firsts" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -423,3 +428,4 @@
 
   </body>
 </html>
+
