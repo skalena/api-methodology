@@ -11,7 +11,7 @@
 	"title": "Customers",
 	"tags": [],
 	"description": "",
-	"content": "+++ title = \u0026ldquo;{{ replace .Name \u0026ldquo;-\u0026rdquo; \u0026quot; \u0026quot; | title }}\u0026rdquo; date = {{ .Date }} weight = 5 +++\nLorem Ipsum. foi\n"
+	"content": "Lorem Ipsum. foi\n"
 },
 {
 	"uri": "https://skalena.github.io/api-methodology/public/api-first/api-first/",

@@ -17,8 +17,7 @@
       <pubDate>Wed, 29 Apr 2020 00:55:38 -0300</pubDate>
       
       <guid>https://skalena.github.io/api-methodology/public/customers/</guid>
-      <description>+++ title = &amp;ldquo;{{ replace .Name &amp;ldquo;-&amp;rdquo; &amp;quot; &amp;quot; | title }}&amp;rdquo; date = {{ .Date }} weight = 5 +++
-Lorem Ipsum. foi</description>
+      <description>Lorem Ipsum. foi</description>
     </item>
     
     <item>
