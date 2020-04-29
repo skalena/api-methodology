@@ -1,0 +1,4 @@
+[submodule "api-methodology"]
+	path = api-methodology
+	url = https://github.com/skalena/api-methodology
+	branch = master
