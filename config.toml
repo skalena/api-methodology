@@ -1,3 +1,7 @@
-baseURL = "http://example.org/"
+baseURL = "https://skalena.github.io"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "Skalena : API Methodology"
+theme = "hugo-theme-learn"
+# For search functionality
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
