@@ -1,34 +1,34 @@
 [
 {
-	"uri": "https://skalena.github.io/api-methodology/",
+	"uri": "https://skalena.github.io/api-methodology/public/",
 	"title": "My First Post",
 	"tags": [],
 	"description": "",
 	"content": "Teste\n"
 },
 {
-	"uri": "https://skalena.github.io/api-methodology/posts/my-first-post/",
+	"uri": "https://skalena.github.io/api-methodology/public/posts/my-first-post/",
 	"title": "My First Post",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "https://skalena.github.io/api-methodology/posts/",
+	"uri": "https://skalena.github.io/api-methodology/public/posts/",
 	"title": "Posts",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "https://skalena.github.io/api-methodology/categories/",
+	"uri": "https://skalena.github.io/api-methodology/public/categories/",
 	"title": "Categories",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "https://skalena.github.io/api-methodology/tags/",
+	"uri": "https://skalena.github.io/api-methodology/public/tags/",
 	"title": "Tags",
 	"tags": [],
 	"description": "",
