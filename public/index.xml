@@ -6,10 +6,20 @@
     <description>Recent content in API Methodology on Skalena : API Methodology</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Apr 2020 00:38:29 -0300</lastBuildDate>
+    <lastBuildDate>Wed, 29 Apr 2020 00:53:14 -0300</lastBuildDate>
     
 	<atom:link href="https://skalena.github.io/api-methodology/public/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Customers</title>
+      <link>https://skalena.github.io/api-methodology/public/content/customers/</link>
+      <pubDate>Wed, 29 Apr 2020 00:53:14 -0300</pubDate>
+      
+      <guid>https://skalena.github.io/api-methodology/public/content/customers/</guid>
+      <description>+++ title = &amp;ldquo;API Methodology&amp;rdquo; chapter = true weight = 10 pre = &amp;ldquo;1. &amp;rdquo; +++
+Vai planeta odiofidofid odifodifd odifodifdoifooioo oifdoi</description>
+    </item>
     
     <item>
       <title>Api First</title>
