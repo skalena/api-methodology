@@ -1,10 +1,24 @@
 [
 {
 	"uri": "https://skalena.github.io/api-methodology/",
-	"title": "",
+	"title": "My First Post",
 	"tags": [],
 	"description": "",
-	"content": "Skalena API Methodology\n Topic Topic  "
+	"content": "Teste\n"
+},
+{
+	"uri": "https://skalena.github.io/api-methodology/posts/my-first-post/",
+	"title": "My First Post",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://skalena.github.io/api-methodology/posts/",
+	"title": "Posts",
+	"tags": [],
+	"description": "",
+	"content": ""
 },
 {
 	"uri": "https://skalena.github.io/api-methodology/categories/",
