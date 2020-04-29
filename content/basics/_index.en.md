@@ -7,6 +7,6 @@ chapter: true
 
 ### Chapter 1
 
-# Basics
+# API First
 
-Discover what this Hugo theme is all about and the core-concepts behind it.
+In this chapter you will discover why how important is to address this principle into your projects.
