@@ -4,40 +4,24 @@ title: "Skalena API Methodology"
 
 # Skalena API Methodology
 
-[Hugo-theme-learn](http://github.com/matcornic/hugo-theme-learn) is a theme for [Hugo](https://gohugo.io/), a fast and modern static website engine written in Go. Where Hugo is often used for blogs, this multilingual-ready theme is **fully designed for documentation**.
+**We decided** to make widespread a big part of our Skalena API Methodology, on this website, you will find out part of our major discovery during many **API projects**, as well as some goodly contents that shall make you skip directly to the right point when you face an API initiative ahead.
 
-This theme is a partial porting of the [Learn theme](http://learn.getgrav.org/) of [Grav](https://getgrav.org/), a modern flat-file CMS written in PHP.
+ We are sharing this on [GitHub](https://github.com/skalena/api-methodology),  anyone can clone it, or even contribute, pull-requests are more than welcome.
 
-{{% notice tip %}}Learn theme works with a _page tree structure_ to organize content : All contents are pages, which belong to other pages. [read more about this]({{%relref "cont/pages/_index.md"%}})
+{{% notice tip %}}We do have [Instagram](https://www.instagram.com/skalena_hq/) account, but to be honest, our hottest channel is for sure our [LinkedIn Page](https://www.linkedin.com/company/skalena), please, follow us there, in order to get updated about our news and insights. 
 {{% /notice %}}
 
-## API First
+## Topics that will be covered in this doc-site 
 
-- [Automatic Search]({{%relref "basics/configuration/_index.md#activate-search" %}})
-- [Multilingual mode]({{%relref "cont/i18n/_index.md" %}})
-- **Unlimited menu levels**
-- **Automatic next/prev buttons to navigate through menu entries**
-- [Image resizing, shadow...]({{%relref "cont/markdown.en.md#images" %}})
-- [Attachments files]({{%relref "shortcodes/attachments.en.md" %}})
-- [List child pages]({{%relref "shortcodes/children/_index.md" %}})
-- [Mermaid diagram]({{%relref "shortcodes/mermaid.en.md" %}}) (flowchart, sequence, gantt)
-- [Customizable look and feel and themes variants]({{%relref "basics/style-customization/_index.md"%}})
-- [Buttons]({{%relref "shortcodes/button.en.md" %}}), [Tip/Note/Info/Warning boxes]({{%relref "shortcodes/notice.en.md" %}}), [Expand]({{%relref "shortcodes/expand.en.md" %}})
+- API First
+- Tooling for API First 
+- How ask Customers to define their Orchestrations and Integrations
+- Creating Mocks and Strategies for that 
+- Creating Initial Endpoints in some different technologies
+- API Identity: Authentications and Authorizations (OAuth2, JWT etc )
+- Discussion about Microservices, Microservices, and why not... Monolith? 
+- The Role of an API Gateway, and the chance of covering some of them
+- The Role of an API Manager, which should be interesting criteria for your evaluation
+- API Audit Scanning and Security 
 
-![Screenshot](https://github.com/matcornic/hugo-theme-learn/raw/master/images/screenshot.png?width=40pc&classes=shadow)
-
-## Understanding Customers
-
-Feel free to update this content, just click the **Edit this page** link displayed on top right of each page, and pullrequest it
-
-{{% notice info %}}
-Your modification will be deployed automatically when merged.
-{{% /notice %}}
-
-## Documentation website
-
-This current documentation has been statically generated with Hugo with a simple command : `hugo -t hugo-theme-learn` -- source code is [available here at GitHub](https://github.com/matcornic/hugo-theme-learn)
-
-{{% notice note %}}
-Automatically published and hosted thanks to [Netlify](https://www.netlify.com/). Read more about [Automated HUGO deployments with Netlify](https://www.netlify.com/blog/2015/07/30/hosting-hugo-on-netlifyinsanely-fast-deploys/)
-{{% /notice %}}
+We are a consulting firm based in Brazil very specialized in APIs and digital transformation, we have been working at international projects, ourselves and our partners can work remotely and speak Portuguese, English, and Spanish.  
