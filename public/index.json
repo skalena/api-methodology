@@ -1,5 +1,12 @@
 [
 {
+	"uri": "https://skalena.github.io/api-methodology/public/basics/tooling/",
+	"title": "Tooling",
+	"tags": [],
+	"description": "",
+	"content": "Tooling One of the most known tool for creating API contracts is no doubt: Swagger Editor by SmartBear, in fact if you go to https://swagger.io you will discover very interesting solutions. They also have solutions to render your API Contract, and also a very interesting way to use Code Generators, either for your API server side and also client side.\nSkalena Tooling for API Contract After several projects and consulting engagements, we decided to use a free solution called Stop Light:\nWe decided to use this tool, simply because we can promote very collaborative sessions with our customers and then define together how we will define the API, exactly which kind of data it will expose, as well as which methods, parameters and in the end, we can check the generated Swagger/OAS file in a very two-way effective manner.\n"
+},
+{
 	"uri": "https://skalena.github.io/api-methodology/public/basics/",
 	"title": "API First",
 	"tags": [],
@@ -126,13 +133,6 @@
 	"content": "Le thème Learn supporte une des taxonomy par défaut de GoHugo : les tags.\nConfiguration Il suffit d\u0026rsquo;ajouter un tableau de tags sur la page :\n--- date: 2018-11-29T08:41:44+01:00 title: Tutoriel pour le thème weight: 15 tags: [\u0026#34;tutoriel\u0026#34;, \u0026#34;theme\u0026#34;] --- Comportement Les tags sont affichés en haut de la page, dans l\u0026rsquo;ordre dans lequel ils ont été saisis.\nChaque tag est un lien vers une page Taxonomy, qui affiche tous les article avec ce tag.\nListe des tags Il est possible de rajouter un raccourci dans le fichier config.toml afin d\u0026rsquo;afficher une page listant tous les tags\n[[menu.shortcuts]] name = \u0026#34;\u0026lt;i class=\u0026#39;fas fa-tags\u0026#39;\u0026gt;\u0026lt;/i\u0026gt; Tags\u0026#34; url = \u0026#34;/tags\u0026#34; weight = 30 "
 },
 {
-	"uri": "https://skalena.github.io/api-methodology/public/basics/tooling/",
-	"title": "Tooling",
-	"tags": [],
-	"description": "",
-	"content": "Tooling One of the most known tool for creating API contracts is no doubt: Swagger Editor by SmartBear, in fact if you go to https://swagger.io you will discover very interesting solutions. They also have solutions to render your API Contract, and also a very interesting way to use Code Generators, either for your API server side and also client side.\nSkalena Tooling for API Contract After several projects and consulting engagements, we decided to use a free solution called Stop Light:\nWe decided to use this tool, simply because we can promote very collaborative sessions with our customers and then define together how we will define the API, exactly which kind of data it will expose, as well as which methods, parameters and in the end, we can check the generated Swagger/OAS file in a very two-way effective manner.\n"
-},
-{
 	"uri": "https://skalena.github.io/api-methodology/public/tags/documentation/",
 	"title": "documentation",
 	"tags": [],
@@ -144,7 +144,7 @@
 	"title": "Skalena API Methodology",
 	"tags": [],
 	"description": "",
-	"content": "Skalena API Methodology We decided to make widespread a big part of our Skalena API Methodology, on this website, you will find out part of our major discovery during many API projects, as well as some goodly contents that shall make you skip directly to the right point when you face an API initiative ahead.\nWe are sharing this on GitHub, anyone can clone it, or even contribute, pull-requests are more than welcome.\nWe do have Instagram account, but to be honest, our hottest channel is for sure our LinkedIn Page, please, follow us there, in order to get updated about our news and insights.\n Topics that will be covered in this doc-site  API First Tooling for API First How ask Customers to define their Orchestrations and Integrations Creating Mocks and Strategies for that Creating Initial Endpoints in some different technologies Discussion about Microservices, Microservices, and why not\u0026hellip; Monolith? The Role of an API Gateway, and the chance of covering some of them The Role of an API Manager, which should be interesting criteria for your evaluation API Audit Scanning and Security  We are a consulting firm based in Brazil very specialized in APIs and digital transformation, we have been working at international projects, ourselves and our partners can work remotely and speak Portuguese, English, and Spanish.\n"
+	"content": "Skalena API Methodology We decided to make widespread a big part of our Skalena API Methodology, on this website, you will find out part of our major discovery during many API projects, as well as some goodly contents that shall make you skip directly to the right point when you face an API initiative ahead.\nWe are sharing this on GitHub, anyone can clone it, or even contribute, pull-requests are more than welcome.\nWe do have Instagram account, but to be honest, our hottest channel is for sure our LinkedIn Page, please, follow us there, in order to get updated about our news and insights.\n Topics that will be covered in this doc-site  API First Tooling for API First How ask Customers to define their Orchestrations and Integrations Creating Mocks and Strategies for that Creating Initial Endpoints in some different technologies API Identity: Authentications and Authorizations (OAuth2, JWT etc ) Discussion about Microservices, Microservices, and why not\u0026hellip; Monolith? The Role of an API Gateway, and the chance of covering some of them The Role of an API Manager, which should be interesting criteria for your evaluation API Audit Scanning and Security  We are a consulting firm based in Brazil very specialized in APIs and digital transformation, we have been working at international projects, ourselves and our partners can work remotely and speak Portuguese, English, and Spanish.\n"
 },
 {
 	"uri": "https://skalena.github.io/api-methodology/public/tags/",
