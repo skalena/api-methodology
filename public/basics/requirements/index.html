@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.69.2" />
+    <meta name="generator" content="Hugo 0.68.3" />
     <meta name="description" content="">
 
 
@@ -12,21 +12,21 @@
     <title>Requirements :: Skalena : API Methodology</title>
 
     
-    <link href="/api-methodology/public/css/nucleus.css?1588224865" rel="stylesheet">
-    <link href="/api-methodology/public/css/fontawesome-all.min.css?1588224865" rel="stylesheet">
-    <link href="/api-methodology/public/css/hybrid.css?1588224865" rel="stylesheet">
-    <link href="/api-methodology/public/css/featherlight.min.css?1588224865" rel="stylesheet">
-    <link href="/api-methodology/public/css/perfect-scrollbar.min.css?1588224865" rel="stylesheet">
-    <link href="/api-methodology/public/css/auto-complete.css?1588224865" rel="stylesheet">
-    <link href="/api-methodology/public/css/atom-one-dark-reasonable.css?1588224865" rel="stylesheet">
-    <link href="/api-methodology/public/css/theme.css?1588224865" rel="stylesheet">
-    <link href="/api-methodology/public/css/hugo-theme.css?1588224865" rel="stylesheet">
+    <link href="/api-methodology/public/css/nucleus.css?1589658818" rel="stylesheet">
+    <link href="/api-methodology/public/css/fontawesome-all.min.css?1589658818" rel="stylesheet">
+    <link href="/api-methodology/public/css/hybrid.css?1589658818" rel="stylesheet">
+    <link href="/api-methodology/public/css/featherlight.min.css?1589658818" rel="stylesheet">
+    <link href="/api-methodology/public/css/perfect-scrollbar.min.css?1589658818" rel="stylesheet">
+    <link href="/api-methodology/public/css/auto-complete.css?1589658818" rel="stylesheet">
+    <link href="/api-methodology/public/css/atom-one-dark-reasonable.css?1589658818" rel="stylesheet">
+    <link href="/api-methodology/public/css/theme.css?1589658818" rel="stylesheet">
+    <link href="/api-methodology/public/css/hugo-theme.css?1589658818" rel="stylesheet">
     
-    <link href="/api-methodology/public/css/theme-blue.css?1588224865" rel="stylesheet">
+    <link href="/api-methodology/public/css/theme-blue.css?1589658818" rel="stylesheet">
     
     
 
-    <script src="/api-methodology/public/js/jquery-3.3.1.min.js?1588224865"></script>
+    <script src="/api-methodology/public/js/jquery-3.3.1.min.js?1589658818"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -103,14 +103,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/api-methodology/public/js/lunr.min.js?1588224865"></script>
-<script type="text/javascript" src="/api-methodology/public/js/auto-complete.js?1588224865"></script>
+<script type="text/javascript" src="/api-methodology/public/js/lunr.min.js?1589658818"></script>
+<script type="text/javascript" src="/api-methodology/public/js/auto-complete.js?1589658818"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/skalena.github.io\/api-methodology\/public\/";
     
 </script>
-<script type="text/javascript" src="/api-methodology/public/js/search.js?1588224865"></script>
+<script type="text/javascript" src="/api-methodology/public/js/search.js?1589658818"></script>
 
     
   </div>
@@ -1315,10 +1315,10 @@
 <p>That is the scenario where you will have to do important architectural decisions, from adopting a programming language, a platform, a framework, or all together.
 To understand the existing technology that exists in the customer is crucial do define how you will build your Endpoints.</p>
 <p>If you had decided to adopt a Microservice Architecture style, keep in mind that you will face not only programming and new paradigms, but also infrastructure challenges, as your customer will at a certain level to embrace numerous new concepts such as CI/CD pipelines, containers, Kubernetes so for so forth.</p>
-<p>At Skalena we always decided to start with <em><strong>Quick wins</strong></em>, it means, not start with dramatic changes and to do the things in a very controlled pace. Therefore, if you have a savvy customer ahead, great to move the things in a fast way, but we do believe to do the things in according to <strong>Agile</strong> principles is safer.</p>
+<p>At Skalena we always decided to start with <strong><em>Quick wins</em></strong>, it means, not start with dramatic changes and to do the things in a very controlled pace. Therefore, if you have a savvy customer ahead, great to move the things in a fast way, but we do believe to do the things in according to <strong>Agile</strong> principles is safer.</p>
 <h3 id="customer-has-some-apis-that-you-have-just-to-proxy">Customer has some APIs that you have just to Proxy</h3>
 <p>That is a common scenario when companies are moving towards digital, they get first an <em><a href="https://microservices.io/patterns/apigateway.html">API Gateway Pattern</a></em> to act as a central proxy, where you can use it as a unique point for Authentication controlling, as well as some analytics, tracing and monitoring. That is a moment, where just an API Gateway shall be enough for you.</p>
-<p>What is important in that point is to understand how you will interact with your client requests, which HTTP headers you should care about, does your payload response must be enriched, changed etc.  In that scenario, we extremelly recommend you establish a very simple sequence diagram in order to communicate with your customers, things like the following ones:</p>
+<p>What is important in that point is to understand how you will interact with your client requests, which HTTP headers you should care about, does your payload response must be enriched, changed etc. In that scenario, we extremelly recommend you establish a very simple sequence diagram in order to communicate with your customers, things like the following ones:</p>
 <pre><code class="language-mermaid" data-lang="mermaid">sequenceDiagram
 Client -&gt;&gt; API Gateway: Send the request with Bearer Auth
 API Gateway--&gt;&gt;Partner Endpoint: Header + Basic Auth
@@ -1327,7 +1327,34 @@ Note right of Backend: Not exposed to &lt;br&gt;Internet.
 
 </code></pre><p>Simple diagrams like that, can save your time and the communication will be opener</p>
 <h3 id="customer-with-apis-compositions-or-orchestrations">Customer with APIs: Compositions or orchestrations</h3>
-<p>To-Do</p>
+<p>It is something very common that you might have ready services/backends, but you must have to do that we call: composite APIs, which means through a unique call to invoke several endpoints right a once.</p>
+<p>In those scenarios, we have a few options:</p>
+<ul>
+<li>Build a composite Microservice/Service</li>
+<li>To Use Integration platforms/frameworks, such as WSO2, Apache Camel, Kafka Connectors, or proprietary solutions.</li>
+</ul>
+<p>Either scenario would have its drawbacks and advantages, although in our methodology we actually have a preference for the Integrations frameworks/platforms due to productivity and some code generating techniques that we have in place.</p>
+<p>Imagine the following scenario:</p>
+<pre><code class="language-mermaid" data-lang="mermaid">
+sequenceDiagram
+
+Client -&gt;&gt; API Gateway: Send the request /order-items
+
+API Gateway--&gt;&gt;Composite: One request
+
+Composite --&gt;&gt;Composite : Aggregating response
+Composite -&gt;&gt; API Gateway : Aggregating response
+
+Composite --&gt;Backend A: requesting 1st Service
+
+Backend A --&gt;&gt;Composite:response
+
+Composite --&gt;&gt;Backend B:requesting 2nd Service
+
+Backend B --&gt;&gt;Composite:response
+</code></pre><p>Furthermore, to simply compose services based on existing backends, many other aspects might be intrinsically involved, for instance:</p>
+<p>a) Backends developed by different companies or partners might treat authentication and authorization differently.</p>
+<p>b) If you have a set of services, and you have to invoke them all, what happened if some of those fails? In that regard, your new composite service must treat that anyhow. We can use techniques related to <a href="https://microservices.io/patterns/reliability/circuit-breaker.html">circuit-breakers</a>, or simply to define timeouts, according to the use cases, sometimes you can have partial responses (the data coming from responsive backends) and ignore the one that has failed, or there are cases, where it is &ldquo;all or nothing&rdquo; if any of the services does not respond, you can send an <a href="https://www.restapitutorial.com/httpstatuscodes.html#">HTTP error code with a fault</a>, and making sure that you point which were the service that did not respond properly.</p>
 <h3 id="customers-asking-about-what-about-this-new-graphql-momentum">Customers asking about: What about this new GraphQL momentum</h3>
 <p>To-do</p>
 
@@ -2104,19 +2131,19 @@ Note right of Backend: Not exposed to &lt;br&gt;Internet.
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/api-methodology/public/js/clipboard.min.js?1588224865"></script>
-    <script src="/api-methodology/public/js/perfect-scrollbar.min.js?1588224865"></script>
-    <script src="/api-methodology/public/js/perfect-scrollbar.jquery.min.js?1588224865"></script>
-    <script src="/api-methodology/public/js/jquery.sticky.js?1588224865"></script>
-    <script src="/api-methodology/public/js/featherlight.min.js?1588224865"></script>
-    <script src="/api-methodology/public/js/highlight.pack.js?1588224865"></script>
+    <script src="/api-methodology/public/js/clipboard.min.js?1589658818"></script>
+    <script src="/api-methodology/public/js/perfect-scrollbar.min.js?1589658818"></script>
+    <script src="/api-methodology/public/js/perfect-scrollbar.jquery.min.js?1589658818"></script>
+    <script src="/api-methodology/public/js/jquery.sticky.js?1589658818"></script>
+    <script src="/api-methodology/public/js/featherlight.min.js?1589658818"></script>
+    <script src="/api-methodology/public/js/highlight.pack.js?1589658818"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/api-methodology/public/js/modernizr.custom-3.6.0.js?1588224865"></script>
-    <script src="/api-methodology/public/js/learn.js?1588224865"></script>
-    <script src="/api-methodology/public/js/hugo-learn.js?1588224865"></script>
+    <script src="/api-methodology/public/js/modernizr.custom-3.6.0.js?1589658818"></script>
+    <script src="/api-methodology/public/js/learn.js?1589658818"></script>
+    <script src="/api-methodology/public/js/hugo-learn.js?1589658818"></script>
 
-    <link href="/api-methodology/public/mermaid/mermaid.css?1588224865" rel="stylesheet" />
-    <script src="/api-methodology/public/mermaid/mermaid.js?1588224865"></script>
+    <link href="/api-methodology/public/mermaid/mermaid.css?1589658818" rel="stylesheet" />
+    <script src="/api-methodology/public/mermaid/mermaid.js?1589658818"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
