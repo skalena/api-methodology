@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.3" />
+    <meta name="generator" content="Hugo 0.69.2" />
     <meta name="description" content="">
 
 
@@ -12,21 +12,21 @@
     <title>Requirements :: Skalena : API Methodology</title>
 
     
-    <link href="/api-methodology/public/css/nucleus.css?1589658818" rel="stylesheet">
-    <link href="/api-methodology/public/css/fontawesome-all.min.css?1589658818" rel="stylesheet">
-    <link href="/api-methodology/public/css/hybrid.css?1589658818" rel="stylesheet">
-    <link href="/api-methodology/public/css/featherlight.min.css?1589658818" rel="stylesheet">
-    <link href="/api-methodology/public/css/perfect-scrollbar.min.css?1589658818" rel="stylesheet">
-    <link href="/api-methodology/public/css/auto-complete.css?1589658818" rel="stylesheet">
-    <link href="/api-methodology/public/css/atom-one-dark-reasonable.css?1589658818" rel="stylesheet">
-    <link href="/api-methodology/public/css/theme.css?1589658818" rel="stylesheet">
-    <link href="/api-methodology/public/css/hugo-theme.css?1589658818" rel="stylesheet">
+    <link href="/api-methodology/public/css/nucleus.css?1591766276" rel="stylesheet">
+    <link href="/api-methodology/public/css/fontawesome-all.min.css?1591766276" rel="stylesheet">
+    <link href="/api-methodology/public/css/hybrid.css?1591766276" rel="stylesheet">
+    <link href="/api-methodology/public/css/featherlight.min.css?1591766276" rel="stylesheet">
+    <link href="/api-methodology/public/css/perfect-scrollbar.min.css?1591766276" rel="stylesheet">
+    <link href="/api-methodology/public/css/auto-complete.css?1591766276" rel="stylesheet">
+    <link href="/api-methodology/public/css/atom-one-dark-reasonable.css?1591766276" rel="stylesheet">
+    <link href="/api-methodology/public/css/theme.css?1591766276" rel="stylesheet">
+    <link href="/api-methodology/public/css/hugo-theme.css?1591766276" rel="stylesheet">
     
-    <link href="/api-methodology/public/css/theme-blue.css?1589658818" rel="stylesheet">
+    <link href="/api-methodology/public/css/theme-blue.css?1591766276" rel="stylesheet">
     
     
 
-    <script src="/api-methodology/public/js/jquery-3.3.1.min.js?1589658818"></script>
+    <script src="/api-methodology/public/js/jquery-3.3.1.min.js?1591766276"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -103,14 +103,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/api-methodology/public/js/lunr.min.js?1589658818"></script>
-<script type="text/javascript" src="/api-methodology/public/js/auto-complete.js?1589658818"></script>
+<script type="text/javascript" src="/api-methodology/public/js/lunr.min.js?1591766276"></script>
+<script type="text/javascript" src="/api-methodology/public/js/auto-complete.js?1591766276"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/skalena.github.io\/api-methodology\/public\/";
     
 </script>
-<script type="text/javascript" src="/api-methodology/public/js/search.js?1589658818"></script>
+<script type="text/javascript" src="/api-methodology/public/js/search.js?1591766276"></script>
 
     
   </div>
@@ -1356,8 +1356,40 @@ Backend B --&gt;&gt;Composite:response
 <p>a) Backends developed by different companies or partners might treat authentication and authorization differently.</p>
 <p>b) If you have a set of services, and you have to invoke them all, what happened if some of those fails? In that regard, your new composite service must treat that anyhow. We can use techniques related to <a href="https://microservices.io/patterns/reliability/circuit-breaker.html">circuit-breakers</a>, or simply to define timeouts, according to the use cases, sometimes you can have partial responses (the data coming from responsive backends) and ignore the one that has failed, or there are cases, where it is &ldquo;all or nothing&rdquo; if any of the services does not respond, you can send an <a href="https://www.restapitutorial.com/httpstatuscodes.html#">HTTP error code with a fault</a>, and making sure that you point which were the service that did not respond properly.</p>
 <h3 id="customers-asking-about-what-about-this-new-graphql-momentum">Customers asking about: What about this new GraphQL momentum</h3>
-<p>To-do</p>
+<p><strong>GraphQL</strong> is a technogology that is gaing more and more relevance in many organizations around the world.</p>
+<p><em>Source: <a href="https://graphql.org/">https://graphql.org/</a></em>
+GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.</p>
+<p><strong>GraphQL queries access</strong> not just the properties of one resource but also smoothly follow references between them. While typical REST APIs require loading from multiple URLs, GraphQL APIs get all the data your app needs in a single request. Apps using GraphQL can be quick even on slow mobile network connections.</p>
+<h2 id="considerations">Considerations</h2>
+<p>It is a matter of fact that REST model comes with several drawbacks, such as the points mentioned above, however it has come considerable interesting points according to your API Strategy, going straigth to the point: <em>REST APIs are easier to understand</em> which are the avaialable capabilites due to the Swagger/OAS documentations. We have been some companies exposing their services through GraphQL, however we still don&rsquo;t have consierable data about how the developers are engaging with this kind of Developer Portals.</p>
+<p>That is all about your strategy, some developers(users) might be more proficient, but others rather prefers to get something clear, let&rsquo;s figure out based on a real example about GraphQL:</p>
+<pre><code>... mutation  { 
+addAgreementToUser(input:  {  
+clientMutationId:  &quot;012&quot;,  
+userId:  &quot;b1ca0944-7822-3538-920d-58b233154608&quot;,  
+agreementTermId:  &quot;e32a7918-eef5-41af-909b-f4c93cee2e22&quot;  })  
+{ clientMutationId user { id username firstName lastName displayName 
+agreement { agreementTerm { id title description url }  }  }  } ...
+</code></pre>
+<p>If we compare the above GraphQL instruction with something like:</p>
+<pre><code>HTTP POST http://server/api/v2/agreement 
+body: some JSON
+</code></pre>
+<p>There is a considerable difference.</p>
+<h3 id="recommendations">Recommendations</h3>
+<p>According to the customer industry, we are recommending our customers to user GraphQL as a tier where we can compose services and expose them via our mediation layer (Microservice) to a REST API:</p>
+<pre><code class="language-mermaid" data-lang="mermaid">sequenceDiagram
 
+Client -&gt;&gt; API Gateway: Send the request /order-items
+
+API Gateway--&gt;&gt;Composition: One request 
+
+Composition --&gt;&gt;Composition : Aggregating response
+
+Composition -&gt;&gt; API Gateway : Aggregating response
+Composition --&gt;GraphQL: invoking GraphQL instructions
+GraphQL --&gt;&gt;Composition :response
+</code></pre>
 
 
 
@@ -2131,19 +2163,19 @@ Backend B --&gt;&gt;Composite:response
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/api-methodology/public/js/clipboard.min.js?1589658818"></script>
-    <script src="/api-methodology/public/js/perfect-scrollbar.min.js?1589658818"></script>
-    <script src="/api-methodology/public/js/perfect-scrollbar.jquery.min.js?1589658818"></script>
-    <script src="/api-methodology/public/js/jquery.sticky.js?1589658818"></script>
-    <script src="/api-methodology/public/js/featherlight.min.js?1589658818"></script>
-    <script src="/api-methodology/public/js/highlight.pack.js?1589658818"></script>
+    <script src="/api-methodology/public/js/clipboard.min.js?1591766276"></script>
+    <script src="/api-methodology/public/js/perfect-scrollbar.min.js?1591766276"></script>
+    <script src="/api-methodology/public/js/perfect-scrollbar.jquery.min.js?1591766276"></script>
+    <script src="/api-methodology/public/js/jquery.sticky.js?1591766276"></script>
+    <script src="/api-methodology/public/js/featherlight.min.js?1591766276"></script>
+    <script src="/api-methodology/public/js/highlight.pack.js?1591766276"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/api-methodology/public/js/modernizr.custom-3.6.0.js?1589658818"></script>
-    <script src="/api-methodology/public/js/learn.js?1589658818"></script>
-    <script src="/api-methodology/public/js/hugo-learn.js?1589658818"></script>
+    <script src="/api-methodology/public/js/modernizr.custom-3.6.0.js?1591766276"></script>
+    <script src="/api-methodology/public/js/learn.js?1591766276"></script>
+    <script src="/api-methodology/public/js/hugo-learn.js?1591766276"></script>
 
-    <link href="/api-methodology/public/mermaid/mermaid.css?1589658818" rel="stylesheet" />
-    <script src="/api-methodology/public/mermaid/mermaid.js?1589658818"></script>
+    <link href="/api-methodology/public/mermaid/mermaid.css?1591766276" rel="stylesheet" />
+    <script src="/api-methodology/public/mermaid/mermaid.js?1591766276"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

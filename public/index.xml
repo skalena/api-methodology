@@ -73,7 +73,7 @@ Example from the current website:
       <pubDate>Sat, 09 Apr 2016 16:50:16 +0200</pubDate>
       
       <guid>https://skalena.github.io/api-methodology/public/cont/menushortcuts.fr/</guid>
-      <description>Vous pouvez définir des entrées ou raccourcis supplémentaires dans le menu sans avoir besoin d&#39;être lié à un contenu du site.
+      <description>Vous pouvez définir des entrées ou raccourcis supplémentaires dans le menu sans avoir besoin d&amp;rsquo;être lié à un contenu du site.
 Configuration simple Editez le fichier de configuration config.toml et ajoutez une entrée [[menu.shortcuts]] pour chaque lien que vous voulez ajouter.
 Exemple pour ce site:
 [[menu.shortcuts]] name = &amp;quot;&amp;lt;i class=&#39;fab fa-github&#39;&amp;gt;&amp;lt;/i&amp;gt; Github repo&amp;quot; identifier = &amp;quot;ds&amp;quot; url = &amp;quot;https://github.com/matcornic/hugo-theme-learn&amp;quot; weight = 10 [[menu.shortcuts]] name = &amp;quot;&amp;lt;i class=&#39;fas fa-camera&#39;&amp;gt;&amp;lt;/i&amp;gt; Showcases&amp;quot; url = &amp;quot;/showcase&amp;quot; weight = 11 [[menu.</description>
