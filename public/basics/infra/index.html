@@ -12,21 +12,21 @@
     <title>Infrastrucutre :: Skalena : API Methodology</title>
 
     
-    <link href="/api-methodology/public/css/nucleus.css?1591817107" rel="stylesheet">
-    <link href="/api-methodology/public/css/fontawesome-all.min.css?1591817107" rel="stylesheet">
-    <link href="/api-methodology/public/css/hybrid.css?1591817107" rel="stylesheet">
-    <link href="/api-methodology/public/css/featherlight.min.css?1591817107" rel="stylesheet">
-    <link href="/api-methodology/public/css/perfect-scrollbar.min.css?1591817107" rel="stylesheet">
-    <link href="/api-methodology/public/css/auto-complete.css?1591817107" rel="stylesheet">
-    <link href="/api-methodology/public/css/atom-one-dark-reasonable.css?1591817107" rel="stylesheet">
-    <link href="/api-methodology/public/css/theme.css?1591817107" rel="stylesheet">
-    <link href="/api-methodology/public/css/hugo-theme.css?1591817107" rel="stylesheet">
+    <link href="/api-methodology/public/css/nucleus.css?1591818004" rel="stylesheet">
+    <link href="/api-methodology/public/css/fontawesome-all.min.css?1591818004" rel="stylesheet">
+    <link href="/api-methodology/public/css/hybrid.css?1591818004" rel="stylesheet">
+    <link href="/api-methodology/public/css/featherlight.min.css?1591818004" rel="stylesheet">
+    <link href="/api-methodology/public/css/perfect-scrollbar.min.css?1591818004" rel="stylesheet">
+    <link href="/api-methodology/public/css/auto-complete.css?1591818004" rel="stylesheet">
+    <link href="/api-methodology/public/css/atom-one-dark-reasonable.css?1591818004" rel="stylesheet">
+    <link href="/api-methodology/public/css/theme.css?1591818004" rel="stylesheet">
+    <link href="/api-methodology/public/css/hugo-theme.css?1591818004" rel="stylesheet">
     
-    <link href="/api-methodology/public/css/theme-blue.css?1591817107" rel="stylesheet">
+    <link href="/api-methodology/public/css/theme-blue.css?1591818004" rel="stylesheet">
     
     
 
-    <script src="/api-methodology/public/js/jquery-3.3.1.min.js?1591817107"></script>
+    <script src="/api-methodology/public/js/jquery-3.3.1.min.js?1591818004"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -103,14 +103,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/api-methodology/public/js/lunr.min.js?1591817107"></script>
-<script type="text/javascript" src="/api-methodology/public/js/auto-complete.js?1591817107"></script>
+<script type="text/javascript" src="/api-methodology/public/js/lunr.min.js?1591818004"></script>
+<script type="text/javascript" src="/api-methodology/public/js/auto-complete.js?1591818004"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/skalena.github.io\/api-methodology\/public\/";
     
 </script>
-<script type="text/javascript" src="/api-methodology/public/js/search.js?1591817107"></script>
+<script type="text/javascript" src="/api-methodology/public/js/search.js?1591818004"></script>
 
     
   </div>
@@ -1290,6 +1290,12 @@
   <ul>
     <li><a href="#virtual-machines">Virtual Machines</a></li>
     <li><a href="#containers-docker">Containers (Docker)</a></li>
+    <li><a href="#kubernetes">Kubernetes</a></li>
+    <li><a href="#api-firewall">API Firewall</a>
+      <ul>
+        <li><a href="#owasp-api----security-top-10">OWASP API  - Security Top 10</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -1324,9 +1330,29 @@
 <p>Containers is not a new technology, we saw it first initially in mid of 2000&rsquo;s in Solaris, however Docker came to be established as a standard in the market. If you would like to see a Docker alternative, we do recommend you take a look at: <a href="https://linuxcontainers.org/">https://linuxcontainers.org/</a>.
 Move towards containers as a factible strategy is a great step for a company that is modernizing their infrastructure.
 We have been using Docker as an intermediate point between VMs and Kubernetes, and in order to have a fully orquestrated environment even in Docker, we have been using Docker Swarm, and its way to organize a set/group of machines (containers) that can be scalable according to the business&rsquo;s needs.</p>
-<pre><code class="language-mermaid" data-lang="mermaid">gantt  dateFormat
-YYYY-MM-DD  title  Adding GANTT diagram functionality to mermaid  section  A section  Completed  task :done, des1, 2014-01-06,2014-01-08  Active  task :active, des2, 2014-01-09, 3d  Future  task : des3, after des2, 5d  Future  task2 : des4, after des3, 5d  section  Critical tasks  Completed  task in the critical line :crit, done, 2014-01-06,24h  Implement  parser and jison :crit, done, after des1, 2d  Create  tests for parser :crit, active, 3d  Future  task in critical line :crit, 5d  Create  tests for renderer :2d  Add  to mermaid :1d
-</code></pre>
+<h2 id="kubernetes">Kubernetes</h2>
+<p>Kubernetes is a container orchestrator solution, which aims to solve the managing, life-cycle, networking and other componentes when you have to run several containers at the same time. It was created and opensourced by Google.
+The organizations can install and run Kubernetes AKA &ldquo;k8s&rdquo;, on-premises, or to use one of the distributions from major public cloud providers, such as Google, Azure and AWS.
+To execute the whole microservices architecture using K8S requires to shift some paradigms and way to look the old-fashion or traditional infraestrucutre.</p>
+<h2 id="api-firewall">API Firewall</h2>
+<p>In front of API Gateways we can find out a new layer in market: API Firewalls. The actual markets considers that a regular WAF (Web Application Firewall), can be enough to protect their APIs, that is not so true.</p>
+<h3 id="owasp-api----security-top-10">OWASP API  - Security Top 10</h3>
+<p>As a result of the growing threat landscape and increasing usage of APIs, the OWASP API Security Top 10 Project was launched to help companies address security vulnerabilities specific to APIs:</p>
+<ul>
+<li>API1 : Broken Object Level Access Control</li>
+<li>API2 : Broken Authentication</li>
+<li>API3 : Excessive Data Exposure</li>
+<li>API4 : Lack of Resources &amp; Rate Limiting</li>
+<li>API5 : Missing Function Level Access Control</li>
+<li>API6 : Mass Assignment</li>
+<li>API7 : Security Misconfiguration</li>
+<li>API8 : Injection</li>
+<li>API9 : Improper Assets Management</li>
+<li>API10 : Insufficient Logging &amp; Monitoring</li>
+</ul>
+<p><img src="https://h3g3k7u7.stackpathcdn.com/wp-content/uploads/2020/02/logo_lighta-130x36.png" alt="enter image description here">
+We would like to present the 42Crunch solution, that aims to work as a dedicated solution just as an API Firewall. With 42Crunch, security can be easily defined in OpenAPI contracts, tested for bad behavior, and protected by a micro API firewall with the click of a button – ensuring continuous, unparalleled protection across the entire API lifecycle.</p>
+
 
 
 
@@ -2100,19 +2126,19 @@ YYYY-MM-DD  title  Adding GANTT diagram functionality to mermaid  section  A sec
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/api-methodology/public/js/clipboard.min.js?1591817107"></script>
-    <script src="/api-methodology/public/js/perfect-scrollbar.min.js?1591817107"></script>
-    <script src="/api-methodology/public/js/perfect-scrollbar.jquery.min.js?1591817107"></script>
-    <script src="/api-methodology/public/js/jquery.sticky.js?1591817107"></script>
-    <script src="/api-methodology/public/js/featherlight.min.js?1591817107"></script>
-    <script src="/api-methodology/public/js/highlight.pack.js?1591817107"></script>
+    <script src="/api-methodology/public/js/clipboard.min.js?1591818004"></script>
+    <script src="/api-methodology/public/js/perfect-scrollbar.min.js?1591818004"></script>
+    <script src="/api-methodology/public/js/perfect-scrollbar.jquery.min.js?1591818004"></script>
+    <script src="/api-methodology/public/js/jquery.sticky.js?1591818004"></script>
+    <script src="/api-methodology/public/js/featherlight.min.js?1591818004"></script>
+    <script src="/api-methodology/public/js/highlight.pack.js?1591818004"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/api-methodology/public/js/modernizr.custom-3.6.0.js?1591817107"></script>
-    <script src="/api-methodology/public/js/learn.js?1591817107"></script>
-    <script src="/api-methodology/public/js/hugo-learn.js?1591817107"></script>
+    <script src="/api-methodology/public/js/modernizr.custom-3.6.0.js?1591818004"></script>
+    <script src="/api-methodology/public/js/learn.js?1591818004"></script>
+    <script src="/api-methodology/public/js/hugo-learn.js?1591818004"></script>
 
-    <link href="/api-methodology/public/mermaid/mermaid.css?1591817107" rel="stylesheet" />
-    <script src="/api-methodology/public/mermaid/mermaid.js?1591817107"></script>
+    <link href="/api-methodology/public/mermaid/mermaid.css?1591818004" rel="stylesheet" />
+    <script src="/api-methodology/public/mermaid/mermaid.js?1591818004"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
