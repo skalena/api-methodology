@@ -15,3 +15,5 @@ After several projects and consulting engagements, we decided to use a free solu
 ![StopLight Editor](https://skalena.net/blog/wp-content/uploads/2020/04/image-1-1024x568.png)
 
 We decided to use this tool, simply because we can promote very collaborative sessions with our customers and then define together how we will define the API, exactly which kind of data it will expose, as well as which methods, parameters and in the end, we can check the generated Swagger/OAS file in a very two-way effective manner. 
+
+[Here](https://stoplight.io/studio/) you can get more information as well as to download that tool for your specific OS.

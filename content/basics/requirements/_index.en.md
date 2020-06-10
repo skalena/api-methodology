@@ -1,5 +1,5 @@
 ---
-title: Requirements
+title: Getting Started
 weight: 10
 disableToc: true
 ---
@@ -80,4 +80,46 @@ b) If you have a set of services, and you have to invoke them all, what happened
 
 ### Customers asking about: What about this new GraphQL momentum
 
-To-do
+**GraphQL** is a technogology that is gaing more and more relevance in many organizations around the world. 
+
+*Source: [https://graphql.org/](https://graphql.org/)*
+GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
+
+**GraphQL queries access** not just the properties of one resource but also smoothly follow references between them. While typical REST APIs require loading from multiple URLs, GraphQL APIs get all the data your app needs in a single request. Apps using GraphQL can be quick even on slow mobile network connections.
+
+## Considerations
+It is a matter of fact that REST model comes with several drawbacks, such as the points mentioned above, however it has come considerable interesting points according to your API Strategy, going straigth to the point: *REST APIs are easier to understand* which are the avaialable capabilites due to the Swagger/OAS documentations. We have been some companies exposing their services through GraphQL, however we still don't have consierable data about how the developers are engaging with this kind of Developer Portals.
+
+That is all about your strategy, some developers(users) might be more proficient, but others rather prefers to get something clear, let's figure out based on a real example about GraphQL: 
+
+    ... mutation  { 
+    addAgreementToUser(input:  {  
+    clientMutationId:  "012",  
+    userId:  "b1ca0944-7822-3538-920d-58b233154608",  
+    agreementTermId:  "e32a7918-eef5-41af-909b-f4c93cee2e22"  })  
+    { clientMutationId user { id username firstName lastName displayName 
+    agreement { agreementTerm { id title description url }  }  }  } ...
+
+If we compare the above GraphQL instruction with something like:
+
+    HTTP POST http://server/api/v2/agreement 
+    body: some JSON
+
+There is a considerable difference. 
+
+###  Recommendations
+According to the customer industry, we are recommending our customers to user GraphQL as a tier where we can compose services and expose them via our mediation layer (Microservice) to a REST API:
+
+```mermaid
+sequenceDiagram
+
+Client ->> API Gateway: Send the request /order-items
+
+API Gateway-->>Composition: One request 
+
+Composition -->>Composition : Aggregating response
+
+Composition ->> API Gateway : Aggregating response
+Composition -->GraphQL: invoking GraphQL instructions
+GraphQL -->>Composition :response
+```

@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/api-methodology/public/images/favicon.png" type="image/png">
 
-    <title>Tags :: Skalena : API Methodology</title>
+    <title>API Vendors :: Skalena : API Methodology</title>
 
     
     <link href="/api-methodology/public/css/nucleus.css?1591817107" rel="stylesheet">
@@ -36,7 +36,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/api-methodology/public/cont/tags/">
+  <body class="" data-url="/api-methodology/public/basics/api-vendors/">
     <nav id="sidebar" class="">
 
 
@@ -129,7 +129,7 @@
   
     
     <li data-nav-id="/api-methodology/public/basics/" title="API First" class="dd-item 
-        
+        parent
         
         
         ">
@@ -210,8 +210,8 @@
   
     
     <li data-nav-id="/api-methodology/public/basics/api-vendors/" title="API Vendors" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/api-methodology/public/basics/api-vendors/">
@@ -295,7 +295,7 @@
   
     
     <li data-nav-id="/api-methodology/public/cont/" title="Working in Progress" class="dd-item 
-        parent
+        
         
         
         ">
@@ -522,7 +522,7 @@
  
   
     
-      <li data-nav-id="/api-methodology/public/cont/tags/" title="Tags" class="dd-item active">
+      <li data-nav-id="/api-methodology/public/cont/tags/" title="Tags" class="dd-item ">
         <a href="/api-methodology/public/cont/tags/">
         Tags
         
@@ -1273,7 +1273,7 @@
             
           
           
-            <a href='/api-methodology/public/'>Skalena API Methodology</a> > <a href='/api-methodology/public/cont/'>Working in Progress</a> > Tags
+            <a href='/api-methodology/public/'>Skalena API Methodology</a> > <a href='/api-methodology/public/basics/'>API First</a> > API Vendors
           
         
           
@@ -1288,9 +1288,10 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#configuration">Configuration</a></li>
-    <li><a href="#behavior">Behavior</a></li>
-    <li><a href="#list-all-the-tags">List all the tags</a></li>
+    <li><a href="#definitions">Definitions</a></li>
+    <li><a href="#commercial-vendors">Commercial Vendors</a></li>
+    <li><a href="#enterprise-opensource">Enterprise OpenSource</a></li>
+    <li><a href="#did-not-found-your-preferred-solution-here">Did not found your preferred Solution here?</a></li>
   </ul>
 </nav>
     </div>
@@ -1302,48 +1303,61 @@
             
         <div id="head-tags">
         
-<div class="tags">
-
-  <a class="tag-link" href="/api-methodology/public/tags/documentation">documentation</a>
-
-  <a class="tag-link" href="/api-methodology/public/tags/tutorial">tutorial</a>
-
-</div>
-
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-              Tags
+              API Vendors
             </h1>
           
 
         
 
 
-<p><em>Learn theme</em> support one default taxonomy of gohugo: the <em>tag</em> feature.</p>
-<h2 id="configuration">Configuration</h2>
-<p>Just add tags to any page:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">---
-date: 2018-11-29T08:41:44+01:00
-title: Theme tutorial
-weight: 15
-tags: [&#34;tutorial&#34;, &#34;theme&#34;] 
----
-</code></pre></div><h2 id="behavior">Behavior</h2>
-<p>The tags are displayed at the top of the page, in their insertion order.</p>
-<p>Each tag is a link to a <em>Taxonomy</em> page displaying all the articles with the given tag.</p>
-<h2 id="list-all-the-tags">List all the tags</h2>
-<p>In the <code>config.toml</code>  file you can add a shortcut to display all the tags</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">shortcuts</span>]]
-<span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;&lt;i class=&#39;fas fa-tags&#39;&gt;&lt;/i&gt; Tags&#34;</span>
-<span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;/tags&#34;</span>
-<span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">30</span>
-</code></pre></div>
 
-<footer class="footline">
+	<p>This section will cover some interesting API&rsquo;s solutions vendors and some summary about them. In addition, we will classify the kind/stereotype of available solutions.</p>
+<h2 id="definitions">Definitions</h2>
+<p>Here are definitions of terms that will be referred to repeatedly during this article for your reference.</p>
+<ul>
+<li><strong><a href="https://en.wikipedia.org/wiki/Proxy_server">Proxy</a>  –</strong>  A server that acts as an intermediary for requests from clients seeking resources from servers that provide those resources.</li>
+<li><strong>Reverse Proxy –</strong>  Type of proxy that retrieves resources on behalf of a <a href="https://en.wikipedia.org/wiki/Client_(computing)" title="Client (computing)">client</a> from one or more <a href="https://en.wikipedia.org/wiki/Server_(computing)" title="Server (computing)">servers</a>  and then returns these resources to the client, appearing as from the proxy.</li>
+<li><strong>API Gateway</strong> – A system to that receives API requests, performs traffic routing and management to the backend services and returns a response to the client / end user requester.</li>
+<li><strong>Ingress –</strong>  Incoming traffic (north/south) to a cluster running your application services. When referred to in  <a href="https://www.solo.io/solutions/solutions-kubernetes-ingress/">Kubernetes</a>  environments, an Ingress Controller object exists to specifically fulfill this function.</li>
+<li><strong>North/South –</strong>  This direction of traffic is defined as the client to server traffic, between the clients or end users outside of the datacenter to the network inside the datacenter.</li>
+<li><strong>East/West –</strong> The service to service communication that occurs within the cluster and does not leave your network.</li>
+<li><strong>Service Mesh</strong>  – An example of east/west traffic using an architecture where a proxy sidecar is deployed alongside each service to manage the traffic.
+<em>Source: <a href="https://solo.io">https://solo.io</a></em></li>
+</ul>
+<h2 id="commercial-vendors">Commercial Vendors</h2>
+<p>There are several solutions very interesting in the market, we will mention the following ones:</p>
+<ul>
+<li><strong><a href="https://sensedia.com/en/"><strong>Sensedia</strong></a></strong> - A Brazilian company that counts with very strong consulting services and a very complete solution. They have so many interesting customers in financial industry, as well very emblematic success cases. Actually they are expanding to other territories, such as Europe and some countries in Latin America. Both Forrester and Gartner shares very good comments and analyisis about them.</li>
+<li><strong><a href="https://cloud.google.com/apigee">Apigee</a></strong> - One of the pioneers in API Market, they were acquired by Google and have been dominant in many Gartner and Forrester reports.</li>
+<li><strong><a href="https://www.ibm.com/cloud/api-connect">IBM API Connect</a></strong> -  Original StrongLoop, acquired by IBM. Interesting solution provided by IBM.</li>
+<li><a href="https://www.axway.com/en/products/api-management"><strong>Axway</strong></a> - Together with Apigee they are one of the pioneers in the market.</li>
+<li><a href="https://www.broadcom.com/products/software/api-management/layer7-api-gateways"><strong>CA API Gateway</strong></a> - Originally Layer7 API Gateway, acquired by CA and later one acquired by Broadcom.</li>
+<li><strong><a href="https://www.openlegacy.com/"><strong>OpenLegacy</strong></a></strong> - A very interesting solution, with so many accelerators, code generators and enablers for API inititives.</li>
+<li><a href="https://aws.amazon.com/api-gateway/"><strong>AWS API Gateway</strong></a> - Proprietary API Gateway running only in AWS Environment and very dependent from AWS Ecosystem.</li>
+<li><a href="https://www.mulesoft.com/platform/enterprise-integration"><strong>MuleSoft</strong></a> - Proprietary API solution acquired by Salesforce.</li>
+</ul>
+<h2 id="enterprise-opensource">Enterprise OpenSource</h2>
+<p>The following solutions are Opensource with Enterprise Subscriptions (SLA and Support). The solutions listed bellow have what they call &ldquo;Community versions&rdquo;, as well as &ldquo;Enterprise Versions&rdquo; with exclusive features.</p>
+<ul>
+<li><a href="https://konghq.com/"><strong>Kong</strong></a> - They are by far one of the most known API Gateways in the market. Kong runs on top of <em><strong>NGINX</strong></em>, and it uses Lua(<em>a programming language created in Rio de Janeiro in Brazil</em>), to extend and create its plugins. Kong can be classified as an API Proxy. Actually KongHQ, the company behind Kong Community is actually delivering very interesting components, such as Kubernetes Ingress Controller and other very interesting components.</li>
+<li><a href="https://tyk.io/"><strong>Tyk</strong></a> - A very performatic API Gateway, API Proxy, API Analytics and Developer Portal solution, which according to our evaluation is a great solution for customers looking for a Cloud based solution. According to their Github sources, they are using <strong>GoLang</strong> to build their solutions.</li>
+<li><a href="https://www.wso2.com"><strong>WSO2</strong></a> - One of the most complete plataforms in API Management industry. They have several components out-of-the-box, such as a Key Manager for generating and validating tokens, as well powerful real-time analytics engine.</li>
+<li><strong>Skalena</strong> - We are working in to have our own API Gateway, this is a working in progress, that we would be announcing soon.</li>
+</ul>
+<h2 id="did-not-found-your-preferred-solution-here">Did not found your preferred Solution here?</h2>
+<p>Please, if you would like to see or improve the references about the products here, please, reach us at api-methodology (a) skalena.com.</p>
+
+
+
+
+
+<footer class=" footline" >
 	
 </footer>
 
@@ -1378,8 +1392,111 @@ tags: [&#34;tutorial&#34;, &#34;theme&#34;]
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1471,44 +1588,6 @@ tags: [&#34;tutorial&#34;, &#34;theme&#34;]
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
             
             
@@ -1593,74 +1672,6 @@ tags: [&#34;tutorial&#34;, &#34;theme&#34;]
             
             
                 
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -2102,10 +2113,10 @@ tags: [&#34;tutorial&#34;, &#34;theme&#34;]
 	 
 	 
 		
-			<a class="nav nav-prev" href="/api-methodology/public/cont/i18n/" title="Multilingual and i18n"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/api-methodology/public/basics/requirements/" title="Getting Started"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/api-methodology/public/cont/tags.fr/" title="Tags" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/api-methodology/public/basics/infra/" title="Infrastrucutre" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -2143,4 +2154,3 @@ tags: [&#34;tutorial&#34;, &#34;theme&#34;]
 </script>
   </body>
 </html>
-
