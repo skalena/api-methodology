@@ -3,7 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://skalena.github.io/api-methodology/public/basics/tooling/</loc>
+    <loc>https://skalena.github.io/api-methodology/public/basics/api-design-guidelines/</loc>
+    <lastmod>2016-04-09T16:50:16+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://skalena.github.io/api-methodology/public/basics/patterns/</loc>
     <lastmod>2016-04-09T16:50:16+02:00</lastmod>
   </url>
   
@@ -14,6 +19,11 @@
   
   <url>
     <loc>https://skalena.github.io/api-methodology/public/cont/pages/</loc>
+    <lastmod>2016-04-09T16:50:16+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://skalena.github.io/api-methodology/public/basics/tooling/</loc>
     <lastmod>2016-04-09T16:50:16+02:00</lastmod>
   </url>
   

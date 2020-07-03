@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/api-methodology/public/images/favicon.png" type="image/png">
 
-    <title>page 2 :: Skalena : API Methodology</title>
+    <title>API Patterns :: Skalena : API Methodology</title>
 
     
     <link href="/api-methodology/public/css/nucleus.css?1593736863" rel="stylesheet">
@@ -36,7 +36,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/api-methodology/public/shortcodes/children/children-2/">
+  <body class="" data-url="/api-methodology/public/basics/patterns/">
     <nav id="sidebar" class="">
 
 
@@ -129,7 +129,7 @@
   
     
     <li data-nav-id="/api-methodology/public/basics/" title="API First" class="dd-item 
-        
+        parent
         
         
         ">
@@ -184,8 +184,8 @@
   
     
     <li data-nav-id="/api-methodology/public/basics/patterns/" title="API Patterns" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/api-methodology/public/basics/patterns/">
@@ -650,7 +650,7 @@
   
     
     <li data-nav-id="/api-methodology/public/shortcodes/" title="Working in Progress 2" class="dd-item 
-        parent
+        
         
         
         ">
@@ -763,7 +763,7 @@
   
     
     <li data-nav-id="/api-methodology/public/shortcodes/children/" title="Children" class="dd-item 
-        parent
+        
         
         
         ">
@@ -970,8 +970,8 @@
   
     
     <li data-nav-id="/api-methodology/public/shortcodes/children/children-2/" title="page 2" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/api-methodology/public/shortcodes/children/children-2/">
@@ -1351,13 +1351,7 @@
             
           
           
-            
-            
-          
-          
-            <a href='/api-methodology/public/'>Skalena API Methodology</a> > <a href='/api-methodology/public/shortcodes/'>Working in Progress 2</a> > <a href='/api-methodology/public/shortcodes/children/'>Children</a> > page 2
-          
-        
+            <a href='/api-methodology/public/'>Skalena API Methodology</a> > <a href='/api-methodology/public/basics/'>API First</a> > API Patterns
           
         
           
@@ -1370,7 +1364,25 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#document-semantics-formatting-and-naming">Document Semantics, Formatting, and Naming</a></li>
+        <li><a href="#contributors">Contributors</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+        <li><a href="#projected-response-to-get-with-the-fields-query-parameter">Projected response to GET with the <code>fields</code> query parameter.</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -1386,7 +1398,7 @@
           
             <h1>
               
-              page 2
+              API Patterns
             </h1>
           
 
@@ -1394,12 +1406,1255 @@
 
 
 
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<p>/</p>
+<h1 id="api-design-patterns-and-use-cases">API Design Patterns And Use Cases</h1>
+<p>This document lists various useful patterns for API design. We encourage API developers to consider the following patterns as a guide while designing APIs for services.</p>
+<h3 id="document-semantics-formatting-and-naming">Document Semantics, Formatting, and Naming</h3>
+<p>The key words &ldquo;MUST&rdquo;, &ldquo;MUST NOT&rdquo;, &ldquo;REQUIRED&rdquo;, &ldquo;SHALL&rdquo;, &ldquo;SHALL NOT&rdquo;, &ldquo;SHOULD&rdquo;, &ldquo;SHOULD NOT&rdquo;, &ldquo;RECOMMENDED&rdquo;, &ldquo;MAY&rdquo;, and &ldquo;OPTIONAL&rdquo; in this document are to be interpreted as described in <a href="https://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>.</p>
+<p>The words &ldquo;REST&rdquo; and &ldquo;RESTful&rdquo; MUST be written as presented here, representing the acronym as all upper-case letters. This is also true of &ldquo;JSON,&rdquo; &ldquo;XML,&rdquo; and other acronyms.</p>
+<p>Machine-readable text, such as URLs, HTTP verbs, and source code, are represented using a fixed-width font.</p>
+<p>URIs containing variable blocks are pecified according to <a href="https://tools.ietf.org/html/rfc6570">URI Template RFC 6570</a>. For example, a URL containing a variable called account_id would be shown as <a href="https://paypal.com/accounts/%7Baccount_id%7D/">https://paypal.com/accounts/{account_id}/</a>.</p>
+<p>HTTP headers are written in camelCase + hyphenated syntax, e.g. Foo-Request-Id.</p>
+<h3 id="contributors">Contributors</h3>
+<p><a href="https://www.linkedin.com/in/sanjaydalal">Sanjay Dalal</a> (former member: PayPal API Platform), <a href="https://es.linkedin.com/in/jasonhnaustin">Jason Harmon</a> (former member: PayPal API Platform), <a href="https://www.linkedin.com/in/jayadeba-jena-1a6a0020">Jayadeba Jena</a> (PayPal API Platform), <a href="https://www.linkedin.com/in/nikhil-kolekar-28627a2/">Nikhil Kolekar</a> (PayPal API Platform), <a href="https://www.linkedin.com/in/gaganmaheshwari">Gagan Maheshwari</a> (former member: PayPal API Platform), <a href="https://www.linkedin.com/in/gbpetkov">George Petkov</a> (former member: PayPal API Platform) and Andrew Todd (PayPal Credit).</p>
+<h1 id="table-of-contents">Table Of Contents</h1>
+<ul>
+<li><a href="#create-resource">Create Resource</a></li>
+<li><a href="#collection-resource">Collection Resource</a>
+<ul>
+<li><a href="#time">Time Selection</a></li>
+<li><a href="#sorting">Sorting</a></li>
+<li><a href="#pagination">Pagination</a></li>
+<li><a href="#query">Query Parameters</a>
+<ul>
+<li><a href="#response-properties">Response Properties</a></li>
+<li><a href="#page-navigation">Page Navigation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#read-resource">Read Single Resource</a></li>
+<li><a href="#delete-resource">Delete Single Resource</a></li>
+<li><a href="#update-resource">Update Single Resource</a>
+<ul>
+<li><a href="#partial-update-resource">Partially Update Single Resource</a></li>
+<li><a href="#json-pointer-expression">JSON Pointer Expression</a></li>
+</ul>
+</li>
+<li><a href="#projected-response">Projected Response</a></li>
+<li><a href="#sub-resource-collection">Sub-resource Collection</a></li>
+<li><a href="#sub-resource-singleton">Sub-resource Singleton</a></li>
+<li><a href="#idempotency">Idempotency</a></li>
+<li><a href="#asynchronous-operations">Asynchronous Operations</a></li>
+<li><a href="#controller-resource">Controller Resources</a>
+<ul>
+<li><a href="#complex-operation-sub-resource">Complex Operation - Sub-resource</a></li>
+<li><a href="#complex-operation-composite">Complex Operation - Composite</a></li>
+<li><a href="#complex-operation-transient">Complex Operation - Transient</a></li>
+<li><a href="#complex-operation-search">Complex Operation - Search</a></li>
+</ul>
+</li>
+<li><a href="#controller-alternative">Resource-Oriented Alternative</a></li>
+<li><a href="#file-uploads">File Upload</a>
+<ul>
+<li><a href="#fileuploads-two-step">Standalone Operation</a></li>
+<li><a href="#fileuploads-one-step">As Attachment</a></li>
+</ul>
+</li>
+<li><a href="#hateoas-use-cases">HATEOAS Use Cases</a>
+<ul>
+<li><a href="#collection-links">Navigating A Collection</a></li>
+<li><a href="#error-links">Error Resolution</a></li>
+<li><a href="#service-controlled-flow">Service Controlled Flow</a></li>
+<li><a href="#asynchronous-operations">Asynchronous Operations</a></li>
+<li><a href="#saving-bandwidth">Saving Bandwidth</a></li>
+</ul>
+</li>
+<li><a href="#bulk-operations">Bulk Operations</a>
+<ul>
+<li><a href="#bulk-request-format">Request Format</a></li>
+<li><a href="#bulk-response">Response Format</a></li>
+<li><a href="#bulk-other">Replace and Update Operation</a></li>
+<li><a href="#bulk-status-code">HTTP Status Codes and Error Handling</a></li>
+</ul>
+</li>
+<li><a href="#other">Other Patterns</a></li>
+</ul>
+<!-- raw HTML omitted -->
+<p>For creating a new resource, use <code>POST</code> method. The request body for <code>POST</code> may be somewhat different than for <code>GET</code>/<code>PUT</code> response/request (typically fewer fields as the server will generate some values). In most cases, the service produces an identifier for the resource. In cases where identifier is supplied by the API consumer, use <a href="#create-resource-id">Create New Resource - Client Supplied ID</a></p>
+<p>Once the <code>POST</code> has successfully completed, a new resource will be created. Hypermedia links provide an easy way to get the URL of the newly created resource, using the <code>rel</code>: <code>self</code>, in addition to other links for operations that are allowed on the newly created resource. You may provide complete representation of the resource or partial with just HATEOAS links to retrieve the complete representation.</p>
+<h4 id="uri-template">URI Template</h4>
+<pre><code>	POST /{version}/{namespace}/{resource}
+</code></pre><h4 id="example-request">Example Request</h4>
+<p>Note that server-generated values are not provided in the request.</p>
+<pre><code>POST /v1/vault/credit-cards
+{
+    &quot;payer_id&quot;: &quot;user12345&quot;,
+    &quot;type&quot;: &quot;visa&quot;,
+    &quot;number&quot;: &quot;4417119669820331&quot;,
+    &quot;expire_month&quot;: &quot;11&quot;,
+    &quot;expire_year&quot;: &quot;2018&quot;,
+    &quot;first_name&quot;: &quot;Betsy&quot;,
+    &quot;last_name&quot;: &quot;Buyer&quot;,
+    &quot;billing_address&quot;: {
+        &quot;line1&quot;: &quot;111 First Street&quot;,
+        &quot;city&quot;: &quot;Saratoga&quot;,
+        &quot;country_code&quot;: &quot;US&quot;,
+        &quot;state&quot;: &quot;CA&quot;,
+        &quot;postal_code&quot;: &quot;95070&quot;
+    }
+}
+</code></pre><h4 id="example-response">Example Response</h4>
+<p>On successful execution, the method returns with status code <code>201</code>.</p>
+<pre><code>201 Created
+{
+    &quot;id&quot;: &quot;CARD-1MD19612EW4364010KGFNJQI&quot;,
+    &quot;valid_until&quot;: &quot;2016-05-07T00:00:00Z&quot;,
+    &quot;state&quot;: &quot;ok&quot;,
+    &quot;payer_id&quot;: &quot;user12345&quot;,
+    &quot;type&quot;: &quot;visa&quot;,
+    &quot;number&quot;: &quot;xxxxxxxxxxxx0331&quot;,
+    &quot;expire_month&quot;: &quot;11&quot;,
+    &quot;expire_year&quot;: &quot;2018&quot;,
+    &quot;first_name&quot;: &quot;Betsy&quot;,
+    &quot;last_name&quot;: &quot;Buyer&quot;,
+    &quot;links&quot;: [
+        {
+            &quot;href&quot;: &quot;https://api.sandbox.paypal.com/v1/vault/credit-cards/CARD-1MD19612EW4364010KGFNJQI&quot;,
+            &quot;rel&quot;: &quot;self&quot;,
+            &quot;method&quot;: &quot;GET&quot;
+        },
+        {
+            &quot;href&quot;: &quot;https://api.sandbox.paypal.com/v1/vault/credit-cards/CARD-1MD19612EW4364010KGFNJQI&quot;,
+            &quot;rel&quot;: &quot;delete&quot;,
+            &quot;method&quot;: &quot;DELETE&quot;
+        }
+    ]
+}
+</code></pre><!-- raw HTML omitted -->
+<p>When an API consumer provides the resource identifier, <code>PUT</code> method SHOULD be utilized, as the operation is idempotent, even during creation.</p>
+<p>The same interaction as <a href="#create-resource">Create Resource</a> is used here. <code>201</code> + response body on resource creation, and <code>204</code> + no response body when an existing resource is updated.</p>
+<!-- raw HTML omitted -->
+<p>A collection resource should return a list of representation of all of the given resources (instances), including any related metadata. An array of resources should be in the <code>items</code> field. Consistent naming of collection resource fields allow API clients to create generic handling for using the provided data across various resource collections.</p>
+<p>The <code>GET</code> verb should not affect the system, and should not change response on subsequent requests (unless the underlying data changes), i.e. it should be <code>idempotent</code>. Exceptions to &lsquo;changing the system&rsquo; are typically instrumentation/logging-related.</p>
+<p>The list of data is presumed to be filtered based on the privileges available to the API client. In other words, it should not be a list of all resources in the domain. It should only be resources for which the client has authorization to view within its current context.</p>
+<p>Providing a summarized, or minimized version of the data representation can reduce the bandwidth footprint, in cases where individual resources contain a large object.</p>
+<p>If the service allows partial retrieval of the set, the following patterns MUST be followed.</p>
+<!-- raw HTML omitted -->
+<p>Query parameters with regard to time range could be used to select a subset of items in the following manner:</p>
+<ul>
+<li><code>start_time</code> or <code>{property_name}_after</code>: A timestamp (in either Unix time or <a href="https://www.w3.org/TR/NOTE-datetime" title="ISO 8601 Date and Time Formats">ISO-8601</a> format) indicating the start of a temporal range. <code>start_time</code> may be used when there is only one unambiguous time dimension; otherwise, the property name should be used (e.g., <code>processed_after</code>, <code>updated_after</code>). The property SHOULD map to a time field in the representation.</li>
+<li><code>end_time</code> or <code>{property_name}_before</code>: A timestamp (in either Unix time or <a href="https://www.w3.org/TR/NOTE-datetime" title="ISO 8601 Date and Time Formats">ISO-8601</a> format) indicating the end of a temporal range. <code>end_time</code> may be used when there is only one unambiguous time dimension; otherwise, the property name should be used (e.g., <code>processed_before</code>, <code>updated_before</code>). The property SHOULD map to a time field in the representation.</li>
+</ul>
+<!-- raw HTML omitted -->
+<p>Results could be ordered according to sorting related instructions given by the client. This includes sorting by a specific field&rsquo;s value and sorting order as described in the query parameters below.</p>
+<ul>
+<li><code>sort_by</code>: A dimension by which items should be sorted; the dimensions SHOULD be an attribute in the item&rsquo;s representation; the default (ascending or descending) is left to the implementation and MUST be specified in the documentation.</li>
+<li><code>sort_order</code>: The order, one of <code>asc</code> or <code>desc</code>, indicating ascending or descending order.</li>
+</ul>
+<!-- raw HTML omitted -->
+<p>Any resource that could return a large, potentially unbounded list of resources in its <code>GET</code> response SHOULD implement pagination using the patterns described here.</p>
+<p>Sample URI path: <code>/accounts?page_size={page_size}&amp;page={page}</code></p>
+<p>Clients MUST assume no inherent ordering of results unless a default sort order has been specified for this collection. It is RECOMMENDED that service implementers specify a default sort order whenever it would be useful.</p>
+<!-- raw HTML omitted -->
+<ul>
+<li><code>page_size</code>: A non-negative, non-zero integer indicating the maximum number of results to return at one time. This parameter:
+<ul>
+<li>MUST be optional for the client to provide.</li>
+<li>MUST have a default value, for when the client does not provide a value.</li>
+</ul>
+</li>
+<li><code>page</code>: A non-zero integer representing the page of the results. This parameter:
+<ul>
+<li>MUST be optional for the client to provide.</li>
+<li>MUST have a default value of 1 for when the client does not provide a value.</li>
+<li>MUST respond to a semantically invalid page count, such as zero, with the HTTP status code <code>400 Bad Request</code>.</li>
+<li>If a page number is too large&ndash;for instance, if there are only 50 results, but the client requests <code>page_size=100&amp;page=3</code>&ndash;the resource MUST respond with the HTTP status code <code>200 OK</code> and an empty result list.</li>
+</ul>
+</li>
+<li><code>page_token</code>: In certain cases such as querying on a large data set, in order to optimize the query execution while paginating, querying and retrieving the data based on result set of previous page migh be appropriate. Such a <code>page_token</code> could be an encrypted value of primary keys to navigate next and previous page along with the directions.</li>
+<li><code>total_required</code>: A boolean indicating total number of items (<code>total_items</code>) and pages (<code>total_pages</code>) are expected to be returned in the response. This parameter:
+<ul>
+<li>SHOULD be optional for the client to provide.</li>
+<li>SHOULD have a default value of <code>false</code>.</li>
+<li>MAY be used by the client in the very first request. The client MAY then cache the values returned in the response to help build subsequent requests.</li>
+<li>SHOULD only be implemented when it will improve API performance and/or it is necessary for front-end pagination display.</li>
+</ul>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<p>JSON response to a request of this type SHOULD be an object containing the following properties:</p>
+<ul>
+<li><code>items</code> MUST be an array containing the current page of the result list.</li>
+<li>Unless there are performance or implementation limitations:
+<ul>
+<li><code>total_items</code> SHOULD be used to indicate the total number of items in the full result list, not just this page.
+<ul>
+<li>If <code>total_required</code> has been implemented by an API, then the value SHOULD only be returned when <code>total_required</code> is set to <code>true</code>.</li>
+<li>If <code>total_required</code> has not been implemented by an API, then the value MAY be returned in every response if necessary, useful, and performant.</li>
+<li>If present, this parameter MUST be a non-negative integer.</li>
+<li>Clients MUST NOT assume that the value of <code>total_items</code> is constant. The value MAY change from one request to the next.</li>
+</ul>
+</li>
+<li><code>total_pages</code> SHOULD be used to indicate how many pages are available, in total.
+<ul>
+<li>If <code>total_required</code> has been implemented by an API, then the value SHOULD only be returned when <code>total_required</code> is set to <code>true</code>.</li>
+<li>If <code>total_required</code> has not been implemented by an API, then the value MAY be returned in every response if necessary, useful, and performant.</li>
+<li>If present, this parameter MUST be a non-negative, non-zero integer.</li>
+<li>Clients MUST NOT assume that the value of <code>total_pages</code> is constant. The value MAY change from one request to the next.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>links</code> SHOULD be an array containing one or more <a href="index.md#hypermedia">HATEOAS</a> link relations that are relevant for traversing the result list.</li>
+</ul>
+<!-- raw HTML omitted -->
+<table>
+<thead>
+<tr>
+<th>Relationship</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>self</code></td>
+<td>Refers to the current page of the result list.</td>
+</tr>
+<tr>
+<td><code>first</code></td>
+<td>Refers to the first page of the result list. If you are using <code>page_token</code>, you may not return this link.</td>
+</tr>
+<tr>
+<td><code>last</code></td>
+<td>Refers to the last page of the result list. Returning of this link is optional. You need to return this link only if <code>total_required</code> is specified as a query parameter. If you are using <code>page_token</code>, you may not return this link.</td>
+</tr>
+<tr>
+<td><code>next</code></td>
+<td>Refers to the next page of the result list.</td>
+</tr>
+<tr>
+<td><code>prev</code></td>
+<td>Refers to the previous page of the result list.</td>
+</tr>
+</tbody>
+</table>
+<p>This is a <strong>sample JSON schema</strong> that returns a collection of resources with pagination:</p>
+<pre><code>{  
+    &quot;id&quot;: &quot;plan_list:v1&quot;,
+    &quot;$schema&quot;: &quot;http://json-schema.org/draft-04/schema#&quot;,
+    &quot;description&quot;: &quot;Resource representing a list of billing plans with basic information.&quot;,
+    &quot;name&quot;: &quot;plan_list Resource&quot;,
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;required&quot;: true,
+    &quot;properties&quot;: {
+      &quot;plans&quot;: {
+        &quot;type&quot;: &quot;array&quot;,
+        &quot;description&quot;: &quot;Array of billing plans.&quot;,
+        &quot;items&quot;: {
+          &quot;type&quot;: &quot;object&quot;,
+          &quot;description&quot;: &quot;Billing plan details.&quot;,
+          &quot;$ref&quot;: &quot;plan.json&quot;
+        }
+      }, 
+      &quot;total_items&quot;: {
+        &quot;type&quot;: &quot;string&quot;,
+        &quot;readonly&quot;: true,
+        &quot;description&quot;: &quot;Total number of items.&quot;
+      },  
+      &quot;total_pages&quot;: {
+        &quot;type&quot;: &quot;string&quot;,
+        &quot;readonly&quot;: true,
+        &quot;description&quot;: &quot;Total number of pages.&quot;
+      },
+      &quot;links&quot;: {
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;items&quot;: {
+              &quot;$ref&quot;: &quot;http://json-schema.org/draft-04/hyper-schema#&quot;
+          }
+      }  
+    },
+    &quot;links&quot;: [
+      {
+        &quot;href&quot;: &quot;https://api.foo.com/v1/payments/billing-plans?page_size={page_size}&amp;page={page}&amp;status={status}&quot;,
+        &quot;rel&quot;: &quot;self&quot;
+      },
+      {
+         &quot;rel&quot;: &quot;first&quot;,
+         &quot;href&quot;: &quot;https://api.foo.com/v1/payments/billing-plans?page_size={page_size}&amp;page={page}&amp;start={start_id}&amp;status={status}&quot;
+      },
+      {
+         &quot;rel&quot;: &quot;next&quot;,
+         &quot;href&quot;: &quot;https://api.foo.com/v1/payments/billing-plans?page_size={page_size}&amp;page={page+1}&amp;status={status}&quot;
+      },
+      {
+         &quot;rel&quot;: &quot;prev&quot;,
+         &quot;href&quot;: &quot;https://api.foo.com/v1/payments/billing-plans?page_size={page_size}&amp;page={page-1}&amp;status={status}&quot;
+      },
+      {
+         &quot;rel&quot;: &quot;last&quot;,
+         &quot;href&quot;: &quot;https://api.foo.com/v1/payments/billing-plans?page_size={page_size}&amp;page={last}&amp;status={status}&quot;
+      }
+   ]
+}
+</code></pre><p>This is a <strong>sample JSON response</strong> that returns a collection of resources with pagination:</p>
+<pre><code>{
+  &quot;total_items&quot;: &quot;166&quot;,
+  &quot;total_pages&quot;: &quot;83&quot;,
+  &quot;plans&quot;: [
+    {
+      &quot;id&quot;: &quot;P-6EM196669U062173D7QCVDRA&quot;,
+      &quot;state&quot;: &quot;ACTIVE&quot;,
+      &quot;name&quot;: &quot;Testing1-Regular3&quot;,
+      &quot;description&quot;: &quot;Create Plan for Regular&quot;,
+      &quot;type&quot;: &quot;FIXED&quot;,
+      &quot;create_time&quot;: &quot;2014-08-22T04:41:52.836Z&quot;,
+      &quot;update_time&quot;: &quot;2014-08-22T04:41:53.169Z&quot;,
+      &quot;links&quot;: [
+        {
+            &quot;href&quot;: &quot;https://api.foo.com/v1/payments/billing-plans/P-6EM196669U062173D7QCVDRA&quot;,
+            &quot;rel&quot;: &quot;self&quot;
+        }
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;P-83567698LH138572V7QCVZJY&quot;,
+      &quot;state&quot;: &quot;ACTIVE&quot;,
+      &quot;name&quot;: &quot;Testing1-Regular4&quot;,
+      &quot;description&quot;: &quot;Create Plan for Regular&quot;,
+      &quot;type&quot;: &quot;INFINITE&quot;,
+      &quot;create_time&quot;: &quot;2014-08-22T04:41:55.623Z&quot;,
+      &quot;update_time&quot;: &quot;2014-08-22T04:41:56.055Z&quot;,
+      &quot;links&quot;: [
+        {
+            &quot;href&quot;: &quot;https://api.foo.com/v1/payments/billing-plans/P-83567698LH138572V7QCVZJY&quot;,
+            &quot;rel&quot;: &quot;self&quot;
+        }
+      ]
+    }
+  ],
+  &quot;links&quot;: [
+    {
+      &quot;href&quot;: &quot;https://api.foo.com/v1/payments/billing-plans?page_size=2&amp;page=3&amp;status=active&quot;,
+      &quot;rel&quot;: &quot;self&quot;
+    },
+    {
+      &quot;href&quot;: &quot;https://api.foo.com/v1/payments/billing-plans?page_size=2&amp;page=1&amp;first=3&amp;status=active&quot;,
+      &quot;rel&quot;: &quot;first&quot;
+    },
+    {
+      &quot;href&quot;: &quot;https://api.foo.com/v1/payments/billing-plans?page_size=2&amp;page=2&amp;status=active&quot;,
+      &quot;rel&quot;: &quot;prev&quot;
+    },
+    {
+      &quot;href&quot;: &quot;https://api.foo.com/v1/payments/billing-plans?page_size=2&amp;page=4&amp;status=active&quot;,
+      &quot;rel&quot;: &quot;next&quot;
+    },
+    {
+      &quot;href&quot;: &quot;https://api.foo.com/v1/payments/billing-plans?page_size=2&amp;page=82&amp;status=active&quot;,
+      &quot;rel&quot;: &quot;last&quot;
+    }
+  ]
+}
+</code></pre><!-- raw HTML omitted -->
+<p>A single resource is typically derived from the parent collection of resources, often more detailed than an item in the represenation of a collection resource.</p>
+<p>Executing <code>GET</code> should never affect the system, and should not change response on subsequent requests, i.e. it should be <code>idempotent</code>.</p>
+<p>All identifiers for sensitive data should be non-sequential, and preferably non-numeric. In scenarios where this data might be used as a subordinate to other data, immutable string identifiers should be utilized for easier readability and debugging (i.e. <code>NAME_OF_VALUE</code> vs 1421321).</p>
+<h4 id="uri-template-1">URI Template</h4>
+<pre><code>	GET /{version}/{namespace}/{resource}/{resource-id}
+</code></pre><h4 id="example-request-1">Example Request</h4>
+<pre><code>	GET /v1/vault/customers/CUSTOMER-66W27667YB813414MKQ4AKDY
+</code></pre><h5 id="example-response-1">Example Response</h5>
+<pre><code>{
+	 &quot;merchant_customer_id&quot;: &quot;merchant-1&quot;,
+    &quot;merchant_id&quot;: &quot;target&quot;,
+    &quot;create_time&quot;: &quot;2014-10-10T16:10:55Z&quot;,
+    &quot;update_time&quot;: &quot;2014-10-10T16:10:55Z&quot;,
+    &quot;first_name&quot;: &quot;Kartik&quot;,
+    &quot;last_name&quot;: &quot;Hattangadi&quot;
+}
+</code></pre><h4 id="http-status">HTTP Status</h4>
+<p>If the provided resource identifier is not found, the response <code>404 Not Found</code> HTTP status should be returned (even with ’soft deleted’ records in data sources). Otherwise, <code>200 OK</code> HTTP status should be utilized when data is found.</p>
+<!-- raw HTML omitted -->
+<p>In order to enable retries (e.g., poor connectivity), <code>DELETE</code> is treated as <code>idempotent</code>, so it should always respond with a <code>204 No Content</code> HTTP status. <code>404 Not Found</code> HTTP status should not be utilized here, as on a second retry a client might mistakenly think the resource never existed at all. <code>GET</code> can be utilized to verify the resources exists prior to <code>DELETE</code>.</p>
+<p>For a number of reasons, some data exposed as a resource MAY disappear: because it has been specifically deleted, because it expired, because of a policy (e.g., only transactions less than 2 years old are available), etc. Services MAY return a <code>410 Gone</code> error to a request related to a resource that no longer exists. However, there may be significant costs associated with doing so. Service designers are advised to weigh in those costs and ways to reduce them (e.g., using resource identifiers that can be validated without access to a data store), and MAY return a <code>404 Not Found</code> instead if those costs are prohibitive.</p>
+<h4 id="uri-template-2">URI Template</h4>
+<pre><code>	DELETE /{version}/{namespace}/{resource}/{resource-id}
+</code></pre><h4 id="example-request-2">Example Request</h4>
+<pre><code>	DELETE /v1/vault/customers/CUSTOMER-66W27667YB813414MKQ4AKDY
+	204 No Content
+</code></pre><!-- raw HTML omitted -->
+<p>To perform an update to an entire resource, <code>PUT</code> method MUST be utilized. The same response body supplied in the resource&rsquo;s <code>GET</code> should be provided in the resource&rsquo;s <code>PUT</code> request body.</p>
+<p>If the update is successful, a <code>204 No Content</code> HTTP status code (with no response body) is appropriate. Where there is a justifying use case (typically to optimize some client interaction), a <code>200 OK</code> HTTP status code with a response body can be utilized.</p>
+<p>While the entire resource&rsquo;s representation must be supplied with the <code>PUT</code> method, the APIs validation logic can enforce constraints regarding fields that are allowed to be updated. These fields can be specified as <a href="index.md#json-schema"><code>readOnly</code></a> in the JSON schema. Fields in the request body can be optional or ignored during deserialization, such as <code>create_time</code> or other system-calculated values. Typical error handling, utilizing the <code>400 Bad Request</code> status code, should be applied in cases where the client attempts to update fields which are not allowed or if the resource is in a non-updateable state.</p>
+<p>See <a href="index.md#sampleresponse-multi">Sample Input Validation Error Response</a> for examples of error handling.</p>
+<h4 id="uri-template-3">URI Template</h4>
+<pre><code>PUT /{version}/{namespace}/{resource}/{resource-id}
+</code></pre><h4 id="example-request-3">Example Request</h4>
+<pre><code>PUT /v1/vault/customers/CUSTOMER-66W27667YB813414MKQ4AKDY
+{
+	&quot;merchant_customer_id&quot;: &quot;merchant-1&quot;,
+    &quot;merchant_id&quot;: &quot;target&quot;,
+    &quot;create_time&quot;: &quot;2014-10-10T16:10:55Z&quot;,
+    &quot;update_time&quot;: &quot;2014-10-10T16:10:55Z&quot;,
+    &quot;first_name&quot;: &quot;Kartik&quot;,
+    &quot;last_name&quot;: &quot;Hattangadi&quot;
+}
+</code></pre><h4 id="http-status-1">HTTP Status</h4>
+<p>Any failed request validation responds <code>400 Bad Request</code> HTTP status. If clients attempt to modify read-only fields, this is also a <code>400 Bad Request</code>.</p>
+<p>If there are business rules (more than simple data-type or length constraints), it is best to provide a specific
+error code and message (in addition to the <code>400</code>) for that validation.</p>
+<p>For situations which require interaction with APIs or processes outside of the current request, the <code>422</code> status code is appropriate.</p>
+<p>After successful update, <code>PUT</code> operations should respond with <code>204 No Content</code> status, with no response body.</p>
+<!-- raw HTML omitted -->
+<p>Often, previously created resources need to be updated based on customer or facilitator-initiated interactions (like adding items to a cart). In such cases, APIs SHOULD provide an <a href="http://tools.ietf.org/html/rfc6902" title="RFC 6902">RFC 6902</a> JSON Patch compatible solution. JSON patches use the HTTP <code>PATCH</code> method defined in <a href="http://tools.ietf.org/html/rfc5789">RFC 5789</a> to enable partial updates to resources.</p>
+<p>A JSON patch expresses a sequence of operations to apply to a target JSON document. The operations defined by the JSON patch specification include <code>add</code>, <code>remove</code>, <code>replace</code>, <code>move</code>, <code>copy</code>, and <code>test</code>. To support partial updates to resources, APIs SHOULD support <code>add</code>, <code>remove</code> and <code>replace</code>
+operations. Support for the other operations (move, copy, and test) is left to the individual API owner based onneeds.</p>
+<p>Below is a sample <code>PATCH</code> request to do partial updates to a resource:</p>
+<pre><code>PATCH /v1/namespace/resources/:id HTTP/1.1
+Host: api.foo.com
+Content-Length: 326
+Content-Type: application/json-patch+json
+If-Match: &quot;etag-value&quot;
+[
+    {
+        &quot;op&quot;: &quot;remove&quot;,
+        &quot;path&quot;: &quot;/a/b/c&quot;
+    },
+    {
+        &quot;op&quot;: &quot;add&quot;,
+        &quot;path&quot;: &quot;/a/b/c&quot;,
+        &quot;value&quot;: [ &quot;foo&quot;, &quot;bar&quot; ]
+    },
+    {
+        &quot;op&quot;: &quot;replace&quot;,
+        &quot;path&quot;: &quot;/a/b/c&quot;,
+        &quot;value&quot;: 42
+    }
+]
+</code></pre><p>The value of <code>path</code> is a string containing a <a href="https://tools.ietf.org/html/rfc6901" title="JSON Pointer">RFC 6901</a> JSON Pointer] that references a location within the target document where the operation is performed. For example, the value <code>/a/b/c</code> refers to the element <code>c</code> in the sample JSON below:</p>
+<pre><code>{
+    &quot;a&quot;: {
+        &quot;b&quot;: {
+            &quot;c&quot;: &quot;&quot;,
+            &quot;d&quot;: &quot;&quot;
+        },
+        &quot;e&quot;: &quot;&quot;
+    }
+}
+</code></pre><h4 id="path-parameter"><code>path</code> Parameter</h4>
+<p>When JSON Pointer is used with arrays, concurrency protection is best implemented with ETags.</p>
+<p>In many cases, ETags are not an option:</p>
+<ul>
+<li>It is expensive to calculate ETags because the API collates data from multiple data sources or has very large response objects.</li>
+<li>The response data are frequently modified.</li>
+</ul>
+<!-- raw HTML omitted -->
+<p>In cases where ETags are not available to provide concurrency protection when updating arrays, PayPal has created an extension to RFC 6901 which provides expressions of the following form.</p>
+<p><code>&quot;path&quot;: &quot;/object-name/@filter-expression/attribute-name&quot;</code></p>
+<ul>
+<li><code>object-name</code> is the name of the collection.The symbol “@” refers to the current object. It also signals the beginning of a filter-expression.</li>
+<li>The <code>filter-expression</code> SHOULD only contain the following operators: a comparison operator (<code>==</code> for equality) or a Logical AND (<code>&amp;&amp;</code>) operator or both. For example:<code>”/address/@id==123/street_name”, “address/@id==123 &amp;&amp; primary==true”</code> are valid filter expressions.</li>
+<li>The right hand side operand for the operator “==” MUST have a value that matches the type of the left hand side operand. For example: <code>“addresss/@integer_id == 123”,”/address/@string_name == ‘james’”,”/address/@boolean_primary == true”,/address/@decimal_number == 12.1</code> are valid expressions.</li>
+<li>If the right hand operand of &ldquo;==&rdquo; is a string then it SHOULD NOT contain any of the following escape sequences: a Line Continuation or a Unicode Escape Sequence.</li>
+<li>attribute-name is the name of the attribute to which a <code>PATCH</code> operation is applied if the filter condition is met.</li>
+</ul>
+<!-- raw HTML omitted -->
+<p><strong>Example1:</strong></p>
+<p><code>&quot;op&quot;: &quot;replace&quot;,&quot;path&quot;: “/address/@id==12345/primary”,&quot;value&quot;: true</code><!-- raw HTML omitted --></p>
+<p>This would set the array element &ldquo;primary&rdquo; to true if the the element &ldquo;id&rdquo; has a value &ldquo;12345&rdquo;.<!-- raw HTML omitted --></p>
+<p><strong>Example2:</strong></p>
+<p><code>&quot;op&quot;: &quot;replace&quot;,&quot;path&quot;: “/address/@country_code==’GB’ &amp;&amp; type==’office’/active”,&quot;value&quot;: true</code><!-- raw HTML omitted --></p>
+<p>This would set the array element &ldquo;active&rdquo; to true if the the element &ldquo;country_code&rdquo; equals to &ldquo;GB&rdquo; and type equals to &ldquo;office&rdquo;.</p>
+<!-- raw HTML omitted -->
+<p>It is not necessary that an API support the updating of all attributes via a <code>PATCH</code> operation. An API implementer SHOULD make an informed decision to support <code>PATCH</code> updates only for a subset of attributes through a specific resource operation.</p>
+<!-- raw HTML omitted -->
+<ul>
+<li>
+<p>Note that the operations are applied sequentially in the order they appear in the payload. If the update is successful, a <code>204 No Content</code> HTTP status code (with no response body) is appropriate. Where there is a justifying use case (typically to optimize some client interaction) and the request has the header <code>Prefer:return=representation</code>, a <code>200 OK</code> HTTP status code with a response body can be utilized.</p>
+</li>
+<li>
+<p>Responses body with <code>200 OK</code> SHOULD return the entire resource representation unless the client uses the fields parameter to reduce the response size.</p>
+</li>
+<li>
+<p>If a <code>PATCH</code> request results in a new resource state that is invalid, the API SHOULD return a <code>400 Bad Request</code> or <code>422 Unprocessable Entity</code>.</p>
+</li>
+</ul>
+<p>See <a href="index.md#sampleresponse-multi">Sample Input Validation Error Response</a> for examples of error handling.</p>
+<!-- raw HTML omitted -->
+<p><code>PATCH</code> examples for modifying objects can be found in <a href="http://tools.ietf.org/html/rfc6902" title="RFC 6902">RFC 6902</a>.</p>
+<!-- raw HTML omitted -->
+<p>An API typically responds with full representation of a resource after processing requests for methods such as <code>GET</code>. For efficiency, the client can ask the service to return partial representation using <a href="index.md#http-standard-headers"><code>Prefer: return=minimal</code></a> HTTP header. Here, The determination of what constitutes an appropriate &ldquo;minimal&rdquo; response is solely at the discretion of the service.</p>
+<p>To request partial representation with specific field(s), a client can use the <code>fields</code> query parameter. For selecting multiple fields, a comma-separated list of fields SHOULD be used.</p>
+<p>The following example shows the use of the fields parameter with users API.</p>
+<p><strong>Request:</strong> HTTP <code>GET</code> without <code>fields</code> parameter</p>
+<pre><code>GET https://api.foo.com/v1/users/bob
+Authorization: Bearer your_auth_token
+</code></pre><p><strong>Response</strong>: The complete resource representation is returned in the response.</p>
+<pre><code>{
+    &quot;uid&quot;: &quot;dbrown&quot;,
+    &quot;given_name&quot;: &quot;David&quot;,
+    &quot;sn&quot;: &quot;Brown&quot;,
+    &quot;location&quot;: &quot;Austin&quot;,
+    &quot;department&quot;: &quot;RISK&quot;,
+    &quot;title&quot;: &quot;Manager&quot;,
+    &quot;manager&quot;: &quot;ipivin&quot;,
+    &quot;email&quot;: &quot;dbrown@foo.com&quot;,
+    &quot;employeeId&quot;: &quot;234167&quot;
+}
+</code></pre><h3 id="projected-response-to-get-with-the-fields-query-parameter">Projected response to GET with the <code>fields</code> query parameter.</h3>
+<p><strong>Request:</strong></p>
+<pre><code>
+GET https://api.foo.com/v1/users/bob?fields=department,title,location
+Authorization: Bearer your_auth_token
+</code></pre><p>The response has only fields specified by the <code>fields</code> query parameter as well as mandatory fields.</p>
+<p><strong>Response:</strong></p>
+<pre><code>200 OK
+
+{
+    &quot;uid&quot;: &quot;dbrown&quot;,
+    &quot;department&quot;: &quot;RISK&quot;,
+    &quot;title&quot;: &quot;Manager&quot;,
+    &quot;location&quot;: &quot;Austin&quot;
+}
+</code></pre><p>You could use the same pattern for Collection Resource as well as following.</p>
+<pre><code>GET https://api.foo.com/v1/users?fields=department,title,location
+</code></pre><p>The response will have entries with the fields specified in request as well as mandatory fields.</p>
+<!-- raw HTML omitted -->
+<p>Sometimes, multiple identifiers are required (&lsquo;composite keys&rsquo;, in the database lexicon) to identify a given resource. In these scenarios, all behaviors of a <a href="#collection-resource">Collection Resource</a> are implemented, as a subordinate of another resource. It is always implied that the <code>resource-id</code> in the URL must be the parent of the sub-resources.</p>
+<h4 id="cautions">Cautions</h4>
+<ul>
+<li>The need to maintain multiple identifiers can create a burden on client developers.
+<ul>
+<li>Look for opportunities to promote resources with unique identifiers (i.e. there is no need to identify the parent resource) to a first-level resource.</li>
+</ul>
+</li>
+<li>Caution should be used in identifying the name of the sub-resource, as to not interfere with the identifier naming conventions of the base resource. In other words, <code>/{version}/{namespace}/{resource}/{resource-id}/{sub-resource-id}</code> is not appropriate, as the <code>sub-resource-id</code> has ambiguous meaning.</li>
+<li>Two levels is a practical limit for resource identifiers
+<ul>
+<li>API client usability suffers, as the need for clients to maintain state about identifier hierarchy increases complexity.</li>
+<li>Server developers must validate each level of identifiers in order to verify that they are allowed access, and that they relate to each other, thus increasing risk and complexity.</li>
+</ul>
+</li>
+</ul>
+<p>Note these templates/examples are brief: for more detail on the Collection Resource style, <a href="#collection-resource">see above</a>. Although this section explains the sub-resource collection, all interactions should be the same, simply with the addition of a parent identifier.</p>
+<h4 id="uri-templates">URI Templates</h4>
+<pre><code>POST /{version}/{namespace}/{resource}/{resource-id}/{sub-resource}
+GET /{version}/{namespace}/{resource}/{resource-id}/{sub-resource}
+GET /{version}/{namespace}/{resource}/{resource-id}/{sub-resource}/{sub-resource-id}
+PUT /{version}/{namespace}/{resource}/{resource-id}/{sub-resource}/{sub-resource-id}
+DELETE /{version}/{namespace}/{resource}/{resource-id}/{sub-resource}/{sub-resource-id}
+</code></pre>
+<h4 id="examples">Examples</h4>
+<pre><code>GET /v1/notifications/webhooks/{webhook-id}/event-types
+POST /v1/factory/widgets/PART-4312/sub-assemblies
+GET /v1/factory/widgets/PART-4312/sub-assemblies/INNER-COG
+PUT /v1/factory/widgets/PART-4312/sub-assemblies/INNER-COG
+DELETE /v1/factory/widgets/PART-4312/sub-assemblies/INNER-COG
+</code></pre>
+<!-- raw HTML omitted -->
+<p>When a sub-resource has a one-to-one relationship with the parent resource, it could be modeled as a singleton sub-resource. This approach is usually used as a means to reduce the size of a resource, when use cases support segmenting a large resource into smaller resources.</p>
+<p>For a singleton sub-resource, the name should be a singular noun. As often as possible, that single resource should always be present (i.e. does not respond with <code>404</code>).</p>
+<p>The sub-resource should be owned by the parent resource; otherwise this sub-resource should probably be promoted to its own collection resource, and relationships represented with sub-resource collections in the other direction. Sub-resource singletons should not duplicate a resource from another collection.</p>
+<p>If the singleton sub-resource needs to be created, <code>PUT</code> should be used, as the operation is idempotent, on creation or update. <code>PATCH</code> can be used for partial updates, but should not be available on creation (in part because it is not idempotent).</p>
+<p>This should not be used as a mechanism to update single or subsets of fields with <code>PUT</code>. The resource should remain intact, and <code>PATCH</code> should be utilized for partial update. Creating sub-resource singletons for each use case of updates is not a scalable design approach, as many endpoints could result long-term.</p>
+<h4 id="uri-template-4">URI Template</h4>
+<pre><code>GET/PUT /{version}/{namespace}/{resource}/{resource-id}/{sub-resource}
+</code></pre>
+<h4 id="examples-1">Examples</h4>
+<pre><code>GET /v1/customers/devices/DEV-FDU233FDSE213f)/vendor-information
+</code></pre>
+<!-- raw HTML omitted -->
+<p><em>Idempotency</em> is an important aspect of building a fault-tolerant API. Idempotent APIs enable clients to safely retry an operation without worrying about the side-effects that the operation can cause. For example, a client can safely retry an idempotent request in the event of a request failing due to a network connection error.</p>
+<p>Per <a href="https://tools.ietf.org/html/rfc2616#section-9.1.2">HTTP Specification</a>, a method is idempotent if the side-effects of more than one identical requests are the same as those for a single request. Methods <code>GET</code>, <code>HEAD</code>, <code>PUT</code> and <code>DELETE</code> (additionally, <code>TRACE</code> and <code>OPTIONS</code>) are defined idempotent.</p>
+<p><code>POST</code> operations by definition are neither safe nor idempotent.</p>
+<p>All service implementations MUST ensure that safe and idempotent behaviour of HTTP methods is implemented as per HTTP specifications. Services that require idempotency for <code>POST</code> operations MUST be implemented as per the following guidelines.</p>
+<!-- raw HTML omitted -->
+<p><code>POST</code> operations by definition are not idempotent which means that executing <code>POST</code> more than once with the same input creates as many resources. To avoid creation of duplicate resources, an API SHOULD implement the protocol defined in the section below. This guarantees that only one record is created for the same input payload.</p>
+<p>For many use cases that require idempotency for <code>POST</code> requests, creation of a duplicate record is a severe problem. For example, duplicate records for the use cases that create or execute a payment on an account are not allowed by definition.</p>
+<p>To track an idempotent request, a unique <code>idempotency key</code> is used and sent in every request. Define a header and use its value as <code>idempotency key</code> for every request.</p>
+<p><em><strong>For the very first request from the client</strong>:</em></p>
+<p><strong>On the client side</strong>:</p>
+<p>The API client sends a new <code>POST</code> request with the <code>Foo-Request-Id</code> header that contains the <code>idempotency key</code>.</p>
+<pre><code>POST /v1/payments/referenced-payouts-items HTTP/1.1
+Host: api.foo.com
+Content-Type: application/json
+Authorization: Bearer oauth2_token
+Foo-Request-Id: 123e4567-e89b-12d3-a456-426655440000
+
+{
+	&quot;reference_id&quot;: &quot;4766687568468&quot;,
+	&quot;reference_type&quot;: &quot;egflf465vbk7468mvnb&quot;
+}
+</code></pre><p><strong>On the server side</strong>:</p>
+<p>If the call is successful and leads to a resource creation, the service MUST return a <code>201</code> response to indicate both success and a change of state.</p>
+<p>Sample response:</p>
+<pre><code>HTTP/1.1 201 CREATED
+Content-Type: application/json
+
+{
+
+  &quot;item_id&quot;: &quot;CDZEC5MJ8R5HY&quot;,
+  &quot;links&quot;: [{
+      &quot;href&quot;: &quot;https://api.foo.com/v1/payments/referenced-payouts-items/CDZEC5MJ8R5HY&quot;,
+      &quot;rel&quot;: &quot;self&quot;,
+      &quot;method&quot;: &quot;GET&quot;
+  }]
+}
+</code></pre><p>The service MAY send back the <code>idempotency key</code> as part of <code>Foo-Request-Id</code> header in the response.</p>
+<p><em><strong>For subsequent requests from the client with same input payload</strong>:</em></p>
+<p><strong>On the client side</strong>:</p>
+<p>The API client sends a <code>POST</code> request with the same <code>idempotency key</code> and input body as before.</p>
+<pre><code>POST /v1/payments/referenced-payouts-items HTTP/1.1
+Host: api.foo.com
+Content-Type: application/json
+Authorization: Bearer oauth2_token
+Foo-Request-Id: 123e4567-e89b-12d3-a456-426655440000
+
+
+{
+	&quot;reference_id&quot;: &quot;4766687568468&quot;,
+	&quot;reference_type&quot;: &quot;egflf465vbk7468mvnb&quot;
+}
+</code></pre><p><strong>On the server side</strong>:</p>
+<p>The server, after checking that the call is identical to the first execution, MUST return a <code>200</code> response with a representation of the resource to indicate that the request has already been processed successfully.</p>
+<p>Sample response:</p>
+<pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+	&quot;item_id&quot;: &quot;CDZEC5MJ8R5HY&quot;,
+	&quot;processing_state&quot;: {
+		&quot;status&quot;: &quot;PROCESSING&quot;
+	},
+	&quot;reference_id&quot;: &quot;4766687568468&quot;,
+	&quot;reference_type&quot;: &quot;egflf465vbk7468mvnb&quot;,
+	&quot;payout_amount&quot;: {
+		&quot;currency_code&quot;: &quot;USD&quot;,
+		&quot;value&quot;: &quot;2.0&quot;
+	},
+	&quot;payout_destination&quot;: &quot;9C8SEAESMWFKA&quot;,
+	&quot;payout_transaction_id&quot;: &quot;35257aef-54f7-43cf-a258-3b45caf3293&quot;,
+	&quot;links&quot;: [{
+				&quot;href&quot;: &quot;https://api.foo.com/v1/payments/referenced-payouts-items/CDZEC5MJ8R5HY&quot;,
+				&quot;rel&quot;: &quot;self&quot;,
+				&quot;method&quot;: &quot;GET&quot;
+			}]
+}
+</code></pre><!-- raw HTML omitted -->
+<p>The <code>idempotency key</code> that is supplied as part of every <code>POST</code> request MUST be unique and can not be reused with another request with a different input payload. See error scenarios described below to understand the server behavior for repeating <code>idempotency</code> keys in requests.</p>
+<p>How to make the key unique is up to the client and it&rsquo;s agreed protocol with the server. It is recommended that <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a> or a similar random identifier be used as the idempotency key. It is also recommended that the server implements the idempotency keys to be time-based and, thus, be able to purge or delete a key upon its expiry.</p>
+<!-- raw HTML omitted -->
+<ul>
+<li>If the <code>Foo-Request-Id</code> header is missing for an idempotent request, the service MUST reply with a <code>400</code> error with a <code>link</code> pointing to the public documentation about this pattern.</li>
+<li>If there is an attempt to reuse an <code>idempotency</code> key with a different request payload, the service MUST reply with a <code>422</code> error with a <code>link</code> pointing to the public documentation about this pattern.</li>
+<li>For other errors, the service MUST return the appropriate error message.</li>
+</ul>
+<!-- raw HTML omitted -->
+<p>Certain types of operations might require processing of the request in an asynchronous manner (e.g. validating a bank account, processing an image, etc.) in order to avoid long delays on the client side and prevent long-standing open client connections waiting for the operations to complete. For such use cases, APIs MUST employ the following pattern:</p>
+<p><strong><em>For <code>POST</code> requests</em>:</strong></p>
+<ul>
+<li>
+<p>Return the <code>202 Accepted</code> HTTP response code.</p>
+</li>
+<li>
+<p>In the response body, include one or more URIs as hypermedia links, which could include:</p>
+<ul>
+<li>The final URI of the resource where it will be available in future if the ID and path are already known. Clients can then make an HTTP <code>GET</code> request to that URI in order to obtain the completed resource. Until the resource is ready, the final URI SHOULD return the HTTP status code <code>404 Not Found</code>.</li>
+</ul>
+<p><code>{ &quot;rel&quot;: &quot;self&quot;, &quot;href&quot;: &quot;/v1/namespace/resources/{resource_id}&quot;, &quot;method&quot;: &quot;GET&quot; }</code></p>
+<ul>
+<li>A temporary request queue URI where the status of the operation may be obtained via some temporary identifier. Clients SHOULD make an HTTP <code>GET</code> request to obtain the status of the operation which MAY include such information as completion state, ETA, and final URI once it is completed.</li>
+</ul>
+<p><code>{ &quot;rel&quot;: &quot;self&quot;, &quot;href&quot;: &quot;/v1/queue/requests/{request_id}, &quot;method&quot;: &quot;GET&quot; }&quot;</code></p>
+</li>
+</ul>
+<p><strong><em>For <code>PUT</code>/<code>PATCH</code>/<code>DELETE</code>/<code>GET</code> requests</em>:</strong></p>
+<p>Like <code>POST</code>, you can support PUT/<code>PATCH</code>/<code>DELETE</code>/<code>GET</code> to be asynchronous. The behaviour would be as follows:</p>
+<ul>
+<li>
+<p>Return the <code>202 Accepted</code> HTTP response code.</p>
+</li>
+<li>
+<p>In the response body, include one or more URIs as hypermedia links, which could include:</p>
+<ul>
+<li>A temporary request queue URI where the status of the operation may be obtained via some temporary identifier. Clients SHOULD make an HTTP <code>GET</code> request to obtain the status of the operation which MAY include such information as completion state, ETA, and final URI once it is completed.</li>
+</ul>
+<p><code>{ &quot;rel&quot;: &quot;self&quot;, &quot;href&quot;: &quot;/v1/queue/requests/{request_id}, &quot;method&quot;: &quot;GET&quot; }&quot;</code></p>
+</li>
+</ul>
+<p><strong><em>APIs that support both synchronous and asynchronous processing for an URI</em>:</strong></p>
+<p>APIs that support both synchronous and asynchronous operations for a particular URI and an HTTP method combination, MUST recognize the <a href="index.md#http-standard-headers"><code>Prefer</code></a> header and exhibit following behavior:</p>
+<ul>
+<li>If the request contains a <code>Prefer=respond-async</code> header, the service MUST switch the processing to asynchronous mode.</li>
+<li>If the request doesn&rsquo;t contain a <code>Prefer=respond-async</code> header, the service MUST process the request synchronously.</li>
+</ul>
+<p>It is desirable that all APIs that implement asynchronous processing, also support <a href="https://en.wikipedia.org/wiki/Webhook">webhooks</a> as a mechanism of pushing the processing status to the client.</p>
+<!-- raw HTML omitted -->
+<p>Controller (aka Procedural) resources challenge the fundamental notion or concept of <a href="index.md#resource">resource</a> orientation where resources usually represent mapping to a conceptual set of entities or things in a domain system. However, often API developers come across a situation where they are unable to model a service executing a business process or a part of a business process as a pure RESTful service. Some examples of use cases for controller resources are:</p>
+<ul>
+<li>When it is required to execute a processing function on the server from a set of inputs (client provided input or based on data from the server&rsquo;s information store or from an external information store).</li>
+<li>When it is required to combine one or more operations and execute them in an <a href="https://en.wikipedia.org/wiki/Atomicity_(database_systems)">atomic</a> fashion (aka a composite controller operation).</li>
+<li>When you want to hide a multi-step business process operation from a client to avoid unnecessary coupling between a client and server.</li>
+</ul>
+<h4 id="risks">Risks</h4>
+<ul>
+<li>Design scalability
+<ul>
+<li>When overused, the number of URIs can grow very quickly, as all permutations of root-level action can increase rapidly over time. This can also produce configuration complexity for routing/externalization.</li>
+<li>The URI cannot be extended past the action, which precludes any possibility of sub-resources.</li>
+</ul>
+</li>
+<li>Testability: highly compromised in comparison to <a href="#collection-resource">Collection Resource</a>-oriented designs (due the lack of corresponding <code>GET</code>/read operations).</li>
+<li>History: the ability to retrieve history for the given actions is forced to live in another resource (e.g. <code>/action-resource-history</code>), or not at all.</li>
+</ul>
+<h4 id="benefits">Benefits</h4>
+<ul>
+<li>Avoids corrupting collection resource model with transient data (e.g. comments on state changes etc).</li>
+<li>Usability improvement: there are cases where a complex operation simplifies client interaction, where the client does not benefit from resource retrieval.</li>
+</ul>
+<p>For further reading on <code>controller</code> concepts, please refer to section 2.6 of the <a href="http://techbus.safaribooksonline.com/book/web-development/web-services/9780596809140" title="RESTful Web Services Cookbook">RESTful Web Services Cookbook</a>.</p>
+<p>Below are the set of guidelines for modelling controller resources.</p>
+<h4 id="naming-of-a-controller-resource">Naming Of A Controller Resource</h4>
+<p>Because a controller operation represents an action or a processing function in the server, it is more intuitive to express it using an English verb, i.e. the action itself as the resource name. Verbs such as &lsquo;activate&rsquo;, &lsquo;cancel&rsquo;, &lsquo;validate&rsquo;, &lsquo;accept&rsquo;, and &lsquo;deny&rsquo; are usual suspects.</p>
+<p>There are many styles that you can use to define a controller resource. You can use one of the following styles when defining a controller resource.</p>
+<ul>
+<li>If the controller action is not associated with any resource context, you can express it as an independent resource at the namespace level (<code>/v1/credit/assess-eligibility</code>). This is typically only applicable for creating a variety of resources in an optimized operation. It is usually an anti-pattern.</li>
+<li>If the controller action is always in the context of a parent resource, then it should be expressed as a sub-resource (using a <code>/</code>) of the parent resource (e.g. <code>v1/identity/external-profiles/{id}/confirm</code>).</li>
+<li>When an action is in the context of a collection resource, express it as an independent resource at the namespace level. The controller resource name in such cases SHOULD be composed of the action (an English verb) that the controller represent and  the name of the collection resource. For example, if you want to express a search operation for deposits, the controller resource SHOULD read as <code>v1/customer/search-deposits</code>.</li>
+</ul>
+<p><strong>Note:</strong> A controller action is a terminal resource. A sub-resource for a controller resource is thus invalid. For the same reason, you SHOULD never define a sub-resource to a controller resource. It is also important to scope a controller to the minimum possible level of nesting in order to avoid resource pollution as such resources are use case or action centric.</p>
+<h4 id="http-methods-for-controller-resources">HTTP Methods For Controller Resources</h4>
+<p>In general, for most cases the HTTP <code>POST</code> method SHOULD be used as the default method for executing a controller operation.</p>
+<p>In scenarios where it is desired that the response of a controller operation be cache-able, <code>GET</code> SHOULD be used to execute the controller. For example,you can use a <code>GET</code> operation (<code>GET /calculate-shortest-path?from=x &amp;to=y</code>) to calculate the shortest path between two nodes (origin and destination). The result of the <code>GET</code> operation is a collection of routes and their maps so you would like to cache the map for future use (<code>GET /retrieve</code>).</p>
+<h4 id="http-status-codes-for-controller-resources">HTTP Status Codes For Controller Resources</h4>
+<p>In general, the following response codes can be used for a controller operation.</p>
+<p><code>200</code>- This is the default status code for any controller operation. The response MUST contain a body that describes the result of a controller operation.</p>
+<p><code>201</code>- If the controller operation leads to creation of a resource. If a composite controller is used to create one or more resources and it is not possible to expresss them as a composite record, you MAY instead use <code>200</code> as response code.</p>
+<p><code>204</code>- If the server declines to return anything as part of a controller action (Most of the out-of-band actions fall in this category. e.g. <code>v1/users/{id}/notify</code>).</p>
+<p>For errors, appropriate <code>4XX</code> or <code>5XX</code> error codes MAY be returned.</p>
+<p>Following sections provide some examples for modeling of controller resources to carry out various kinds of complex operations.</p>
+<!-- raw HTML omitted -->
+<p><em>NOTE: Use with caution</em></p>
+<p><em>For associated risks, see <a href="#controller-resource">Controller Resource</a> above</em></p>
+<p>There are often situations in which a canonical resource needs to impart certain actions or state changes which are not appropriate in a <code>PUT</code> or <code>PATCH</code>. These URIs look like other Sub-Resources, but imply action.</p>
+<p>A good use for this pattern is when a particular state change requires a &ldquo;comment&rdquo; (e.g. cancellation &ldquo;reason&rdquo;). Adding this comment, or other data such as location, would make the  <code>GET</code>/<code>PUT</code> unnecessarily include those extra fields on every request/response. This action may change the status of the given resource implicitly.</p>
+<p>Additionally, when a resource identifier is required for an action, it&rsquo;s best to keep it in the URL. Some actions are business processes which are not innately a resource (and in some cases might not even change resource state).</p>
+<p>The response is typically <code>200 OK</code> and the resource itself, if there are changes expected in the resource the consumer needs to capture. However, if no resource state change occurs, <code>204 No Content</code> and no response body could also be considered appropriate.</p>
+<h5 id="uri-template-5">URI Template</h5>
+<pre><code>POST /{version}/{namespace}/{resource}/{resource-id}/{complex-operation}
+</code></pre>
+<h6 id="example-request-4">Example Request</h6>
+<pre><code>POST /v1/payments/billing-agreements/I-0LN988D3JACS/suspend
+{
+    &quot;note&quot;: &quot;Suspending the agreement.&quot;
+}
+</code></pre><h6 id="example-response-2">Example Response</h6>
+<pre><code>204 No Content
+</code></pre><p>However, when state changes are imparted in this manner, it does not mean that all state changes for the given resource should use a complex operation. Simple state transitions (i.e. changes to a <code>status</code> field) should still utilize <code>PUT</code>/<code>PATCH</code>. It is completely appropriate to mix patterns using <code>PUT</code>/<code>PATCH</code> on a <a href="#collection-resource">Collection Resource</a> + Complex Operation, as to minimize the number of operations.</p>
+<h6 id="example-request-for-mixed-use-of-put">Example Request (for mixed use of <code>PUT</code>)</h6>
+<pre><code>PATCH /v1/payments/billing-agreements/I-0LN988D3JACS
+[
+    {
+        &quot;op&quot;: &quot;replace&quot;,
+        &quot;path&quot;: &quot;/&quot;,
+        &quot;value&quot;: {
+            &quot;description&quot;: &quot;New Description&quot;,
+            &quot;shipping_address&quot;: {
+                &quot;line1&quot;: &quot;2065 Hamilton Ave&quot;,
+                &quot;city&quot;: &quot;San Jose&quot;,
+                &quot;state&quot;: &quot;CA&quot;,
+                &quot;postal_code&quot;: &quot;95125&quot;,
+                &quot;country_code&quot;: &quot;US&quot;
+            }
+        }
+    }
+]
+</code></pre><p>Keep in mind that if there is any need to see the history of these actions, a <a href="#sub-resource-collection">Sub-resource Collection</a> is appropriate to show all of the prior executions of this action. In that case, the verb should be <a href="http://en.wikipedia.org/wiki/Reification_(computer_science)'"><em>reified</em></a>, or changed to a plural noun (e.g. &lsquo;execute&rsquo; would become &lsquo;executions&rsquo;).</p>
+<!-- raw HTML omitted -->
+<p>This type of complex operation creates/updates/deletes multiple resources in one operation. This serves as both a performance and usability optimization, as well as adding better atomicity when values in the request might affect multiple resources at the same time.</p>
+<p>Note in the sample below, the capture and the payment are both potentially affected by refund. A <code>PUT</code> or <code>PATCH</code> operation on the capture resource would have unintended side effects on the payment resource. To encapsulate both of these changes, the &lsquo;refund&rsquo; action is used.</p>
+<h5 id="uri-template-6">URI Template</h5>
+<pre><code>POST /{version}/{namespace}/{action}
+</code></pre>
+<h5 id="example-request-5">Example Request</h5>
+<pre><code>POST /v1/payments/captures/{capture-id}/refund
+</code></pre><h5 id="example-response-3">Example Response</h5>
+<pre><code>{
+    &quot;id&quot;: &quot;0P209507D6694645N&quot;,
+    &quot;create_time&quot;: &quot;2013-05-06T22:11:51Z&quot;,
+    &quot;update_time&quot;: &quot;2013-05-06T22:11:51Z&quot;,
+    &quot;state&quot;: &quot;completed&quot;,
+    &quot;amount&quot;: {
+        &quot;total&quot;: &quot;110.54&quot;,
+        &quot;currency&quot;: &quot;USD&quot;
+    },
+    &quot;capture_id&quot;: &quot;8F148933LY9388354&quot;,
+    &quot;parent_payment&quot;: &quot;PAY-8PT597110X687430LKGECATA&quot;,
+    &quot;links&quot;: [
+        {
+            &quot;href&quot;: &quot;https://api.foo.com/v1/payments/refund/0P209507D6694645N&quot;,
+            &quot;rel&quot;: &quot;self&quot;,
+            &quot;method&quot;: &quot;GET&quot;
+        },
+        {
+            &quot;href&quot;: &quot;https://api.foo.com/v1/payments/payment/PAY-8PT597110X687430LKGECATA&quot;,
+            &quot;rel&quot;: &quot;parent_payment&quot;,
+            &quot;method&quot;: &quot;GET&quot;
+        },
+        {
+            &quot;href&quot;: &quot;https://api.foo.com/v1/payments/capture/8F148933LY9388354&quot;,
+            &quot;rel&quot;: &quot;capture&quot;,
+            &quot;method&quot;: &quot;GET&quot;
+        }
+    ]
+}
+</code></pre><!-- raw HTML omitted -->
+<p>This type of complex operation does not maintain state for the client, and creates no resources. This is about as RPC as it gets; other alternatives should be considered first.</p>
+<p>This is not usually utilized in sub-resources, as a sub-resource action would typically affect the parent resource.</p>
+<p>HTTP status <code>200 OK</code> is always appropriate. Response body
+contains calculated values, which could potentially change if run again.</p>
+<p>As with all actions, <a href="##controller-alternative">resource-oriented alternatives</a> should be considered first.</p>
+<h5 id="uri-template-7">URI Template</h5>
+<pre><code>POST /{version}/{namespace}/{action}
+</code></pre>
+<h5 id="example-request-6">Example Request</h5>
+<pre><code>POST /v1/risk/evaluate-payment
+{
+    &quot;code&quot;: &quot;h43j5k6iop&quot;
+}
+</code></pre>
+<h6 id="example-response-4">Example Response</h6>
+<pre><code>200 OK
+{
+    &quot;status&quot;: &quot;VALID&quot;
+}
+</code></pre>
+<!-- raw HTML omitted -->
+<p>When <a href="#collection-resource">Collection Resources</a> are used, it is best to use query parameters on the collection to filter the set. However, there are some situations that demand a very complex search syntax, where query parameter filtering on a collection might present usability problems, or run up against theoretical query parameter length limitations.</p>
+<p>In these situations, <code>POST</code> can be utilized with a request object to specify the search parameters.</p>
+<h5 id="pagination">Pagination</h5>
+<p>Assuming pagination will be required with large response quantities, it is important to remember that the consumer will need to use <code>POST</code> on each subsequent page. As such, it&rsquo;s important to maintain paging in the query parameters (one of the rare exceptions where <code>POST</code> body + query parameters are utilized).</p>
+<p>Paging query parameters should follow the same conventions as in <a href="#pagination">Collection Resources</a>.</p>
+<p>This allows for hypermedia links to provide <code>next</code>, <code>previous</code>, <code>first</code>, <code>last</code> page relationships with paging specified in the URL.</p>
+<h5 id="uri-template-8">URI Template</h5>
+<pre><code>POST /{version}/{namespace}/{search-resource}
+</code></pre>
+<h5 id="example-request-7">Example Request</h5>
+<pre><code>POST /v1/factory/widgets-search
+{
+    &quot;created_before&quot;:&quot;1975-05-13&quot;,
+    &quot;status&quot;: &quot;ACTIVE&quot;,
+    &quot;vendor&quot;: &quot;Parts Inc.&quot;
+}
+</code></pre>
+<h5 id="example-response-5">Example Response</h5>
+<pre><code>200 OK
+{
+    &quot;items&quot;: [
+        &lt;&lt;lots of part objects here&gt;&gt;
+    ]
+    &quot;links&quot;: [
+            {
+                &quot;href&quot;: &quot;https://api.sandbox.factory.io/v1/factory/widgets-search?page=2&amp;page_size=10&quot;,
+                &quot;rel&quot;: &quot;next&quot;,
+                &quot;method&quot;: &quot;POST&quot;
+            },
+            {
+                &quot;href&quot;: &quot;https://api.sandbox.factory.io/v1/factory/widgets-search?page=124&amp;page_size=10&quot;,
+                &quot;rel&quot;: &quot;last&quot;,
+                &quot;method&quot;: &quot;POST&quot;
+            },
+    ]
+}
+</code></pre>
+<!-- raw HTML omitted -->
+<p>A better pattern is to create a <a href="#collection-resource">Collection Resource</a> of actions and provide a history of those actions taken in <code>GET /{actions}</code>. This allows for future expansion of use cases around a resource model, instead of a single action-oriented, RPC-style URL.</p>
+<p>Additionally, for various use cases, filtering the resource collection of historical actions is usually desirable. This also feeds well into <a href="http://martinfowler.com/eaaDev/EventSourcing.html">event sourcing</a> concepts, where the history of a given event can drive further functionality.</p>
+<!-- raw HTML omitted -->
+<p>Certains types of API operations require uploading a file (e.g. jpeg, png, pdf) as part of the API call. Services for such use cases, MUST not support or allow encoding the file content within a JSON body using <code>Base64</code> encoding.</p>
+<p>For uploading a file, one of the following options SHOULD be used.</p>
+<!-- raw HTML omitted -->
+<p>Services supporting such an operation SHOULD provide a separate dedicated URI for uploading and retrieving the files. Clients of such services upload the files using the file upload URI and retrieve the file metadata as part of the response to an upload operation.</p>
+<p>Format of the file upload request SHOULD conform to <code>multipart/form-data</code> content type (<a href="https://www.ietf.org/rfc/rfc2388.txt">RFC 2388</a>).</p>
+<p><strong>Example of a</strong> <code>multipart/form-data</code> <strong>request</strong>:</p>
+<p><em>The client first uploads the file using a file-upload URI provided by the service.</em></p>
+<pre><code>
+POST /v1/identity/limit-resolution-files
+
+Content-Type: multipart/form-data; boundary=--foo_bar_baz
+Authorization: Bearer YOUR_ACCESS_TOKEN_HERE
+MIME-Version: 1.0
+
+--foo_bar_baz
+Content-Type: text/plain
+Content-Disposition: form-data; name=&quot;title&quot;
+
+Identity Document
+--foo_bar_baz
+Content-Type: image/jpeg
+Content-Disposition: form-data; filename=&quot;passport.jpg&quot;; name=&quot;artifact&quot;
+
+...(binary bytes of the image)...
+--foo_bar_baz--
+</code></pre><p><strong>Sample file upload response:</strong></p>
+<p><em>If the file upload is successful, the server responds with the metadata of the uploaded file.</em></p>
+<pre><code>{
+    &quot;id&quot;: &quot;file_egflf465vbk7468mvnb&quot;,
+    &quot;created_at&quot;: 748557607545,
+    &quot;size&quot; : 3457689458369,
+    &quot;url&quot; : &quot;https://api.foo.com/v1/files/file_egflf465vbk7468mvnb&quot;
+    &quot;type&quot; : &quot;image/jpeg&quot; 
+}      
+</code></pre><p>The client can use the uploaded file&rsquo;s URI (received in the above response) for any subsequent operation that requires the uploaded file as shown below.</p>
+<p><strong>Example Request</strong></p>
+<pre><code>POST /v1/identity/limits-resolutions
+Host: api.foo.com
+Content-Type: application/json
+Authorization: Bearer oauth2_token
+
+{
+    ...
+    &quot;identity_document_reference&quot; : &quot;https://api.foo.com/v1/files/file_egflf465vbk7468mvnb&quot;
+
+}
+</code></pre><!-- raw HTML omitted -->
+<p>This option SHOULD be used if you have to combine the uploading of a file with an API request body or parameters in one API request (e.g. for the purpose of optimization or to process both the file upload and request data in an atomic manner).</p>
+<p>For such use cases, the request SHOULD either use content-type <code>multipart/mixed</code> or <code>multipart/related</code> (<a href="https://tools.ietf.org/html/rfc2387">RFC 2387</a>). Following is an example of such a request.</p>
+<p><strong>Example of a</strong> <code>multipart/related</code> <strong>request</strong>:</p>
+<p><em>The first part in the below multipart request is the request metadata, while the second part contains the binary file content</em></p>
+<pre><code>POST /v1/identity/limits-resolutions
+Host: api.foo.com
+Content-Type: multipart/related; boundary=--foo_bar_baz
+Authorization: Bearer oauth2_token
+
+--foo_bar_baz
+Content-Type: application/json; charset=UTF-8
+
+{
+  ...
+}
+
+--foo_bar_baz
+Content-Type: image/jpeg
+
+[JPEG_DATA]
+--foo_bar_baz--
+
+</code></pre><!-- raw HTML omitted -->
+<p>This section describes various use cases where HATEOAS could be used.</p>
+<p>As a guiding principle, every API SHOULD strive for a single entry point. Any response from this entry point will have <a href="index.md#hateoas">HATEOAS</a> links using which the client can navigate to all other methods on the same resource or releated resources and sub-resources. Following are different patterns for defining such an API entry point.</p>
+<!-- raw HTML omitted -->
+<p>For most APIs, there&rsquo;s a natural top level object or a collection which can be the resources addressed by the entry point. For example, the API defined in the previous section has a collection resource <code>/users</code> which can be the entry point URI.</p>
+<!-- raw HTML omitted -->
+<p>A complex multi step operation always has a logical entry point. For example, you want to build an API for a credit application process that involves multiple steps- a create application step, consumer consent step (to sign, agree to terms and conditions), an approval step- the last step of a successful credit application.</p>
+<ul>
+<li><code>/apply-credit</code> is the API&rsquo;s entry point. All other steps would be guided by the application create step in the from of links based on the captured data. For example a successful create application step would return the link to the next state of the application process <code>apply.sign</code>.</li>
+<li>An unsuccessful (application with incorrect data) MAY return only a link to send only the incorrect/missing data (e.g <code>PATCH</code> link).</li>
+</ul>
+<!-- raw HTML omitted -->
+<p>Consider an API that provides a set of independent controller style utility methods. For example, you want to build an identity API that provides the following utility methods.</p>
+<ul>
+<li>generate OTP (one time password)</li>
+<li>encrypt payload using a particular algorithm</li>
+<li>decrypt the payload, link tokens</li>
+</ul>
+<p>For such cases, the API MAY provide a separate resource <code>/actions</code> to return links to all resources that can be served by this API.</p>
+<p><code>GET /actions</code> in the above example would return links to other api methods (<code>/generate-otp</code>,<code>/encrypt</code>,<code>/decrypt</code>,<code>/link-tokens</code>).</p>
+<!-- raw HTML omitted -->
+<p>For collection resources, a service MAY automatically provide paginated collection. Client can also specify its pagination preferences, if the query resultset is quite large. In such cases, the resultset is returned as a paginated collection with appropriate pagination related links. Client utilizes these links to navigate through the resultset back-and-forth. For more details on this linking pattern, please refer to <a href="#page-navigation">Pagination and HATEOAS links</a>.</p>
+<!-- raw HTML omitted -->
+<p>There are often use cases where an API wants to provide additional context in case of error along with other error details (HTTP status code and error messages. See <a href="errors.md#errors">Error Standards</a> for more). An API could return additional resource links to provide more hints on the error in order to resolve it.</p>
+<p>Consider an example from the <code>/users</code> API where the user wants to update his address details.</p>
+<p><strong>Request</strong>:</p>
+<pre><code>
+PATCH /v1/users/ALT-JFWXHGUV7VI
+
+{
+    &quot;address&quot;: {
+        ...
+    }
+}
+
+</code></pre><p>The service, however, finds that the user account is currently not active. So it responds with an error that update of this account is not possible given the current state. It also returns an HATEOAS link in the response to activate the user account.</p>
+<p><strong>Response</strong>:</p>
+<pre><code>HTTP/1.1 422 Unprocessable Entity
+{  
+    &quot;name&quot;:&quot;INVALID_OPERATION&quot;,
+    &quot;debug_id&quot;:&quot;123456789&quot;,
+    &quot;message&quot;:&quot;update to an inactive account is not supported&quot;,
+    &quot;links&quot;: [
+        {
+            &quot;href&quot;: &quot;https://api.foo.com/v1/customer/partner-referrals/ALT-JFWXHGUV7VI/activate&quot;,
+            &quot;rel&quot;: &quot;activate&quot;,
+            &quot;method&quot;: &quot;POST&quot;
+        }
+    ]
+}
+
+</code></pre><p>The client can now prompt the user to first activate his account and then change his address details.</p>
+<!-- raw HTML omitted -->
+<p>In a complex business operation that has one or more sub business operations and business rules govern the state transitions at run-time, using HATEOAS links to describe or emit the allowed state transitions prevents clients from embedding the service-specific business logic into their code. Loose coupling or no coupling with server&rsquo;s business logic enables better evolvability for both client and server.</p>
+<p>For example, an order can be cancelled when it is in a PENDING state. The order cannot be cancelled once it moves to a COMPLETED state. Following example shows how a service can use HATEOAS links to guide clients about next possible step(s) in business process.</p>
+<!-- raw HTML omitted -->
+<p>Order is in PENDING state so the services returns the <code>cancel</code> HATEOAS link.</p>
+<h6 id="request">Request</h6>
+<pre><code>GET v1/checkout/orders/52181732T9513405D HTTP/1.1
+Host: api.foo.com
+Content-Type: application/json
+Authorization: Bearer oauth2_token
+</code></pre><h6 id="response">Response</h6>
+<pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+{
+    &quot;payment_details&quot;:{
+        ...
+    },
+    &quot;status&quot;:&quot;PENDING&quot;,
+    &quot;links&quot;:[
+        {
+            &quot;rel&quot;: &quot;self&quot;,
+            &quot;href&quot;: &quot;https://api.foo.com/v1/checkout/orders/19S86694A9334040A&quot;,
+            &quot;method&quot;: &quot;GET&quot;
+        },
+        {
+            &quot;rel&quot;: &quot;cancel&quot;,
+            &quot;href&quot;: &quot;https://api.foo.com/v1/checkout/orders/19S86694A9334040A/cancel&quot;,
+            &quot;method&quot;: &quot;POST&quot;
+        }
+     ]
+}
+</code></pre><!-- raw HTML omitted -->
+<p>Order is in COMPLETED state so the services does not return the <code>cancel</code> link anymore.</p>
+<h6 id="request-1">Request</h6>
+<pre><code>GET v1/checkout/orders/52181732T9513405D HTTP/1.1
+Host: api.foo.com
+Content-Type: application/json
+Authorization: Bearer oauth2_token
+</code></pre><h6 id="response-1">Response</h6>
+<pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+{
+    &quot;payment_details&quot;:{
+        ...
+    },
+    &quot;status&quot;:&quot;COMPLETED&quot;,
+    &quot;links&quot;:[
+        {
+            &quot;rel&quot;: &quot;self&quot;,
+            &quot;href&quot;: &quot;https://api.foo.com/v1/checkout/orders/19S86694A9334040A&quot;,
+            &quot;method&quot;: &quot;GET&quot;
+        }
+     ]
+}
+</code></pre><p>Note: The service MAY decide to support cancellation of orders (for orders with COMPLETED status) in some countries in future but that does not require the client to change anything in its code. All that a client knows or has coded when it first integrated with the service is the request body that is required to <code>cancel</code> an order.</p>
+<!-- raw HTML omitted -->
+<p>When an operation is carried out asynchronously, it is important to provide relevant links to client so that the client can find out more details about the operation such as finding out status or perform get, update and delete operations. Please refer to <a href="#asynchronous-operations">Asynchronous Operations</a> to find how the HATEOAS links could be used in response of an asynchronous operation.</p>
+<!-- raw HTML omitted -->
+<p>Some services always return very large response because of the nature of the domain they address. APIs of such services are sometimes referred as <code>Composite</code> APIs (they accumulate data from various sources or an aggregate of more than one services). For such APIs, sending the entire response drastically impacts performance of the API consumer, API server and the underlying network. In such cases, the client can ask the service to return partial representation using <a href="index.md#http-standard-headers"><code>Prefer: return=minimal</code></a> HTTP header. A service could send response with relevant HATEOAS links with minimal data to improve the performance.</p>
+<!-- raw HTML omitted -->
+<p>This section describes guidelines for handling bulk calls in APIs. There are two different methods that you could use for bulk processing.</p>
+<ul>
+<li>
+<p><strong>Homogeneous:</strong> operation involves request and response payload representing collection of resources of the same type. Same operation is applied on all items in the collection.</p>
+</li>
+<li>
+<p><strong>Heterogeneous:</strong> operation involves a request and response payloads that contain one or more requests and reponse payloads respectively. Each nested request and response represents an operation on a specific type of resource. However, the container request and response have one or more operations operating on one or more types of resources. It is recommended to use a public domain standard such as <em>[OData Batch Specification] <a href="http://www.odata.org/documentation/odata-version-3-0/batch-processing/" title="OData Batch Specification">1</a></em> in such cases.</p>
+</li>
+</ul>
+<p>This section only addresses bulk processing of payloads using the homogenous method.</p>
+<!-- raw HTML omitted -->
+<p>Each bulk request is a single HTTP request to one target API endpoint. This example illustrates a bulk add operation.</p>
+<p><strong>Example Request:</strong></p>
+<pre><code>POST /v1/devices/cards HTTP/1.1
+Host: api.foo.com
+Content-Length: total_content_length
+
+{
+	...
+
+  	&quot;items&quot;: [
+	{
+		&quot;account_number&quot;: &quot;2097094104180012037&quot;,
+		&quot;address_id&quot;: &quot;466354&quot;,
+		&quot;phone_id&quot;: &quot;0&quot;,
+		&quot;first_name&quot;: &quot;M&quot;,
+		&quot;last_name&quot;: &quot;Shriver&quot;,
+		&quot;primary_card_holder&quot;: false
+	},
+ 	{
+		&quot;account_number&quot;: &quot;2097094104180012047&quot;,
+		&quot;address_id&quot;: &quot;466354&quot;,
+		&quot;phone_id&quot;: &quot;0&quot;,
+		&quot;first_name&quot;: &quot;M&quot;,
+		&quot;last_name&quot;: &quot;Shriver&quot;,
+		&quot;primary_card_holder&quot;: false
+	},
+ 	{
+		&quot;account_number&quot;: &quot;2097094104180012023&quot;,
+		&quot;address_id&quot;: &quot;466354&quot;,
+		&quot;phone_id&quot;: &quot;0&quot;,
+		&quot;first_name&quot;: &quot;M&quot;,
+		&quot;last_name&quot;: &quot;Shriver&quot;,
+		&quot;primary_card_holder&quot;: false
+	}
+	]
+}
+</code></pre><!-- raw HTML omitted -->
+<p>The response usually contains the status of each item. Failure of an individual item is described using <em><a href="index.md#sampleresponse-bulk">Error Handling Guidelines</a></em> for an individual item. Given below is such an example.</p>
+<p><strong>Example Response:</strong></p>
+<pre><code>HTTP/1.1 200 OK
+
+{
+  ...
+  
+  &quot;batch_result&quot;:[
+	{
+		… &lt;Success_body&gt;
+	},
+	{ 
+  		&quot;name&quot;: &quot;VALIDATION_ERROR&quot;,
+   		&quot;details&quot;: [
+   		    {
+   		        &quot;field&quot;: &quot;#/credit_card/expire_month&quot;,
+   		        &quot;issue&quot;: &quot;Required field is missing&quot;,
+   		        &quot;location&quot;: &quot;body&quot;
+   		    }
+   		],
+   		&quot;debug_id&quot;: &quot;123456789&quot;,
+   		&quot;message&quot;: &quot;Invalid data provided&quot;,
+   		&quot;information_link&quot;: &quot;http://developer.foo.com/apidoc/blah#VALIDATION_ERROR&quot;
+	},
+
+	{ 
+   		&quot;name&quot;: &quot;VALIDATION_ERROR&quot;,
+   		&quot;details&quot;: [
+   		    {
+       	                &quot;field&quot;:&quot;#/credit_card/currency&quot;,
+                        &quot;value&quot;:&quot;XYZ&quot;,
+                        &quot;issue&quot;:&quot;Currency code is invalid&quot;,
+                        &quot;location&quot;:&quot;body&quot;
+                    }
+   		],
+   		&quot;debug_id&quot;: &quot;123456789&quot;,
+   		&quot;message&quot;: &quot;Invalid data provided&quot;,
+   		&quot;information_link&quot;: &quot;http://developer.foo.com/apidoc/blah#VALIDATION_ERROR&quot;
+	}
+ ]
+}
+</code></pre><p>If the API supports atomic semantics to processing requests, there would be a single response code for the entire request with one or more errors as applicable.</p>
+<p><strong>Example Response:</strong></p>
+<p><strong>Note</strong>:</p>
+<pre><code>HTTP/1.1 400 Bad Request
+
+{ 
+   &quot;name&quot;: &quot;VALIDATION_ERROR&quot;,
+   &quot;details&quot;: [
+      {
+         &quot;field&quot;: &quot;#/credit_card/currency&quot;,
+         &quot;value&quot;: &quot;XYZ&quot;,
+         &quot;issue&quot;: &quot;Currency code is invalid&quot;,
+         &quot;location&quot;: &quot;body&quot;
+      }
+   ],
+   &quot;debug_id&quot;: &quot;123456789&quot;,
+   &quot;message&quot;: &quot;Invalid data provided&quot;,
+   &quot;information_link&quot;: &quot;http://developer.foo.com/apidoc/blah#VALIDATION_ERROR&quot;
+}
+]
+</code></pre><!-- raw HTML omitted -->
+<p>Similar to bulk add, a service can support bulk update operation (replace using HTTP <code>PUT</code> or partial update using <code>PATCH</code>). This is possible provided the bulk add request also creates a first-class resource (e.g. a batch resource) that is uniquely identifiable using an id and returned to the client. The subsequent update operations could then use this id and perform updates on constituent elements of the batch as if an update is performed on a single resource.</p>
+<p>For bulk replace and update operations, every effort should be made to make the execution atomic (all or nothing semantics). When it is not possible to make it so, the response should be similar to the partial response of bulk add operation described in the previous section.</p>
+<!-- raw HTML omitted -->
+<p>Tne following guidelines describe HTTP status code and error handling for bulk operations.</p>
+<ul>
+<li>If atomicity is supported (all or nothing), use the regular REST API standards for error handling as there would be only one response code.</li>
+<li>To support partial failures, you MUST return <code>200 OK</code> as the overall bulk processing status with individual status of each bulk item. In case of an error while processing a bulk item, the error description MUST follow the Error Handling Guidelines.</li>
+<li>If asynchronous processing is supported, the API MUST return <code>202 Accepted</code> with a status URI for the client to monitor the request. The client may choose to ignore the status URI if it has registered itself with the API server for notification via webhooks.</li>
+</ul>
+<!-- raw HTML omitted -->
+<p>For a failed item, you MAY use the <em><a href="#json-pointer-expression">JSON Pointer Expressions</a></em> in the error response for that item using the <code>field</code> attribute of <a href="v1/schema/json/draft-04/error.json" title="error.json"><code>error.json</code></a>. The caller can then map a response item&rsquo;s processing state to the exact request item in the original bulk request. Given below is an error response sample using the JSON Pointer Expressions.</p>
+<p><strong>Error Response Sample:</strong></p>
+<pre><code>
+HTTP/1.1 200 OK
+
+[
+{
+	… &lt;Success_body&gt;
+},
+
+{ 
+   &quot;name&quot;: &quot;VALIDATION_ERROR&quot;,
+   &quot;details&quot;: [
+      {
+         &quot;field&quot;: &quot;/items/@account_number=='2097094104180012047'/address_id&quot;,
+         &quot;issue&quot;: &quot;Invalid Address Id for the account&quot;,
+         &quot;location&quot;: &quot;body&quot;
+      }
+   ],
+   &quot;debug_id&quot;: &quot;123456789&quot;,
+   &quot;message&quot;: &quot;Invalid data provided&quot;,
+   &quot;information_link&quot;: &quot;http://developer.foo.com/apidoc/blah#VALIDATION_ERROR&quot;
+},
+
+{ 
+   &quot;name&quot;: &quot;VALIDATION_ERROR&quot;,
+   &quot;details&quot;: [   
+   {
+       &quot;field&quot;: &quot;/items/@account_number=='2097094104180012023'/phone_id&quot;,
+       &quot;value&quot;: &quot;XYZ&quot;,
+       &quot;issue&quot;: &quot;Phone Id is invalid&quot;,
+       &quot;location&quot;: &quot;body&quot;
+   }
+   ],
+   &quot;debug_id&quot;: &quot;123456789&quot;,
+   &quot;message&quot;: &quot;Invalid data provided&quot;,
+   &quot;information_link&quot;: &quot;http://developer.foo.com/apidoc/blah#VALIDATION_ERROR&quot;
+}
+]
+
+</code></pre><p>The alternative is to create a response that contains the processing status of each item <strong>in the same order</strong> as it was received in the original request. The failed item would be represented using <code>error.json</code> with appropriate value in the <code>field</code> attribute.</p>
+<p><strong>Error Response Sample:</strong></p>
+<pre><code>
+HTTP/1.1 200 OK
+
+[
+{
+	… &lt;Success_body&gt;
+},
+
+{ 
+   &quot;name&quot;: &quot;VALIDATION_ERROR&quot;,
+   &quot;details&quot;: [
+      {
+         &quot;field&quot;: &quot;/items/0/address_id&quot;,
+         &quot;issue&quot;: &quot;Invalid Address Id for the account&quot;,
+         &quot;location&quot;: &quot;body&quot;
+      }
+   ],
+   &quot;debug_id&quot;: &quot;123456789&quot;,
+   &quot;message&quot;: &quot;Invalid data provided&quot;,
+   &quot;information_link&quot;: &quot;http://developer.foo.com/apidoc/blah#VALIDATION_ERROR&quot;
+},
+
+{ 
+   &quot;name&quot;: &quot;VALIDATION_ERROR&quot;,
+   &quot;details&quot;: [   
+   {
+       &quot;field&quot;: &quot;/items/2/phone_id&quot;,
+       &quot;value&quot;: &quot;XYZ&quot;,
+       &quot;issue&quot;: &quot;Phone Id is invalid&quot;,
+       &quot;location&quot;: &quot;body&quot;
+   }
+   ],
+   &quot;debug_id&quot;: &quot;123456789&quot;,
+   &quot;message&quot;: &quot;Invalid data provided&quot;,
+   &quot;information_link&quot;: &quot;http://developer.foo.com/apidoc/blah#VALIDATION_ERROR&quot;
+}
+]
+
+</code></pre><!-- raw HTML omitted -->
+<p>Designers of new services SHOULD refer to the <a href="http://techbus.safaribooksonline.com/book/web-development/web-services/9780596809140" title="RESTful Web Services Cookbook"><em>RESTful Web Services Cookbook</em></a> at Safari Books Online for other useful patterns.</p>
 
 
 
@@ -1440,8 +2695,159 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1581,24 +2987,6 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
                         
             
             
@@ -1647,6 +3035,9 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             
         
                     
+            
+        
+                    
                         
             
             
@@ -1657,11 +3048,10 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
                     
                     
+                        
+                    
                     
 
-                    
-            
-        
                     
                         
             
@@ -1737,58 +3127,6 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
                     
                     
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
                         
                     
                     
@@ -1798,92 +3136,6 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             
             
                 
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -1973,7 +3225,6 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             
                 
                     
-                    
                 
                 
 
@@ -1986,9 +3237,6 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -2216,10 +3464,10 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/api-methodology/public/shortcodes/children/children-1/children-1-1/children-1-1-1/children-1-1-1-1/children-1-1-1-1-1/" title="page 1-1-1-1-1"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/api-methodology/public/basics/api-design-guidelines/" title="API Design Guidelines"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/api-methodology/public/shortcodes/children/children-2/test3/" title="page test 3" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/api-methodology/public/basics/tooling/" title="Tooling" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
