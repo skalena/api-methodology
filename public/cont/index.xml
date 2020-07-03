@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>WSO2</title>
+      <title>WSO2 Micro EI - Creating APIs</title>
       <link>https://skalena.github.io/api-methodology/public/cont/wso2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -23,12 +23,12 @@ In This page, you will be able to find informations specialy related to Integrat
     </item>
     
     <item>
-      <title>Markdown syntax</title>
+      <title>Markdown Syntax</title>
       <link>https://skalena.github.io/api-methodology/public/cont/markdown/</link>
       <pubDate>Sat, 09 Apr 2016 16:50:16 +0200</pubDate>
       
       <guid>https://skalena.github.io/api-methodology/public/cont/markdown/</guid>
-      <description>This page is a shameful copy of the great Grav original page. Only difference is information about image customization (resizing, add CSS classes&amp;hellip;)
+      <description>This is the markup language that we use in this portal This page is a shameful copy of the great Grav original page. Only difference is information about image customization (resizing, add CSS classes&amp;hellip;)
  Let&amp;rsquo;s face it: Writing content for the Web is tiresome. WYSIWYG editors help alleviate this task, but they generally result in horrible code, or worse yet, ugly web pages.
 Markdown is a better way to write HTML, without all the complexities and ugliness that usually accompanies it.</description>
     </item>

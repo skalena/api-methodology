@@ -13,12 +13,11 @@
   </url>
   
   <url>
-    <loc>https://skalena.github.io/api-methodology/public/basics/</loc>
-    <lastmod>2016-04-09T16:50:16+02:00</lastmod>
+    <loc>https://skalena.github.io/api-methodology/public/cont/wso2/</loc>
   </url>
   
   <url>
-    <loc>https://skalena.github.io/api-methodology/public/cont/pages/</loc>
+    <loc>https://skalena.github.io/api-methodology/public/basics/</loc>
     <lastmod>2016-04-09T16:50:16+02:00</lastmod>
   </url>
   
@@ -37,16 +36,7 @@
   </url>
   
   <url>
-    <loc>https://skalena.github.io/api-methodology/public/cont/wso2/</loc>
-  </url>
-  
-  <url>
     <loc>https://skalena.github.io/api-methodology/public/cont/markdown/</loc>
-    <lastmod>2016-04-09T16:50:16+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/</loc>
     <lastmod>2016-04-09T16:50:16+02:00</lastmod>
   </url>
   
@@ -70,29 +60,8 @@
   </url>
   
   <url>
-    <loc>https://skalena.github.io/api-methodology/public/cont/i18n/</loc>
-    <lastmod>2016-04-09T16:50:16+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://skalena.github.io/api-methodology/public/</loc>
     <lastmod>2016-04-09T16:50:16+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/attachments/</loc>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/attachments.fr/</loc>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/button/</loc>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/button.fr/</loc>
   </url>
   
   <url>
@@ -100,91 +69,7 @@
   </url>
   
   <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/children/</loc>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/expand/</loc>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/expand.fr/</loc>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/mermaid/</loc>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/mermaid.fr/</loc>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/notice/</loc>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/notice.fr/</loc>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/children/children-1/</loc>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/children/children-1/children-1-1/</loc>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/children/children-1/children-1-1/children-1-1-1/</loc>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/children/children-1/children-1-1/children-1-1-1/children-1-1-1-1/</loc>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/children/children-1/children-1-1/children-1-1-1/children-1-1-1-1/children-1-1-1-1-1/</loc>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/children/children-2/</loc>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/children/children-3/</loc>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/children/children-4/</loc>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/children/test/</loc>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/children/test.fr/</loc>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/children/children-2/test3/</loc>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/children/children-2/test3.fr/</loc>
-  </url>
-  
-  <url>
     <loc>https://skalena.github.io/api-methodology/public/showcase/</loc>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/siteparam/</loc>
-  </url>
-  
-  <url>
-    <loc>https://skalena.github.io/api-methodology/public/shortcodes/siteparam.fr/</loc>
   </url>
   
   <url>
