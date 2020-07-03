@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.69.2" />
-    <meta name="description" content="This is a demo child page">
+    <meta name="description" content="">
 
 
     <link rel="icon" href="/api-methodology/public/images/favicon.png" type="image/png">
 
-    <title>page 1 :: Skalena : API Methodology</title>
+    <title>API Check-List and Auditing :: Skalena : API Methodology</title>
 
     
     <link href="/api-methodology/public/css/nucleus.css?1593735494" rel="stylesheet">
@@ -36,7 +36,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/api-methodology/public/shortcodes/children/children-1/">
+  <body class="" data-url="/api-methodology/public/basics/api-checklist/">
     <nav id="sidebar" class="">
 
 
@@ -129,7 +129,7 @@
   
     
     <li data-nav-id="/api-methodology/public/basics/" title="API First" class="dd-item 
-        
+        parent
         
         
         ">
@@ -288,8 +288,8 @@
   
     
     <li data-nav-id="/api-methodology/public/basics/api-checklist/" title="API Check-List and Auditing" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/api-methodology/public/basics/api-checklist/">
@@ -598,7 +598,7 @@
   
     
     <li data-nav-id="/api-methodology/public/shortcodes/" title="Working in Progress 2" class="dd-item 
-        parent
+        
         
         
         ">
@@ -711,7 +711,7 @@
   
     
     <li data-nav-id="/api-methodology/public/shortcodes/children/" title="Children" class="dd-item 
-        parent
+        
         
         
         ">
@@ -740,8 +740,8 @@
   
     
     <li data-nav-id="/api-methodology/public/shortcodes/children/children-1/" title="page 1" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/api-methodology/public/shortcodes/children/children-1/">
@@ -1299,13 +1299,7 @@
             
           
           
-            
-            
-          
-          
-            <a href='/api-methodology/public/'>Skalena API Methodology</a> > <a href='/api-methodology/public/shortcodes/'>Working in Progress 2</a> > <a href='/api-methodology/public/shortcodes/children/'>Children</a> > page 1
-          
-        
+            <a href='/api-methodology/public/'>Skalena API Methodology</a> > <a href='/api-methodology/public/basics/'>API First</a> > API Check-List and Auditing
           
         
           
@@ -1318,7 +1312,13 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#api-audit">API Audit</a></li>
+    <li><a href="#details-about-the-process">Details about the Process:</a></li>
+    <li><a href="#main-items-to-be-evaluated-in-according-to-the-document">Main items to be evaluated in according to the document</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -1334,7 +1334,7 @@
           
             <h1>
               
-              page 1
+              API Check-List and Auditing
             </h1>
           
 
@@ -1342,7 +1342,184 @@
 
 
 
-	<p>This is a demo child page</p>
+	<h2 id="api-audit">API Audit</h2>
+<p>API Audit is a method to ensure APIs are matching the API Design guidelines. It also helps check for usability, security and API management platform compatibility.</p>
+
+<div class="mermaid" align="left">
+graph LR;
+    A[Prototype] -->|API Auditing| B(Build Just Enough)
+    B --> C{Deliver}
+    C -->|Accepted| D[Moving Forward]
+    C -->|Not Accepted| E[Review Process]
+</div>
+
+<h2 id="details-about-the-process">Details about the Process:</h2>
+<ol>
+<li><strong>Prototype</strong> - Validate the prototype with the API Audit checklist. Please <a href="images/APIAudit_checklist.pdf">download the document here</a>.</li>
+<li><strong>Build Just Enough</strong> - Validate the API with  <a href="images/APIAudit_checklist.pdf">API Audit</a>. Use all criteria and check the API also live, with automated tests. Check status codes and errors match with designed.</li>
+<li><strong>Deliver</strong>: Validate the API with  <a href="images/APIAudit_checklist.pdf">API Audit</a>. Make sure your status codes match with changes made because of scaling (like async handling, caching etc.)</li>
+</ol>
+<h2 id="main-items-to-be-evaluated-in-according-to-the-document">Main items to be evaluated in according to the document</h2>
+<p><strong>API Management</strong></p>
+<ul>
+<li>API is published via API management</li>
+<li>API is visible in a Developer portal</li>
+<li>API can only be accessed via API management gateway</li>
+<li>Rate limits are enforced when requesting API</li>
+<li>Specification is maintained automatically when changes are done to API</li>
+<li>Specification for endpoints is validated on every change against
+standard specification</li>
+<li>Specification contains schema for the requests and responses</li>
+<li>Request and response schema and examples are validated for
+format and examples pass the schema validation</li>
+</ul>
+<p><strong>URIs</strong></p>
+<ul>
+<li>API uses HTTPS (or in special cases other stateless protocol with
+encryption)</li>
+<li>The API published under the organization’s official domain
+Visible domain is shared with other APIs (i.e the domain the API
+consumers see?)</li>
+<li>Endpoints are max 2-resources deep (Example
+/projects/123/tasks/345)
+Other naming styles in style guide have been applied</li>
+</ul>
+<p><strong>API has versioning</strong></p>
+<ul>
+<li>
+<p>Versioning strategy is best for the selected API management
+platform and for the primary API consumers?</p>
+</li>
+<li>
+<p>Major version is in URI (only if API management platform doesn&rsquo;t support versioning
+based on client subscription)</p>
+</li>
+<li>
+<p>API uses stateless processing (no sessions, OpenID connect
+tokens are ok)</p>
+</li>
+<li>
+<p>There is no special processing (asynchronous events)</p>
+</li>
+</ul>
+<p><strong>HTTP-methods</strong></p>
+<ul>
+<li>GET -requests don&rsquo;t have request bodies</li>
+<li>POST is used for creating and updating data?</li>
+<li>POST is used only in standard ways.</li>
+<li>PUT is used to create or replace entire resource?</li>
+<li>DELETE is used only to remove a resource?</li>
+</ul>
+<p>** HTTP status codes**</p>
+<ul>
+<li>404 is used for wrong URL</li>
+<li>400 - responses have additional information of the specific error
+(for example missing required attribute)</li>
+<li>401 - response is used when API consumer is using wrong
+credentials</li>
+<li>403 using endpoint which is valid but not accessible by the
+requesting API consumer or trying to use operation they are not
+allowed to do</li>
+<li>500 - response when there is an internal processing problem<br>
+which API consumer can not fix by changing the request</li>
+<li>500 - responses have application specific error code but not a<br>
+very clear plain message about exact error (stack trace or error<br>
+text) which could expose internal implementation to API<br>
+consumer</li>
+<li>GET: 200 OK and items -array as empty array</li>
+<li>GET: 204 empty response, nothing in the body</li>
+<li>POST: 200 OK for updates or submits without creating new<br>
+resources</li>
+<li>201 - response is combined with the identifier of the created<br>
+resource</li>
+<li>DELETE: 204 OK when removing resource was successful</li>
+</ul>
+<p><strong>Localization</strong></p>
+<ul>
+<li>Date- and time formats in UTC with time zone (ISO standard)</li>
+<li>Language and country codes used with ISO -standard codes?</li>
+<li>Other standard codes applied?</li>
+<li>Geocoordinates in ISO standard if used?</li>
+<li>Payload localization supported or localized values accessible with<br>
+API?</li>
+<li>Error message localization supported?</li>
+</ul>
+<p><strong>Additional security</strong></p>
+<ul>
+<li>
+<p>All endpoints are protected by at least a client specific API key<br>
+even if they are publicly available (anti-farming)?</p>
+</li>
+<li>
+<p>OpenID connect and JWT supported (session based<br>
+authentication)?</p>
+</li>
+<li>
+<p>Protect against CFRS? (allow API management developer portal<br>
+as origin to allow developers to try out the API via the portal user<br>
+interface)</p>
+</li>
+<li>
+<p>Inputs are validated? true</p>
+</li>
+<li>
+<p>Inputs are validated automatically by the coding framework used? true</p>
+</li>
+<li>
+<p>Outputs are escaped? true</p>
+</li>
+<li>
+<p>Outputs are escaped automatically by the coding framework<br>
+used?</p>
+</li>
+<li>
+<p>Need for encrypting data has been evaluated before<br>
+implementation? (country-specific privacy and other legal<br>
+requirements and business confidential requirements)</p>
+</li>
+<li>
+<p>Encryption of data in transit and data in storage has been<br>
+implemented according to the evaluated need?</p>
+</li>
+<li>
+<p>Need to detect message integrity has been evaluated before<br>
+implementation (typically using signed and encrypted JWT -<br>
+tokens as authentication and integrity ensured)?</p>
+</li>
+<li>
+<p>Message integrity has been implemented according to the<br>
+evaluated need?</p>
+</li>
+<li>
+<p>UUID used to identify object instead of internal ID? true</p>
+</li>
+<li>
+<p>Secured direct object references i.e. no sensitive information like<br>
+bank account numbers, social security numbers, person names<br>
+etc. in URL as resource names or query parameters?</p>
+</li>
+<li>
+<p>Specification contains examples in the standard format of the<br>
+requests and responses and API documentation is generated<br>
+automatically based on the specification, schema and examples<br>
+POST, PUT: 201 Created for creating new resource true</p>
+</li>
+<li>
+<p>400 bad requests from the client, for example a required query<br>
+parameter was missing</p>
+</li>
+<li>
+<p>Whitelisting: POST, PUT and DELETE are only available for<br>
+resources which API consumer can manipulate?</p>
+</li>
+<li>
+<p>GET requests with longest endpoint-hierarchy and multiple query<br>
+parameters with long values don&rsquo;t exceed 2000 of URI length?<br>
+(Some older clients and browsers may have this type of limit,<br>
+although it is not official limit and newer clients can handle it well)</p>
+</li>
+</ul>
+<p>Reference: <a href="https://www.apiopscycles.com/">https://www.apiopscycles.com/</a></p>
 
 
 
@@ -1383,6 +1560,125 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                         
                         
                     
@@ -1492,120 +1788,6 @@
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
             
             
@@ -1694,7 +1876,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1709,9 +1890,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1777,7 +1955,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1793,7 +1970,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1808,9 +1984,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -2124,10 +2297,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/api-methodology/public/shortcodes/children/" title="Children"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/api-methodology/public/basics/api-best-practices/" title="APIs Design Best Practices"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/api-methodology/public/shortcodes/children/children-1/children-1-1/" title="page 1-1" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/api-methodology/public/cont/" title="Working in Progress" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
