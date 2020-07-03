@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.69.2" />
-    <meta name="description" content="Message pour vous aider à structurer votre contenu">
+    <meta name="description" content="">
 
 
     <link rel="icon" href="/api-methodology/public/images/favicon.png" type="image/png">
 
-    <title>Notice :: Skalena : API Methodology</title>
+    <title>WSO2 :: Skalena : API Methodology</title>
 
     
     <link href="/api-methodology/public/css/nucleus.css?1593752737" rel="stylesheet">
@@ -36,7 +36,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/api-methodology/public/shortcodes/notice.fr/">
+  <body class="" data-url="/api-methodology/public/cont/wso2/">
     <nav id="sidebar" class="">
 
 
@@ -327,7 +327,7 @@
   
     
     <li data-nav-id="/api-methodology/public/cont/" title="Technical Samples" class="dd-item 
-        
+        parent
         
         
         ">
@@ -381,7 +381,7 @@
  
   
     
-      <li data-nav-id="/api-methodology/public/cont/wso2/" title="WSO2" class="dd-item ">
+      <li data-nav-id="/api-methodology/public/cont/wso2/" title="WSO2" class="dd-item active">
         <a href="/api-methodology/public/cont/wso2/">
         WSO2
         
@@ -457,7 +457,7 @@
   
     
     <li data-nav-id="/api-methodology/public/shortcodes/" title="Working in Progress 2" class="dd-item 
-        parent
+        
         
         
         ">
@@ -1039,7 +1039,7 @@
  
   
     
-      <li data-nav-id="/api-methodology/public/shortcodes/notice.fr/" title="Notice" class="dd-item active">
+      <li data-nav-id="/api-methodology/public/shortcodes/notice.fr/" title="Notice" class="dd-item ">
         <a href="/api-methodology/public/shortcodes/notice.fr/">
         Notice
         
@@ -1158,7 +1158,7 @@
             
           
           
-            <a href='/api-methodology/public/'>Skalena API Methodology</a> > <a href='/api-methodology/public/shortcodes/'>Working in Progress 2</a> > Notice
+            <a href='/api-methodology/public/'>Skalena API Methodology</a> > <a href='/api-methodology/public/cont/'>Technical Samples</a> > WSO2
           
         
           
@@ -1173,14 +1173,15 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#pre-requirements">Pre-requirements</a></li>
+    <li><a href="#1-configuring-visual-studio-code">1. Configuring Visual Studio Code</a>
       <ul>
-        <li><a href="#note">Note</a></li>
-        <li><a href="#info">Info</a></li>
-        <li><a href="#tip">Tip</a></li>
-        <li><a href="#warning">Warning</a></li>
+        <li></li>
       </ul>
     </li>
+    <li><a href="#archetypes-chapter">Chapter</a></li>
+    <li><a href="#default">Default</a></li>
   </ul>
 </nav>
     </div>
@@ -1198,51 +1199,87 @@
           
             <h1>
               
-              Notice
+              WSO2
             </h1>
           
 
         
 
 
-<p>Le shortcode <em>Notice</em> permet d&rsquo;afficher 4 types de message pour vous aider à structurer votre contenu.</p>
-<h3 id="note">Note</h3>
-<pre><code>{{% notice note %}}
-Une notice de type *note*
-{{% /notice %}}
-</code></pre><p>s&rsquo;affiche comme</p>
+<h2 id="introduction">Introduction</h2>
+<p>WSO2 is an opensource vendor that delivers a platform which counts with a component for integration (Enterprise Integrator), API Manager and Identity Server for IAM - Identity and Access Manager.</p>
+<p><strong>Skalena</strong>  counts with the WSO2 pioneers in Latin America, responsible for more than 30 sucessful deployments in Mexico, Argentina, Colombia, Ecuador and Brazil.</p>
+<p>In This page, you will be able to find informations specialy related to Integration and API Best practices.</p>
+<h2 id="pre-requirements">Pre-requirements</h2>
+<p>Please, make sure you have the following components installed into your computer:</p>
+<ul>
+<li>Visual Studio Code</li>
+<li>Docker</li>
+<li>JDK 1.8 or 11</li>
+<li>Maven</li>
+</ul>
 
-<div class="notices note" ><p>Une notice de type <em>note</em></p>
+<div class="notices info" ><p>If you are using Windows, and the version does not supports docker, we recommend you to use Vagrant to setup/run a VM Box into your machine, or to run a linux CentOs or Ubuntu into a VM in VirtualBox or VMWare.</p>
 </div>
 
-<h3 id="info">Info</h3>
-<pre><code>{{% notice info %}}
-Une notice de type *info*
-{{% /notice %}}
-</code></pre><p>s&rsquo;affiche comme</p>
+<h2 id="1-configuring-visual-studio-code">1. Configuring Visual Studio Code</h2>
+<p>Please, make sure that your Visual Studio is properly configured to use Java, Maven and please, install the WSO2 Extension for Integration.</p>
+<p>Here are the information about Visual Studio Code: <a href="https://marketplace.visualstudio.com/items?itemName=WSO2.wso2ei">https://marketplace.visualstudio.com/items?itemName=WSO2.wso2ei</a>.</p>
+<h4 id="requirements">Requirements:</h4>
+<ul>
+<li>Java JDK 8 at least</li>
+<li>The  <code>JAVA_HOME</code>  environment variable must be set</li>
+<li><strong>Note:</strong>  The path should end at the parent folder that contains the  <code>bin</code>folder.
+<ul>
+<li><strong>Example Path:</strong>  <code>/usr/lib/jvm/java-1.8.0</code>  if  <code>bin</code>  exists at  <code>/usr/lib/jvm/java-1.8.0/bin</code></li>
+</ul>
+</li>
+<li><a href="https://maven.apache.org/download.cgi">Maven 3.5.0 or later</a></li>
+</ul>
+<h4 id="quick-start">Quick Start:</h4>
+<ul>
+<li><strong>Step 1.</strong>  Install the Synapse extension for Visual Studio Code.</li>
+<li><strong>Step 2.</strong>  Open or create a Synapse Project and start integration!
+<ul>
+<li>Extension is activated when you first access an xml file or via the command  <code>WSO2EI: Activate WSO2 EI Tooling</code>  through command palette</li>
+</ul>
+</li>
+</ul>
+<h4 id="useful-commands">Useful Commands:</h4>
+<p>Open the Command Palette ( [Command] + [Shift] + [P] on macOS and [Ctrl] + [Shift] + [P] on Windows/Linux) and type in one of the following commands:</p>
+<p><img src="https://raw.githubusercontent.com/wso2/ei-tooling-vscode/master/vscode-plugin/docs/AutoCompletion.gif" alt="enter image description here"></p>
+<h2 id="archetypes-chapter">Chapter</h2>
+<p>To create a Chapter page, run the following commands</p>
+<pre><code>hugo new --kind chapter &lt;name&gt;/_index.md
+</code></pre><p>It will create a page with predefined Front-Matter:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">+++
+title = &#34;{{ replace .Name &#34;-&#34; &#34; &#34; | title }}&#34;
+date = {{ .Date }}
+weight = 5
+chapter = true
+pre = &#34;&lt;<span style="color:#f92672">b</span>&gt;X. &lt;/<span style="color:#f92672">b</span>&gt;&#34;
++++
 
-<div class="notices info" ><p>Une notice de type <em>info</em></p>
-</div>
+<span style="color:#75715e">### Chapter X
+</span><span style="color:#75715e"></span>
+# Some Chapter title
 
-<h3 id="tip">Tip</h3>
-<pre><code>{{% notice tip %}}
-Une notice de type *tip*
-{{% /notice %}}
-</code></pre><p>s&rsquo;affiche comme</p>
+Lorem Ipsum.
+</code></pre></div><h2 id="default">Default</h2>
+<p>To create a default page, run either one of the following commands</p>
+<pre><code># Either
+hugo new &lt;chapter&gt;/&lt;name&gt;/_index.md
+# Or
+hugo new &lt;chapter&gt;/&lt;name&gt;.md
+</code></pre><p>It will create a page with predefined Front-Matter:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">+++
+title = &#34;{{ replace .Name &#34;-&#34; &#34; &#34; | title }}&#34;
+date =  {{ .Date }}
+weight = 5
++++
 
-<div class="notices tip" ><p>Une notice de type <em>tip</em></p>
-</div>
-
-<h3 id="warning">Warning</h3>
-<pre><code>{{% notice warning %}}
-Une notice de type *warning*
-{{% /notice %}}
-</code></pre><p>s&rsquo;affiche comme</p>
-
-<div class="notices warning" ><p>Une notice de type <em>warning</em></p>
-</div>
-
-
+Lorem Ipsum.
+</code></pre></div>
 
 <footer class="footline">
 	
@@ -1428,88 +1465,6 @@ Une notice de type *warning*
             
                 
                     
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -1545,21 +1500,6 @@ Une notice de type *warning*
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1577,137 +1517,8 @@ Une notice de type *warning*
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
                         
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1749,51 +1560,10 @@ Une notice de type *warning*
 
                     
                     
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
                     
                     
 
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
                     
                         
             
@@ -1869,6 +1639,122 @@ Une notice de type *warning*
 
                     
                     
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
                     
 
                     
@@ -1880,6 +1766,45 @@ Une notice de type *warning*
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1897,8 +1822,120 @@ Une notice de type *warning*
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1939,10 +1976,10 @@ Une notice de type *warning*
 	 
 	 
 		
-			<a class="nav nav-prev" href="/api-methodology/public/shortcodes/notice/" title="Notice"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/api-methodology/public/cont/pages/" title="Pages organization"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/api-methodology/public/shortcodes/siteparam/" title="Site param" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/api-methodology/public/cont/markdown/" title="Markdown syntax" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
