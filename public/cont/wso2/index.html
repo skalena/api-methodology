@@ -12,21 +12,21 @@
     <title>WSO2 :: Skalena : API Methodology</title>
 
     
-    <link href="/api-methodology/public/css/nucleus.css?1593752737" rel="stylesheet">
-    <link href="/api-methodology/public/css/fontawesome-all.min.css?1593752737" rel="stylesheet">
-    <link href="/api-methodology/public/css/hybrid.css?1593752737" rel="stylesheet">
-    <link href="/api-methodology/public/css/featherlight.min.css?1593752737" rel="stylesheet">
-    <link href="/api-methodology/public/css/perfect-scrollbar.min.css?1593752737" rel="stylesheet">
-    <link href="/api-methodology/public/css/auto-complete.css?1593752737" rel="stylesheet">
-    <link href="/api-methodology/public/css/atom-one-dark-reasonable.css?1593752737" rel="stylesheet">
-    <link href="/api-methodology/public/css/theme.css?1593752737" rel="stylesheet">
-    <link href="/api-methodology/public/css/hugo-theme.css?1593752737" rel="stylesheet">
+    <link href="/api-methodology/public/css/nucleus.css?1593754353" rel="stylesheet">
+    <link href="/api-methodology/public/css/fontawesome-all.min.css?1593754353" rel="stylesheet">
+    <link href="/api-methodology/public/css/hybrid.css?1593754353" rel="stylesheet">
+    <link href="/api-methodology/public/css/featherlight.min.css?1593754353" rel="stylesheet">
+    <link href="/api-methodology/public/css/perfect-scrollbar.min.css?1593754353" rel="stylesheet">
+    <link href="/api-methodology/public/css/auto-complete.css?1593754353" rel="stylesheet">
+    <link href="/api-methodology/public/css/atom-one-dark-reasonable.css?1593754353" rel="stylesheet">
+    <link href="/api-methodology/public/css/theme.css?1593754353" rel="stylesheet">
+    <link href="/api-methodology/public/css/hugo-theme.css?1593754353" rel="stylesheet">
     
-    <link href="/api-methodology/public/css/theme-blue.css?1593752737" rel="stylesheet">
+    <link href="/api-methodology/public/css/theme-blue.css?1593754353" rel="stylesheet">
     
     
 
-    <script src="/api-methodology/public/js/jquery-3.3.1.min.js?1593752737"></script>
+    <script src="/api-methodology/public/js/jquery-3.3.1.min.js?1593754353"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/api-methodology/public/js/lunr.min.js?1593752737"></script>
-<script type="text/javascript" src="/api-methodology/public/js/auto-complete.js?1593752737"></script>
+<script type="text/javascript" src="/api-methodology/public/js/lunr.min.js?1593754353"></script>
+<script type="text/javascript" src="/api-methodology/public/js/auto-complete.js?1593754353"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/skalena.github.io\/api-methodology\/public\/";
     
 </script>
-<script type="text/javascript" src="/api-methodology/public/js/search.js?1593752737"></script>
+<script type="text/javascript" src="/api-methodology/public/js/search.js?1593754353"></script>
 
     
   </div>
@@ -1178,6 +1178,21 @@
     <li><a href="#1-configuring-visual-studio-code">1. Configuring Visual Studio Code</a>
       <ul>
         <li></li>
+        <li><a href="#recipe-code">Recipe Code</a></li>
+      </ul>
+    </li>
+    <li><a href="#skalena-recipes---wso2-01">Skalena Recipes - WSO2 01</a></li>
+    <li><a href="#building">Building</a>
+      <ul>
+        <li><a href="#building-the-project-and-docker-image-ei-microintegrator">Building the Project and Docker Image (EI Microintegrator)</a></li>
+        <li><a href="#running-the-docker-image--ei-microintegrator">Running the Docker Image  (EI Microintegrator)</a></li>
+        <li><a href="#handling-docker">Handling Docker</a></li>
+      </ul>
+    </li>
+    <li><a href="#testing">Testing</a>
+      <ul>
+        <li><a href="#api-façade">API Façade</a></li>
+        <li><a href="#benchmark">Benchmark</a></li>
       </ul>
     </li>
     <li><a href="#archetypes-chapter">Chapter</a></li>
@@ -1248,6 +1263,235 @@
 <h4 id="useful-commands">Useful Commands:</h4>
 <p>Open the Command Palette ( [Command] + [Shift] + [P] on macOS and [Ctrl] + [Shift] + [P] on Windows/Linux) and type in one of the following commands:</p>
 <p><img src="https://raw.githubusercontent.com/wso2/ei-tooling-vscode/master/vscode-plugin/docs/AutoCompletion.gif" alt="enter image description here"></p>
+<h3 id="recipe-code">Recipe Code</h3>
+<p>Please, clone the recipe from here: <a href="https://github.com/skalena/recipes/tree/master/wso2-ei-micro-01/skalena-recipes">https://github.com/skalena/recipes/tree/master/wso2-ei-micro-01/skalena-recipes</a></p>
+<p>Here a little about the execution:</p>
+<h2 id="skalena-recipes---wso2-01">Skalena Recipes - WSO2 01</h2>
+<p>Target Recipes:</p>
+<ul>
+<li>Simple API</li>
+<li>Benchmarks</li>
+<li>API Façade Samples</li>
+</ul>
+<p>Please refer to this content in terms of pre-requirements:</p>
+<h2 id="building">Building</h2>
+<p>Clone the recipes repo:</p>
+<pre><code>git clone https://github.com/skalena/recipes
+</code></pre>
+<p>Go to this folder sample: <code>wso2-ei-micro-01/skalena-recipes</code> and from there open the Visual Studio, you can type <code>code .</code> , if your Visual Studio is well-configured.</p>
+<h3 id="building-the-project-and-docker-image-ei-microintegrator">Building the Project and Docker Image (EI Microintegrator)</h3>
+<p>Simple type: <code>./buildDockerImage.sh</code>  , done.</p>
+<h3 id="running-the-docker-image--ei-microintegrator">Running the Docker Image  (EI Microintegrator)</h3>
+<p>Simple type: <code>./runDockerImage.sh</code>  , done.
+The execution will show something like:</p>
+<pre><code>....... Running Docker image now ....
+f7d0daadb9d5f682699ae9850e68c0c0d6a35c3078ab65e99ad1ad7d391cda09
+</code></pre>
+<h3 id="handling-docker">Handling Docker</h3>
+<p>In order to know which containers are running, you can type: <code>docker ps</code> .  Then you will see a console output like similar to this:
+docker ps</p>
+<pre><code>CONTAINER ID  IMAGE  COMMAND  CREATED STATUS  PORTS  NAMES
+
+[here will be your id] skalena:recipe-ei-01 &quot;/home/wso2carbon/do…&quot; 41 seconds ago  Up 40 seconds 0.0.0.0:8290-&gt;8290/tcp, 8253/tcp, 0.0.0.0:9164-&gt;9164/tcp jovial_blackwell
+</code></pre>
+<p>In order to see the logs you have to execute <code>docker logs -f &lt;your-container-id-execution&gt;</code></p>
+<p>And then you will see the logs pretty much like this:</p>
+<pre><code>$ docker logs -f f7d0daadb9d5
+
+[2020-07-03 05:10:02,204]  INFO {org.apache.synapse.deployers.SequenceDeployer} - Sequence named 'provider-acme' has been deployed from file : /home/wso2carbon/wso2mi-1.1.0/tmp/carbonapps/-1234/1593753002167skalena-recipes_1.0-SNAPSHOT.car/provider-acme.xml_1.0-SNAPSHOT/provider-acme.xml-1.0-SNAPSHOT.xml
+
+[2020-07-03 05:10:02,215]  INFO {org.apache.synapse.deployers.SequenceDeployer} - Sequence named 'provider-tabajara' has been deployed from file : /home/wso2carbon/wso2mi-1.1.0/tmp/carbonapps/-1234/1593753002167skalena-recipes_1.0-SNAPSHOT.car/provider-tabajara.xml_1.0-SNAPSHOT/provider-tabajara.xml-1.0-SNAPSHOT.xml
+
+[2020-07-03 05:10:02,221]  INFO {org.apache.synapse.deployers.SequenceDeployer} - Sequence named 'sequence-fault-facade' has been deployed from file : /home/wso2carbon/wso2mi-1.1.0/tmp/carbonapps/-1234/1593753002167skalena-recipes_1.0-SNAPSHOT.car/sequence-fault-facade.xml_1.0-SNAPSHOT/sequence-fault-facade.xml-1.0-SNAPSHOT.xml
+
+[2020-07-03 05:10:02,241]  INFO {org.apache.synapse.rest.API} - Initializing API: simple_api
+
+[2020-07-03 05:10:02,242]  INFO {API_LOGGER.simple_api} - Initializing API: simple_api
+
+[2020-07-03 05:10:02,247]  INFO {org.apache.synapse.deployers.APIDeployer} - API named 'simple_api' has been deployed from file : /home/wso2carbon/wso2mi-1.1.0/tmp/carbonapps/-1234/1593753002167skalena-recipes_1.0-SNAPSHOT.car/simple_api_1.0-SNAPSHOT/simple_api-1.0-SNAPSHOT.xml
+
+[2020-07-03 05:10:02,275]  INFO {org.apache.synapse.rest.API} - Initializing API: facade
+
+[2020-07-03 05:10:02,276]  INFO {API_LOGGER.facade} - Initializing API: facade
+
+[2020-07-03 05:10:02,277]  INFO {org.apache.synapse.core.axis2.Axis2SynapseEnvironment} - Continuation call is set to true
+
+[2020-07-03 05:10:02,278]  INFO {org.apache.synapse.deployers.APIDeployer} - API named 'facade' has been deployed from file : /home/wso2carbon/wso2mi-1.1.0/tmp/carbonapps/-1234/1593753002167skalena-recipes_1.0-SNAPSHOT.car/facade_1.0-SNAPSHOT/facade-1.0-SNAPSHOT.xml
+
+[2020-07-03 05:10:02,279]  INFO {org.wso2.micro.integrator.initializer.deployment.application.deployer.CAppDeploymentManager} - Successfully Deployed Carbon Application : skalena-recipesCompositeApplication_1.0-SNAPSHOT{super-tenant}
+
+[2020-07-03 05:10:02,339]  INFO {org.apache.synapse.transport.passthru.core.PassThroughListeningIOReactorManager} - Pass-through HTTP Listener started on 0.0.0.0:8290
+
+[2020-07-03 05:10:02,339]  INFO {org.apache.axis2.transport.mail.MailTransportListener} - MAILTO listener started
+
+[2020-07-03 05:10:02,343]  INFO {org.apache.synapse.transport.passthru.core.PassThroughListeningIOReactorManager} - Pass-through HTTPS Listener started on 0.0.0.0:8253
+
+[2020-07-03 05:10:02,345]  INFO {org.wso2.micro.integrator.initializer.StartupFinalizer} - WSO2 Micro Integrator started in 9 seconds
+
+[2020-07-03 05:10:02,415]  WARN {org.wso2.micro.integrator.management.apis.ManagementInternalApi} - Micro Integrator Management REST API is enabled
+
+[2020-07-03 05:10:02,487]  INFO {org.apache.synapse.transport.passthru.core.PassThroughListeningIOReactorManager} - Pass-through EI_INTERNAL_HTTPS_INBOUND_ENDPOINT Listener started on 0.0.0.0:9164
+</code></pre>
+<h2 id="testing">Testing</h2>
+<p>Now let&rsquo;s test our stuff,  first, let&rsquo;s try the simple_api API call:</p>
+<pre><code>curl http://localhost:8290/simple_api -v 
+</code></pre>
+<p>Response:</p>
+<pre><code>* Connected to localhost (::1) port 8290 (#0)
+
+&gt; GET /simple_api HTTP/1.1
+
+&gt; Host: localhost:8290
+
+&gt; User-Agent: curl/7.64.1
+
+&gt; Accept: */*
+
+&lt; HTTP/1.1 200 OK
+
+&lt; Accept: */*
+
+&lt; Access-Control-Allow-Methods: GET
+
+&lt; Host: localhost:8290
+
+&lt; Access-Control-Allow-Headers:
+
+&lt; Content-Type: application/json; charset=UTF-8
+
+&lt; Date: Fri, 03 Jul 2020 05:16:03 GMT
+
+&lt; Transfer-Encoding: chunked
+
+* Connection #0 to host localhost left intact
+
+{&quot;message&quot;:{&quot;msg&quot;:&quot; That is the message back from WSO2 Micro EI at 2020-07-03T05:16:03 &quot;}}* 
+</code></pre>
+<h3 id="api-façade">API Façade</h3>
+<p>Now , let&rsquo;s execute the API Façade via API URI parameter (provider==acme): <code>curl http://localhost:8290/api-facade/provider/acme -v</code></p>
+<p>Reponse:</p>
+<pre><code>&lt; HTTP/1.1 200 OK
+&lt; Accept: */*   
+&lt; Access-Control-Allow-Methods: GET   
+&lt; Host: localhost:8290   
+&lt; Access-Control-Allow-Headers    
+&lt; Content-Type: application/json; charset=UTF-8   
+&lt; Connection: Close   
+&lt; Date: Fri, 03 Jul 2020 05:18:47 GMT  
+&lt; Transfer-Encoding: chunked
+* Closing connection 0
+
+{&quot;resultado&quot;:{&quot;msg&quot;:&quot;ACME&quot;}}
+</code></pre>
+<p>Now, let&rsquo;s execute passing the provider via HTTP Header:</p>
+<pre><code>curl http://localhost:8290/api-facade/provider -v -H &quot;X-Skalena-Provider:acme&quot;
+</code></pre>
+<p>Response:</p>
+<pre><code>&gt; X-Skalena-Provider:acme
+&lt; HTTP/1.1 200 OK
+&lt; Accept: */*
+&lt; Access-Control-Allow-Methods: GET
+&lt; X-Skalena-Provider: acme
+&lt; Host: localhost:8290
+&lt; Access-Control-Allow-Headers:
+&lt; Content-Type: application/json; charset=UTF-8
+&lt; Date: Fri, 03 Jul 2020 05:22:38 GMT
+&lt; Transfer-Encoding: chunked
+{&quot;resultado&quot;:{&quot;msg&quot;:&quot;ACME&quot;}}
+</code></pre>
+<p>Now, let&rsquo;s simulate a call where the provider does not exists:</p>
+<pre><code>curl http://localhost:8290/api-facade/provider -v -H &quot;X-Skalena-Provider:mesbla&quot;
+</code></pre>
+<p>Response:</p>
+<pre><code>&gt; X-Skalena-Provider:mesbla
+&lt; HTTP/1.1 404 Provider not found!
+&lt; api-error-client: Provider not found, please refer to an existing one and see the logs
+&lt; Accept: */*
+&lt; Access-Control-Allow-Methods: GET
+&lt; X-Skalena-Provider: mesbla
+&lt; Host: localhost:8290
+&lt; Access-Control-Allow-Headers:
+&lt; Content-Type: application/json; charset=UTF-8
+&lt; Date: Fri, 03 Jul 2020 05:24:08 GMT
+
+Connection #0 to host localhost left intact
+
+{&quot;error&quot;:{&quot;msg&quot;:&quot;Sequence named Value {name ='null', expression =get-property('provider')} cannot be found&quot;,&quot;provider&quot;:&quot;provider-mesbla&quot;}}* 
+</code></pre>
+<h3 id="benchmark">Benchmark</h3>
+<p>Please, just call the shell script: ./benchmark.sh , and that&rsquo;s all, you will see 1000 calls with 100 concurrents clients, you will a result like that:</p>
+<pre><code>This is ApacheBench, Version 2.3 &lt;$Revision: 1843412 $&gt;
+
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+
+Server Software:
+
+Server Hostname: localhost
+
+Server Port: 8290
+
+Document Path: /simple_api
+
+Document Length: 90 bytes
+
+Concurrency Level: 100
+
+Time taken for tests: 10.802 seconds
+
+Complete requests: 1000
+
+Failed requests: 0
+
+Total transferred: 314000 bytes
+
+HTML transferred: 90000 bytes
+
+Requests per second: 92.58 [#/sec] (mean)
+
+Time per request: 1080.181 [ms] (mean)
+
+Time per request: 10.802 [ms] (mean, across all concurrent requests)
+
+Transfer rate: 28.39 [Kbytes/sec] received
+
+Connection Times (ms)
+
+min mean[+/-sd] median max
+
+Connect: 0 1 1.4 0 6
+
+Processing: 7 1045 338.2 1175 1498
+
+Waiting: 7 1044 338.2 1173 1498
+
+Total: 7 1045 337.8 1175 1498
+
+Percentage of the requests served within a certain time (ms)
+
+50% 1175
+
+66% 1254
+
+75% 1269
+
+80% 1280
+
+90% 1338
+
+95% 1443
+
+98% 1480
+
+99% 1492
+
+100% 1498 (longest request)
+</code></pre>
+<p>Happy coding, and the reference recipe is here:</p>
+<p><a href="https://skalena.github.io/api-methodology/public/cont/wso2/">https://skalena.github.io/api-methodology/public/cont/wso2/</a></p>
 <h2 id="archetypes-chapter">Chapter</h2>
 <p>To create a Chapter page, run the following commands</p>
 <pre><code>hugo new --kind chapter &lt;name&gt;/_index.md
@@ -1989,19 +2233,19 @@ Lorem Ipsum.
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/api-methodology/public/js/clipboard.min.js?1593752737"></script>
-    <script src="/api-methodology/public/js/perfect-scrollbar.min.js?1593752737"></script>
-    <script src="/api-methodology/public/js/perfect-scrollbar.jquery.min.js?1593752737"></script>
-    <script src="/api-methodology/public/js/jquery.sticky.js?1593752737"></script>
-    <script src="/api-methodology/public/js/featherlight.min.js?1593752737"></script>
-    <script src="/api-methodology/public/js/highlight.pack.js?1593752737"></script>
+    <script src="/api-methodology/public/js/clipboard.min.js?1593754353"></script>
+    <script src="/api-methodology/public/js/perfect-scrollbar.min.js?1593754353"></script>
+    <script src="/api-methodology/public/js/perfect-scrollbar.jquery.min.js?1593754353"></script>
+    <script src="/api-methodology/public/js/jquery.sticky.js?1593754353"></script>
+    <script src="/api-methodology/public/js/featherlight.min.js?1593754353"></script>
+    <script src="/api-methodology/public/js/highlight.pack.js?1593754353"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/api-methodology/public/js/modernizr.custom-3.6.0.js?1593752737"></script>
-    <script src="/api-methodology/public/js/learn.js?1593752737"></script>
-    <script src="/api-methodology/public/js/hugo-learn.js?1593752737"></script>
+    <script src="/api-methodology/public/js/modernizr.custom-3.6.0.js?1593754353"></script>
+    <script src="/api-methodology/public/js/learn.js?1593754353"></script>
+    <script src="/api-methodology/public/js/hugo-learn.js?1593754353"></script>
 
-    <link href="/api-methodology/public/mermaid/mermaid.css?1593752737" rel="stylesheet" />
-    <script src="/api-methodology/public/mermaid/mermaid.js?1593752737"></script>
+    <link href="/api-methodology/public/mermaid/mermaid.css?1593754353" rel="stylesheet" />
+    <script src="/api-methodology/public/mermaid/mermaid.js?1593754353"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
