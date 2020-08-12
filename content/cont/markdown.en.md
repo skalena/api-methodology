@@ -1,9 +1,10 @@
 ---
 date: 2016-04-09T16:50:16+02:00
-title: Markdown syntax
+title: Markdown Syntax
 weight: 15
 ---
 
+### This is the markup language that we use in this portal 
 {{% notice note %}}
 This page is a shameful copy of the great [Grav original page](http://learn.getgrav.org/content/markdown).
 Only difference is information about image customization ([resizing]({{< relref "#resizing-image" >}}), [add CSS classes]({{< relref "#add-css-classes" >}})...)

@@ -22,3 +22,5 @@ These definitions are defined under industry standards, which are Open API Speci
 
 To create great APIs, always starts on to clear and concise contracts ([OAS/Swagger](https://www.openapis.org)), although, to create those contracts is not an easy task, many misconceptions and learning curve can damage your API contract. 
 
+Use the arrows to navigate to the next content
+

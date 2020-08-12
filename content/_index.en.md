@@ -19,7 +19,7 @@ title: "Skalena API Methodology"
 - Creating Mocks and Strategies for that 
 - Creating Initial Endpoints in some different technologies
 - API Identity: Authentications and Authorizations (OAuth2, JWT etc )
-- Discussion about Microservices, Microservices, and why not... Monolith? 
+- Discussion about Microservices, Macroservices, and why not... Monolith? 
 - The Role of an API Gateway, and the chance of covering some of them
 - The Role of an API Manager, which should be interesting criteria for your evaluation
 - API Audit Scanning and Security 

@@ -1,5 +1,5 @@
 ---
-title: Working in Progress
+title: Technical Samples
 weight: 10
 chapter: true
 pre: "<b>2. </b>"
@@ -7,6 +7,6 @@ pre: "<b>2. </b>"
 
 ### Chapter 2
 
-# Content
+# Tecnhnical Samples
 
-Working in Progress
+In this chapter, we will cover a few examples and best practices, based on technologies that we have been working.
