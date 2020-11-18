@@ -6,10 +6,6 @@
     <description>Recent content in API Patterns on Skalena : API Methodology</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Apr 2016 16:50:16 +0200</lastBuildDate>
-    
-	<atom:link href="https://skalena.github.io/api-methodology/public/basics/patterns/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 09 Apr 2016 16:50:16 +0200</lastBuildDate><atom:link href="https://skalena.github.io/api-methodology/public/basics/patterns/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

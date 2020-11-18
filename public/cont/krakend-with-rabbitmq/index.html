@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/api-methodology/public/images/favicon.png" type="image/png">
 
-    <title>API Check-List and Auditing :: Skalena : API Methodology</title>
+    <title>KrakenD API Gateway with RabbitMQ :: Skalena : API Methodology</title>
 
     
     <link href="/api-methodology/public/css/nucleus.css?1605680548" rel="stylesheet">
@@ -36,7 +36,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/api-methodology/public/basics/api-checklist/">
+  <body class="" data-url="/api-methodology/public/cont/krakend-with-rabbitmq/">
     <nav id="sidebar" class="">
 
 
@@ -92,7 +92,7 @@
   
     
     <li data-nav-id="/api-methodology/public/basics/" title="API First" class="dd-item
-        parent
+        
         
         
         ">
@@ -303,8 +303,8 @@
   
     
     <li data-nav-id="/api-methodology/public/basics/api-checklist/" title="API Check-List and Auditing" class="dd-item
-        parent
-        active
+        
+        
         
         ">
       <a href="/api-methodology/public/basics/api-checklist/">
@@ -336,7 +336,7 @@
   
     
     <li data-nav-id="/api-methodology/public/cont/" title="Technical Samples" class="dd-item
-        
+        parent
         
         
         ">
@@ -383,7 +383,7 @@
  
   
     
-      <li data-nav-id="/api-methodology/public/cont/krakend-with-rabbitmq/" title="KrakenD API Gateway with RabbitMQ" class="dd-item ">
+      <li data-nav-id="/api-methodology/public/cont/krakend-with-rabbitmq/" title="KrakenD API Gateway with RabbitMQ" class="dd-item active">
         <a href="/api-methodology/public/cont/krakend-with-rabbitmq/">
         KrakenD API Gateway with RabbitMQ
         
@@ -481,7 +481,7 @@
             
           
           
-            <a href='/api-methodology/public/'>Skalena API Methodology</a> > <a href='/api-methodology/public/basics/'>API First</a> > API Check-List and Auditing
+            <a href='/api-methodology/public/'>Skalena API Methodology</a> > <a href='/api-methodology/public/cont/'>Technical Samples</a> > KrakenD API Gateway with RabbitMQ
           
         
           
@@ -496,9 +496,24 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#api-audit">API Audit</a></li>
-    <li><a href="#details-about-the-process">Details about the Process:</a></li>
-    <li><a href="#main-items-to-be-evaluated-in-according-to-the-document">Main items to be evaluated in according to the document</a></li>
+    <li><a href="#objective">Objective</a>
+      <ul>
+        <li><a href="#components-that-we-will-use">Components that we will use</a></li>
+      </ul>
+    </li>
+    <li><a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#running-rabbitmq-server-and-management-console">Running RabbitMQ server and management console</a></li>
+      </ul>
+    </li>
+    <li><a href="#creating-krakends-configuration">Creating KrakenD&rsquo;s Configuration</a>
+      <ul>
+        <li></li>
+        <li><a href="#executing-the-krakend-api-gateway-consuming-the-config-file">Executing the KrakenD API Gateway consuming the config file</a></li>
+        <li><a href="#ready">Ready!</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -516,198 +531,216 @@
           
             <h1>
               
-              API Check-List and Auditing
+              KrakenD API Gateway with RabbitMQ
             </h1>
           
 
         
 
 
+<h2 id="objective">Objective</h2>
+<p>We will be let KrakenD to be able to publish and consume messages from RabbitMQ.</p>
+<pre><code class="language-mermaid" data-lang="mermaid">sequenceDiagram
+Client -&gt;&gt; API-KrakenD: Send a POST
+API-KrakenD--&gt;&gt;RabbitMQ: Publishing the Payload
 
-	<h2 id="api-audit">API Audit</h2>
-<p>API Audit is a method to ensure APIs are matching the API Design guidelines. It also helps check for usability, security and API management platform compatibility.</p>
+</code></pre><p>In the above case, KrakenD will provide an out-of-the-box backend to publish a message into the specified exchange in RabbitMQ.</p>
+<h3 id="components-that-we-will-use">Components that we will use</h3>
+<ul>
+<li>Docker - in order to easily run RabbitMQ</li>
+<li>KrakenD binary (but you can use the Docker distro as well)</li>
+</ul>
+<h2 id="getting-started">Getting Started</h2>
+<h3 id="running-rabbitmq-server-and-management-console">Running RabbitMQ server and management console</h3>
+<p>Please, run the following docker command:</p>
+<pre><code>docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+</code></pre>
+<p>The following result, will the a console log screen as the following ones:</p>
+<pre><code>Configuring logger redirection
 
-<div class="mermaid" align="left">
-graph LR;
-    A[Prototype] -->|API Auditing| B(Build Just Enough)
-    B --> C{Deliver}
-    C -->|Accepted| D[Moving Forward]
-    C -->|Not Accepted| E[Review Process]
+2020-11-17 20:52:35.100 [debug] &lt;0.287.0&gt; Lager installed handler error_logger_lager_h into error_logger
+
+2020-11-17 20:52:35.487 [info] &lt;0.272.0&gt;
+
+Starting RabbitMQ 3.8.9 on Erlang 23.1.2
+
+Copyright (c) 2007-2020 VMware, Inc. or its affiliates.
+
+Licensed under the MPL 2.0. Website: https://rabbitmq.com
+##  ##  RabbitMQ 3.8.9
+##########  Copyright (c) 2007-2020 VMware, Inc. or its affiliates.
+######  ##
+##########  Licensed under the MPL 2.0. Website: https://rabbitmq.com
+
+Doc guides: https://rabbitmq.com/documentation.html
+
+Support:  https://rabbitmq.com/contact.html
+
+Tutorials:  https://rabbitmq.com/getstarted.html
+
+Monitoring: https://rabbitmq.com/monitoring.html
+
+Logs: &lt;stdout&gt;
+Config file(s): /etc/rabbitmq/rabbitmq.conf
+Starting broker...2020-11-17 20:52:35.491 [info] &lt;0.272.0&gt; 
+node : rabbit@1d1aeaabfa13
+home dir : /var/lib/rabbitmq
+config file(s) : /etc/rabbitmq/rabbitmq.conf
+cookie hash  : dSjJ44QW4pEza/vazmLqQQ==
+log(s) : &lt;stdout&gt;
+database dir : /var/lib/rabbitmq/mnesia/rabbit@1d1aeaabfa13
+</code></pre>
+<p>The next screeshot is the RabbitMQ Management Console URL:</p>
+<p><img src="../images/rabbitMQ.png" alt="enter image description here"></p>
+<p>The url access is: <a href="http://127.0.0.1:15672/#/">http://127.0.0.1:15672</a> , where &ldquo;<em><strong>guest</strong></em>&rdquo; works for both <em>user/password</em>.</p>
+<h4 id="rabbitmq-ok">RabbitMQ: <strong>OK</strong></h4>
+<p><img src="https://raw.githubusercontent.com/devopsfaith/krakend/master/docs/images/krakend.png" alt="KrakenD logo"></p>
+<h2 id="creating-krakends-configuration">Creating KrakenD&rsquo;s Configuration</h2>
+<p>This post is based on the following documenation&rsquo;s page: <a href="https://www.krakend.io/docs/backends/pubsub/,">https://www.krakend.io/docs/backends/pubsub/,</a> in that case we will use KrakenD to automatically define a Backend to publish a payload as a message, and we can get able to read it back (consuming).</p>
+
+<div class="notices note" ><p>If you backend that interact with you messaging layer demands too much complexity, business rules,etc, we do recommend you create a Backend to treat it in a better fashion, with no limitations and able to do whatever you need.</p>
 </div>
 
-<h2 id="details-about-the-process">Details about the Process:</h2>
-<ol>
-<li><strong>Prototype</strong> - Validate the prototype with the API Audit checklist. Please <a href="images/APIAudit_checklist.pdf">download the document here</a>.</li>
-<li><strong>Build Just Enough</strong> - Validate the API with  <a href="images/APIAudit_checklist.pdf">API Audit</a>. Use all criteria and check the API also live, with automated tests. Check status codes and errors match with designed.</li>
-<li><strong>Deliver</strong>: Validate the API with  <a href="images/APIAudit_checklist.pdf">API Audit</a>. Make sure your status codes match with changes made because of scaling (like async handling, caching etc.)</li>
-</ol>
-<h2 id="main-items-to-be-evaluated-in-according-to-the-document">Main items to be evaluated in according to the document</h2>
-<p><strong>API Management</strong></p>
-<ul>
-<li>API is published via API management</li>
-<li>API is visible in a Developer portal</li>
-<li>API can only be accessed via API management gateway</li>
-<li>Rate limits are enforced when requesting API</li>
-<li>Specification is maintained automatically when changes are done to API</li>
-<li>Specification for endpoints is validated on every change against
-standard specification</li>
-<li>Specification contains schema for the requests and responses</li>
-<li>Request and response schema and examples are validated for
-format and examples pass the schema validation</li>
-</ul>
-<p><strong>URIs</strong></p>
-<ul>
-<li>API uses HTTPS (or in special cases other stateless protocol with
-encryption)</li>
-<li>The API published under the organization’s official domain
-Visible domain is shared with other APIs (i.e the domain the API
-consumers see?)</li>
-<li>Endpoints are max 2-resources deep (Example
-/projects/123/tasks/345)
-Other naming styles in style guide have been applied</li>
-</ul>
-<p><strong>API has versioning</strong></p>
-<ul>
-<li>
-<p>Versioning strategy is best for the selected API management
-platform and for the primary API consumers?</p>
-</li>
-<li>
-<p>Major version is in URI (only if API management platform doesn&rsquo;t support versioning
-based on client subscription)</p>
-</li>
-<li>
-<p>API uses stateless processing (no sessions, OpenID connect
-tokens are ok)</p>
-</li>
-<li>
-<p>There is no special processing (asynchronous events)</p>
-</li>
-</ul>
-<p><strong>HTTP-methods</strong></p>
-<ul>
-<li>GET -requests don&rsquo;t have request bodies</li>
-<li>POST is used for creating and updating data?</li>
-<li>POST is used only in standard ways.</li>
-<li>PUT is used to create or replace entire resource?</li>
-<li>DELETE is used only to remove a resource?</li>
-</ul>
-<p>** HTTP status codes**</p>
-<ul>
-<li>404 is used for wrong URL</li>
-<li>400 - responses have additional information of the specific error
-(for example missing required attribute)</li>
-<li>401 - response is used when API consumer is using wrong
-credentials</li>
-<li>403 using endpoint which is valid but not accessible by the
-requesting API consumer or trying to use operation they are not
-allowed to do</li>
-<li>500 - response when there is an internal processing problem<br>
-which API consumer can not fix by changing the request</li>
-<li>500 - responses have application specific error code but not a<br>
-very clear plain message about exact error (stack trace or error<br>
-text) which could expose internal implementation to API<br>
-consumer</li>
-<li>GET: 200 OK and items -array as empty array</li>
-<li>GET: 204 empty response, nothing in the body</li>
-<li>POST: 200 OK for updates or submits without creating new<br>
-resources</li>
-<li>201 - response is combined with the identifier of the created<br>
-resource</li>
-<li>DELETE: 204 OK when removing resource was successful</li>
-</ul>
-<p><strong>Localization</strong></p>
-<ul>
-<li>Date- and time formats in UTC with time zone (ISO standard)</li>
-<li>Language and country codes used with ISO -standard codes?</li>
-<li>Other standard codes applied?</li>
-<li>Geocoordinates in ISO standard if used?</li>
-<li>Payload localization supported or localized values accessible with<br>
-API?</li>
-<li>Error message localization supported?</li>
-</ul>
-<p><strong>Additional security</strong></p>
-<ul>
-<li>
-<p>All endpoints are protected by at least a client specific API key<br>
-even if they are publicly available (anti-farming)?</p>
-</li>
-<li>
-<p>OpenID connect and JWT supported (session based<br>
-authentication)?</p>
-</li>
-<li>
-<p>Protect against CFRS? (allow API management developer portal<br>
-as origin to allow developers to try out the API via the portal user<br>
-interface)</p>
-</li>
-<li>
-<p>Inputs are validated? true</p>
-</li>
-<li>
-<p>Inputs are validated automatically by the coding framework used? true</p>
-</li>
-<li>
-<p>Outputs are escaped? true</p>
-</li>
-<li>
-<p>Outputs are escaped automatically by the coding framework<br>
-used?</p>
-</li>
-<li>
-<p>Need for encrypting data has been evaluated before<br>
-implementation? (country-specific privacy and other legal<br>
-requirements and business confidential requirements)</p>
-</li>
-<li>
-<p>Encryption of data in transit and data in storage has been<br>
-implemented according to the evaluated need?</p>
-</li>
-<li>
-<p>Need to detect message integrity has been evaluated before<br>
-implementation (typically using signed and encrypted JWT -<br>
-tokens as authentication and integrity ensured)?</p>
-</li>
-<li>
-<p>Message integrity has been implemented according to the<br>
-evaluated need?</p>
-</li>
-<li>
-<p>UUID used to identify object instead of internal ID? true</p>
-</li>
-<li>
-<p>Secured direct object references i.e. no sensitive information like<br>
-bank account numbers, social security numbers, person names<br>
-etc. in URL as resource names or query parameters?</p>
-</li>
-<li>
-<p>Specification contains examples in the standard format of the<br>
-requests and responses and API documentation is generated<br>
-automatically based on the specification, schema and examples<br>
-POST, PUT: 201 Created for creating new resource true</p>
-</li>
-<li>
-<p>400 bad requests from the client, for example a required query<br>
-parameter was missing</p>
-</li>
-<li>
-<p>Whitelisting: POST, PUT and DELETE are only available for<br>
-resources which API consumer can manipulate?</p>
-</li>
-<li>
-<p>GET requests with longest endpoint-hierarchy and multiple query<br>
-parameters with long values don&rsquo;t exceed 2000 of URI length?<br>
-(Some older clients and browsers may have this type of limit,<br>
-although it is not official limit and newer clients can handle it well)</p>
-</li>
-</ul>
-<p>Reference: <a href="https://www.apiopscycles.com/">https://www.apiopscycles.com/</a></p>
+<h4 id="krakend-configuration-file">KrakenD Configuration File</h4>
+<p>For this example, we will use the following krakend.json config file:</p>
+<pre><code>{
+   &quot;version&quot;:2,
+   &quot;port&quot;:8080,
+   &quot;endpoints&quot;:[
+      {
+         &quot;endpoint&quot;:&quot;/produce/{key}&quot;,
+         &quot;method&quot;:&quot;POST&quot;,
+         &quot;backend&quot;:[
+            {
+               &quot;extra_config&quot;:{
+                  &quot;github.com/devopsfaith/krakend-amqp/produce&quot;:{
+                     &quot;exchange&quot;:&quot;testdiuscoa&quot;,
+                     &quot;durable&quot;:true,
+                     &quot;delete&quot;:false,
+                     &quot;exclusive&quot;:false,
+                     &quot;no_wait&quot;:true,
+                     &quot;mandatory&quot;:true,
+                     &quot;immediate&quot;:false,
+                     &quot;name&quot;:&quot;radiuscoa&quot;,
+                     &quot;routing_key&quot;:&quot;Key&quot;
+                  }
+               },
+               &quot;host&quot;:[
+                  &quot;amqp://guest:guest@localhost:5672&quot;
+               ],
+               &quot;disable_host_sanitize&quot;:true
+            }
+         ]
+      },
+      {
+         &quot;endpoint&quot;:&quot;/consume&quot;,
+         &quot;backend&quot;:[
+            {
+               &quot;extra_config&quot;:{
+                  &quot;github.com/devopsfaith/krakend-amqp/consume&quot;:{
+                     &quot;name&quot;:&quot;queue-1&quot;,
+                     &quot;exchange&quot;:&quot;testdiuscoa&quot;,
+                     &quot;durable&quot;:true,
+                     &quot;delete&quot;:false,
+                     &quot;exclusive&quot;:false,
+                     &quot;no_wait&quot;:true,
+                     &quot;no_local&quot;:false,
+                     &quot;routing_key&quot;:[
+                        &quot;#&quot;
+                     ],
+                     &quot;prefetch_count&quot;:10
+                  }
+               },
+               &quot;host&quot;:[
+                  &quot;amqp://guest:guest@localhost:5672&quot;
+               ],
+               &quot;disable_host_sanitize&quot;:true
+            }
+         ]
+      }
+   ]
+}
+</code></pre>
+<h3 id="executing-the-krakend-api-gateway-consuming-the-config-file">Executing the KrakenD API Gateway consuming the config file</h3>
+<p>Once you have KrakenD installed into your machine, we will use the krakend binary program, that can be installed from many different plataforms(<a href="https://www.krakend.io/docs/overview/installing/">https://www.krakend.io/docs/overview/installing/</a>)</p>
+<p>Please, create a folder named krakend-rabbit into your machine,  copy and create a file called <em>krakend.json</em> into that created folder and type the following command:</p>
+<pre><code>krakend run -c krakend.json
+</code></pre>
+<p>The KrakenD API Gateway runtime will boot in over miliseconds, with the logs and informations, as the following ones:</p>
+<pre><code>krakend run -c krakend.json 
+Parsing configuration file: krakend.json
+2020/11/18 03:05:59  ERROR: unable to create the gologging logger: getting the extra config for the krakend-gologging module
+2020/11/18 03:05:59  ERROR: unable to create the GELF writer: getting the extra config for the krakend-gelf module
+2020/11/18 03:05:59  INFO: Listening on port: 8080
+2020/11/18 03:05:59  DEBUG: creating a new influxdb client
+2020/11/18 03:05:59  DEBUG: no config for the influxdb client. Aborting
+2020/11/18 03:05:59  WARNING: influxdb: unable to load custom config
+2020/11/18 03:05:59  WARNING: opencensus: no extra config defined for the opencensus module
+2020/11/18 03:05:59  WARNING: building the etcd client: unable to create the etcd client: no config
+2020/11/18 03:05:59  DEBUG: no config for the bloomfilter
+2020/11/18 03:05:59  WARNING: bloomFilter: no config for the bloomfilter
+2020/11/18 03:05:59  WARNING: no config present for the httpsecure module
+2020/11/18 03:05:59  INFO: registering usage stats for cluster ID 'F8ai6U9zv0qNuwRJrbglzP0A7to7xFVpOn9ujfccbfM='
+2020/11/18 03:05:59  DEBUG: lua: no extra config
+2020/11/18 03:05:59  DEBUG: botdetector middleware:  no config defined for the module
+2020/11/18 03:05:59  DEBUG: AMQP: amqp://guest:guest@localhost:5672: no amqp consumer defined
+2020/11/18 03:05:59  DEBUG: CEL: no extra config detected for backend /
+2020/11/18 03:05:59  DEBUG: lua: no extra config
+2020/11/18 03:05:59  DEBUG: CEL: no extra config detected for pipe /produce/:key
+2020/11/18 03:05:59  DEBUG: lua: no extra config
+2020/11/18 03:05:59  INFO: JOSE: singer disabled for the endpoint /produce/:key
+2020/11/18 03:05:59  DEBUG: lua: no extra config
+2020/11/18 03:05:59  INFO: JOSE: validator disabled for the endpoint /produce/:key
+2020/11/18 03:05:59  DEBUG: botdetector:  no config defined for the module
+2020/11/18 03:06:00  DEBUG: CEL: no extra config detected for backend /
+2020/11/18 03:06:00  DEBUG: lua: no extra config
+2020/11/18 03:06:00  DEBUG: CEL: no extra config detected for pipe /consume
+2020/11/18 03:06:00  DEBUG: lua: no extra config
+2020/11/18 03:06:00  INFO: JOSE: singer disabled for the endpoint /consume
+2020/11/18 03:06:00  DEBUG: lua: no extra config
+2020/11/18 03:06:00  INFO: JOSE: validator disabled for the endpoint /consume
+2020/11/18 03:06:00  DEBUG: botdetector:  no config defined for the module
+2020/11/18 03:06:00  DEBUG: http-server-handler: no extra config
+
+![Homer Happy](https://media1.giphy.com/media/xT5LMHxhOfscxPfIfm/200.gif)
+</code></pre>
+<h3 id="ready">Ready!</h3>
+<p>Now we can test the endpoints exposed by KrakenD that can <em>publish</em> the messages:</p>
+<pre><code>curl -i --location --request POST 'http://localhost:8080/produce/foo' --data-raw '{&quot;foo&quot;:&quot;bar&quot;}'
+
+HTTP/1.1 200 OK
+**Content-Type**: application/json; charset=utf-8
+**X-Krakend**: Version 1.1.1
+**X-Krakend-Completed**: false
+**Date**: Wed, 18 Nov 2020 06:12:28 GMT
+**Content-Length**: 5
+
+null
+</code></pre>
+<p>In that resource, there is no message back.</p>
+<p>Now let&rsquo;s consume the message from RabbitMQ:</p>
+<pre><code>curl -i --location --request GET 'http://localhost:8080/consume'
+
+HTTP/1.1 200 OK
+
+**Content-Type**: application/json; charset=utf-8
+**X-Krakend**: Version 1.1.1
+**X-Krakend-Completed**: true
+**Date**: Wed, 18 Nov 2020 06:15:53 GMT
+**Content-Length**: 14
 
 
+{&quot;foo&quot;:&quot;bar&quot;}
+</code></pre>
+
+<div class="notices note" ><p>If you get any error or not working as demonstrated, please, add the following Environment variable: <code>export RABBIT_SERVER_URL='guest:guest@localhost:5672'</code></p>
+</div>
+
+<h3 id="conclusion">Conclusion</h3>
+<p>This document demonstrates how you can integrate KrakenD with RabbitMQ. For more information, please reach us at: <a href="mailto:hello@skalena.com">hello@skalena.com</a></p>
 
 
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -742,6 +775,8 @@ although it is not official limit and newer clients can handle it well)</p>
             
                 
                     
+                        
+                        
                     
                 
                 
@@ -757,9 +792,6 @@ although it is not official limit and newer clients can handle it well)</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -873,7 +905,6 @@ although it is not official limit and newer clients can handle it well)</p>
             
                 
                     
-                    
                 
                 
 
@@ -893,8 +924,6 @@ although it is not official limit and newer clients can handle it well)</p>
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -908,6 +937,9 @@ although it is not official limit and newer clients can handle it well)</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -925,6 +957,7 @@ although it is not official limit and newer clients can handle it well)</p>
             
                 
                     
+                    
                 
                 
 
@@ -940,6 +973,9 @@ although it is not official limit and newer clients can handle it well)</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -964,10 +1000,10 @@ although it is not official limit and newer clients can handle it well)</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/api-methodology/public/basics/api-best-practices/" title="APIs Design Best Practices"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/api-methodology/public/cont/wso2/" title="WSO2 Micro EI - Creating APIs"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/api-methodology/public/cont/" title="Technical Samples" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/api-methodology/public/cont/markdown/" title="Markdown Syntax" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1007,3 +1043,4 @@ although it is not official limit and newer clients can handle it well)</p>
 </script>
   </body>
 </html>
+
