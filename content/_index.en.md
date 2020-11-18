@@ -8,8 +8,8 @@ title: "Skalena API Methodology"
 
  We are sharing this on [GitHub](https://github.com/skalena/api-methodology),  anyone can clone it, or even contribute, pull-requests are more than welcome.
 
-{{% notice tip %}}We do have [Instagram](https://www.instagram.com/skalena_hq/) account, but to be honest, our hottest channel is for sure our [LinkedIn Page](https://www.linkedin.com/company/skalena), please, follow us there, in order to get updated about our news and insights. 
-{{% /notice %}}
+We do have [Instagram](https://www.instagram.com/skalena_hq/) account, but to be honest, our hottest channel is for sure our [LinkedIn Page](https://www.linkedin.com/company/skalena), please, follow us there, in order to get updated about our news and insights. 
+
 
 ## Topics that will be covered in this doc-site 
 
