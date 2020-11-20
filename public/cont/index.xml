@@ -30,6 +30,17 @@ Components that we will use  Docker - in order to easily run RabbitMQ KrakenD bi
     </item>
     
     <item>
+      <title>Configuring Grafana and InfluxDB for KrakenD</title>
+      <link>https://skalena.github.io/api-methodology/public/cont/krakend-grafana-influxdb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://skalena.github.io/api-methodology/public/cont/krakend-grafana-influxdb/</guid>
+      <description>Objective We will show the following topics:
+ Execute InfluxDB via Docker Running InfluxDB CI Running Grafana Publishing metrics from KrakenD API invocations  sequenceDiagram KrakenD -&amp;gt;&amp;gt; InfluxDB: Sending metrics Grafana --&amp;gt;InfluxDB: Publishing the Payload Running InfluxDB via Docker Please, execute the following Docker command:
+docker run -p 8086:8086 -e INFLUXDB_DB=krakend -e INFLUXDB_USER=letgo -e INFLUXDB_USER_PASSWORD=pas5w0rd -e INFLUXDB_ADMIN_USER=admin -e INFLUXDB_ADMIN_PASSWORD=supersecretpassword -it --name=influx influxdb  This container will expose InfluxDB using the port 8086, and there is a database created called krakend</description>
+    </item>
+    
+    <item>
       <title>Markdown Syntax</title>
       <link>https://skalena.github.io/api-methodology/public/cont/markdown/</link>
       <pubDate>Sat, 09 Apr 2016 16:50:16 +0200</pubDate>

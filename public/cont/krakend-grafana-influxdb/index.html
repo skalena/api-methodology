@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/api-methodology/public/images/favicon.png" type="image/png">
 
-    <title>API First :: Skalena : API Methodology</title>
+    <title>Configuring Grafana and InfluxDB for KrakenD :: Skalena : API Methodology</title>
 
     
     <link href="/api-methodology/public/css/nucleus.css?1605831103" rel="stylesheet">
@@ -36,7 +36,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/api-methodology/public/basics/">
+  <body class="" data-url="/api-methodology/public/cont/krakend-grafana-influxdb/">
     <nav id="sidebar" class="">
 
 
@@ -92,8 +92,8 @@
   
     
     <li data-nav-id="/api-methodology/public/basics/" title="API First" class="dd-item
-        parent
-        active
+        
+        
         
         ">
       <a href="/api-methodology/public/basics/">
@@ -336,7 +336,7 @@
   
     
     <li data-nav-id="/api-methodology/public/cont/" title="Technical Samples" class="dd-item
-        
+        parent
         
         
         ">
@@ -404,7 +404,7 @@
  
   
     
-      <li data-nav-id="/api-methodology/public/cont/krakend-grafana-influxdb/" title="Configuring Grafana and InfluxDB for KrakenD" class="dd-item ">
+      <li data-nav-id="/api-methodology/public/cont/krakend-grafana-influxdb/" title="Configuring Grafana and InfluxDB for KrakenD" class="dd-item active">
         <a href="/api-methodology/public/cont/krakend-grafana-influxdb/">
         Configuring Grafana and InfluxDB for KrakenD
         
@@ -486,6 +486,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -496,7 +498,13 @@
             
           
           
-            <a href='/api-methodology/public/'>Skalena API Methodology</a> > API First
+            
+            
+          
+          
+            <a href='/api-methodology/public/'>Skalena API Methodology</a> > <a href='/api-methodology/public/cont/'>Technical Samples</a> > Configuring Grafana and InfluxDB for KrakenD
+          
+        
           
         
           
@@ -505,6 +513,24 @@
                   </span>
                 </div>
                 
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#objective">Objective</a>
+      <ul>
+        <li><a href="#running-influxdb-via-docker">Running InfluxDB via Docker</a></li>
+        <li><a href="#running-grafana">Running Grafana</a></li>
+        <li><a href="#testing">Testing</a></li>
+        <li><a href="#some-loading-testing">Some Loading Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
               </div>
             </div>
             
@@ -512,35 +538,190 @@
         
         </div>
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>
+              
+              Configuring Grafana and InfluxDB for KrakenD
+            </h1>
           
 
         
 
 
+<h2 id="objective">Objective</h2>
+<p>We will show the following topics:</p>
+<ul>
+<li>Execute InfluxDB via Docker</li>
+<li>Running InfluxDB CI</li>
+<li>Running Grafana</li>
+<li>Publishing metrics from KrakenD API invocations</li>
+</ul>
+<pre><code class="language-mermaid" data-lang="mermaid">sequenceDiagram
+KrakenD -&gt;&gt; InfluxDB: Sending metrics
+Grafana --&gt;InfluxDB: Publishing the Payload
 
-	<h3 id="chapter-1">Chapter 1</h3>
-<h1 id="1-api-first-concepts">1. API First Concepts</h1>
-<p><strong>APIs are the glue of the digital world.</strong> They are embeddable components like legos, in which the edges are connectable via HTTP Protocol.</p>
-<p>API First ideates about to draft the ideas starting by the APIs, in common sense, it means that if you have good APIs, you will have great applications.</p>
-<p>Everything starts at the level of the contract, which is the definition of the API&rsquo;s capabilities, in other words: What the API does and how.</p>
-<p>These definitions are defined under industry standards, which are Open API Specifications (OAS). The definition/contract represented through a JSON or YAML file, and it is commonly called the &ldquo;Swagger file&rdquo;.</p>
-<h2 id="designing-the-api-contracts">Designing the API Contracts</h2>
-<p>To create great APIs, always starts on to clear and concise contracts (<a href="https://www.openapis.org">OAS/Swagger</a>), although, to create those contracts is not an easy task, many misconceptions and learning curve can damage your API contract.</p>
-<p>Use the arrows to navigate to the next content</p>
+</code></pre><h3 id="running-influxdb-via-docker">Running InfluxDB via Docker</h3>
+<p>Please, execute the following Docker command:</p>
+<pre><code>docker run -p 8086:8086 -e INFLUXDB_DB=krakend -e INFLUXDB_USER=letgo -e INFLUXDB_USER_PASSWORD=pas5w0rd -e INFLUXDB_ADMIN_USER=admin -e INFLUXDB_ADMIN_PASSWORD=supersecretpassword -it --name=influx influxdb
+</code></pre>
+<p>This container will expose InfluxDB using the port 8086, and there is a database created called <em>krakend</em></p>
+<p>In order to test InfluxDB, if everything is running, please execute the following cURL comand:</p>
+<pre><code>curl -G [http://localhost:8086/query](http://localhost:8086/query) --data-urlencode &quot;q=SHOW DATABASES&quot;
+</code></pre>
+<p>The return should be the the following one:</p>
+<pre><code>{&quot;results&quot;:[{&quot;statement_id&quot;:0,&quot;series&quot;:[{&quot;name&quot;:&quot;databases&quot;,&quot;columns&quot;:[&quot;name&quot;],&quot;values&quot;:[[&quot;krakend&quot;],[&quot;_internal&quot;]]}]}]}  
+</code></pre>
+<p>As you can notice, it returns the database krakend, created originally on the first step, which wil be used to store the metrics sent by KrakenD API Gateway.</p>
+<h3 id="running-grafana">Running Grafana</h3>
+<p>Please, run the following docker command:</p>
+<pre><code>docker run -d -p 3000:3000 --name=grafana grafana/grafana 
+</code></pre>
+<p>If you go to the browser and open  <a href="http://localhost:3000/">http://localhost:3000</a>, you will be able to see the Grafana Login Page, you can use admin for both user and password:</p>
+<p><img src="../images/grafana1.png" alt="grafana home"></p>
+<h4 id="adding-the-influxdb-datasource-in-grafana">Adding the InfluxDB Datasource in Grafana</h4>
+<p>From the main home screen, check the box <em><strong>DATASOURCES</strong></em>, and please click on <em>Add your first Data Source</em>. Select the InfluxDB as your time series database, and add the following information:
+<img src="../images/grafana2.png" alt="grafana "></p>
+<ul>
+<li>URL: http://localhost:8086</li>
+<li>Access: browser</li>
+<li>database: krakend</li>
+<li>password: supersecretpassword</li>
+<li>HTTP Method : GET</li>
+</ul>
+<p>Done! Datasource ready to get data from InfluxDB.</p>
+<h4 id="importing-the-krakend-dashboard-to-grafana">Importing the KrakenD Dashboard to Grafana</h4>
+<p>Well, you might think: &ldquo;Now, I have to create the dashboard&rdquo;, but, the KrakenD Engineering, already let a ready dashboard available for you: <a href="https://grafana.com/grafana/dashboards/5722">https://grafana.com/grafana/dashboards/5722</a>. The most important information at this point is that you &ldquo;ready dashboard&rdquo; for krakenD has the ID 5722:
+<img src="../images/grafana3.png" alt="grafana "></p>
+<p>After to click on Load button, you will see the following screen:
+<img src="../images/grafana4.png" alt="grafana "></p>
+<p>Please, make sure that you had selected the Influx information, and then click on Import button. At the first look, the dashboard will present no data, obviously because, we haven&rsquo;t sent any information yet to InfluxDB, so let&rsquo;s go the last part of this chapter.</p>
+<h3 id="testing">Testing</h3>
+<p>We have created the following KrakenD config file named as krakend.json:</p>
+<pre><code>{
+    &quot;version&quot;: 2,
+    &quot;extra_config&quot;: {
+        &quot;github_com/letgoapp/krakend-influx&quot;: {
+            &quot;address&quot;: &quot;http://localhost:8086&quot;,
+            &quot;ttl&quot;: &quot;10s&quot;,
+            &quot;buffer_size&quot;: 0
+        },
+        &quot;github_com/devopsfaith/krakend-metrics&quot;: {
+            &quot;collection_time&quot;: &quot;10s&quot;,
+            &quot;listen_address&quot;: &quot;127.0.0.1:8090&quot;
+        }
+    },
+    &quot;timeout&quot;: &quot;3000ms&quot;,
+    &quot;cache_ttl&quot;: &quot;300s&quot;,
+    &quot;output_encoding&quot;: &quot;no-op&quot;,
+    &quot;name&quot;: &quot;GrafanaAPIs&quot;,
+    &quot;endpoints&quot;: [{
+        &quot;endpoint&quot;: &quot;/uuid&quot;,
+        &quot;method&quot;: &quot;GET&quot;,
+        &quot;output_encoding&quot;: &quot;no-op&quot;,
+        &quot;extra_config&quot;: {},
+        &quot;backend&quot;: [{
+            &quot;url_pattern&quot;: &quot;/uuid&quot;,
+            &quot;encoding&quot;: &quot;no-op&quot;,
+            &quot;sd&quot;: &quot;static&quot;,
+            &quot;method&quot;: &quot;GET&quot;,
+            &quot;extra_config&quot;: {},
+            &quot;host&quot;: [
+                &quot;https://httpbin.org&quot;
+            ],
+            &quot;disable_host_sanitize&quot;: false
+        }]
+    }]
+}
+</code></pre>
+<p>This <em><strong>krakend.json</strong></em> config file has the whole configuration in order to send the metrics to InfluxDB, here are these particular configs:</p>
+<pre><code>&quot;extra_config&quot;: {
+
+    &quot;github_com/letgoapp/krakend-influx&quot;: {
+    
+    &quot;address&quot;: &quot;http://localhost:8086&quot;,
+    
+    &quot;ttl&quot;: &quot;10s&quot;,
+    
+    &quot;buffer_size&quot;: 0
+    
+    },
+    
+    &quot;github_com/devopsfaith/krakend-metrics&quot;: {
+    
+    &quot;collection_time&quot;: &quot;10s&quot;,
+    
+    &quot;listen_address&quot;: &quot;127.0.0.1:8090&quot;
+    
+    }
+    
+    },
+</code></pre>
+<p>Please, chose your preferred way to execute krakend, <a href="https://www.krakend.io/docs/overview/installing/">it might be several ones</a>, in our case, we do have the installed binary, so we will run the command: <code>krakend run -c krakend.json</code></p>
+<p>The log will show that InfluxDB is activated:</p>
+<pre><code>2020/11/19 20:58:21 DEBUG: http-server-handler: no extra config
+
+2020/11/19 20:58:21 DEBUG: influx ping results: duration = 32.216439ms msg = 1.8.3
+
+2020/11/19 20:58:31 DEBUG: Preparing influxdb points
+
+2020/11/19 20:58:31 DEBUG: no metrics to send to influx
+
+2020/11/19 20:58:41 DEBUG: Preparing influxdb points
+
+2020/11/19 20:58:41 INFO: 16 datapoints sent to Influx
+</code></pre>
+<h3 id="some-loading-testing">Some Loading Testing</h3>
+<p>We love this tool: Hey(<a href="https://github.com/rakyll/hey),">https://github.com/rakyll/hey),</a> which is a pretty easy HTTP Load testing tool.</p>
+<p>We will execute 1200 requests now, and check how KrakenD will process this volume:</p>
+<pre><code>hey -n 1200 http://localhost:8080/uuid
+</code></pre>
+<p>Here the results:</p>
+<pre><code>Latency distribution:
+
+10% in 0.1441 secs
+
+25% in 0.1465 secs
+
+50% in 0.1500 secs
+
+75% in 0.1534 secs
+
+90% in 0.1629 secs
+
+95% in 0.5674 secs
+
+99% in 0.6986 secs
+
+  
+
+Details (average, fastest, slowest):
+
+DNS+dialup:  0.0003 secs, 0.1389 secs, 1.2797 secs
+
+DNS-lookup:  0.0001 secs, 0.0000 secs, 0.0036 secs
+
+req write:  0.0000 secs, 0.0000 secs, 0.0013 secs
+
+resp wait:  0.1846 secs, 0.1389 secs, 1.2682 secs
+
+resp read:  0.0001 secs, 0.0000 secs, 0.0024 secs
+
+  
+
+Status code distribution:
+
+[200]  1200 responses
+</code></pre>
+<p>Please, check the <code>KrakenD log</code>, and then take a look into Grafana Dashboard again:
+<img src="../images/grafana5.png" alt="grafana "></p>
+<p>Have fun with! And if you need some help, please reach us at: <a href="https://skalena.com.br">https://skalena.com.br</a></p>
 
 
-
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
-        
-            </div> 
         
         </div>
         
@@ -572,6 +753,8 @@
             
                 
                     
+                        
+                        
                     
                 
                 
@@ -587,9 +770,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -722,6 +902,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -734,6 +915,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -767,6 +951,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -782,6 +967,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -806,10 +994,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/api-methodology/public/" title="Skalena API Methodology"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/api-methodology/public/cont/krakend-with-rabbitmq/" title="KrakenD API Gateway with RabbitMQ"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/api-methodology/public/basics/api-design-guidelines/" title="API Design Guidelines" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/api-methodology/public/cont/markdown/" title="Markdown Syntax" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -849,3 +1037,4 @@
 </script>
   </body>
 </html>
+

@@ -12,21 +12,21 @@
     <title>KrakenD API Gateway with RabbitMQ :: Skalena : API Methodology</title>
 
     
-    <link href="/api-methodology/public/css/nucleus.css?1605680548" rel="stylesheet">
-    <link href="/api-methodology/public/css/fontawesome-all.min.css?1605680548" rel="stylesheet">
-    <link href="/api-methodology/public/css/hybrid.css?1605680548" rel="stylesheet">
-    <link href="/api-methodology/public/css/featherlight.min.css?1605680548" rel="stylesheet">
-    <link href="/api-methodology/public/css/perfect-scrollbar.min.css?1605680548" rel="stylesheet">
-    <link href="/api-methodology/public/css/auto-complete.css?1605680548" rel="stylesheet">
-    <link href="/api-methodology/public/css/atom-one-dark-reasonable.css?1605680548" rel="stylesheet">
-    <link href="/api-methodology/public/css/theme.css?1605680548" rel="stylesheet">
-    <link href="/api-methodology/public/css/hugo-theme.css?1605680548" rel="stylesheet">
+    <link href="/api-methodology/public/css/nucleus.css?1605831103" rel="stylesheet">
+    <link href="/api-methodology/public/css/fontawesome-all.min.css?1605831103" rel="stylesheet">
+    <link href="/api-methodology/public/css/hybrid.css?1605831103" rel="stylesheet">
+    <link href="/api-methodology/public/css/featherlight.min.css?1605831103" rel="stylesheet">
+    <link href="/api-methodology/public/css/perfect-scrollbar.min.css?1605831103" rel="stylesheet">
+    <link href="/api-methodology/public/css/auto-complete.css?1605831103" rel="stylesheet">
+    <link href="/api-methodology/public/css/atom-one-dark-reasonable.css?1605831103" rel="stylesheet">
+    <link href="/api-methodology/public/css/theme.css?1605831103" rel="stylesheet">
+    <link href="/api-methodology/public/css/hugo-theme.css?1605831103" rel="stylesheet">
     
-    <link href="/api-methodology/public/css/theme-blue.css?1605680548" rel="stylesheet">
+    <link href="/api-methodology/public/css/theme-blue.css?1605831103" rel="stylesheet">
     
     
 
-    <script src="/api-methodology/public/js/jquery-3.3.1.min.js?1605680548"></script>
+    <script src="/api-methodology/public/js/jquery-3.3.1.min.js?1605831103"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/api-methodology/public/js/lunr.min.js?1605680548"></script>
-<script type="text/javascript" src="/api-methodology/public/js/auto-complete.js?1605680548"></script>
+<script type="text/javascript" src="/api-methodology/public/js/lunr.min.js?1605831103"></script>
+<script type="text/javascript" src="/api-methodology/public/js/auto-complete.js?1605831103"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/skalena.github.io\/api-methodology\/public\/";
     
 </script>
-<script type="text/javascript" src="/api-methodology/public/js/search.js?1605680548"></script>
+<script type="text/javascript" src="/api-methodology/public/js/search.js?1605831103"></script>
 
     
   </div>
@@ -404,6 +404,27 @@
  
   
     
+      <li data-nav-id="/api-methodology/public/cont/krakend-grafana-influxdb/" title="Configuring Grafana and InfluxDB for KrakenD" class="dd-item ">
+        <a href="/api-methodology/public/cont/krakend-grafana-influxdb/">
+        Configuring Grafana and InfluxDB for KrakenD
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
       <li data-nav-id="/api-methodology/public/cont/markdown/" title="Markdown Syntax" class="dd-item ">
         <a href="/api-methodology/public/cont/markdown/">
         Markdown Syntax
@@ -514,6 +535,7 @@
         <li><a href="#conclusion">Conclusion</a></li>
       </ul>
     </li>
+    <li><a href="#bonus">Bonus</a></li>
   </ul>
 </nav>
     </div>
@@ -738,6 +760,300 @@ HTTP/1.1 200 OK
 
 <h3 id="conclusion">Conclusion</h3>
 <p>This document demonstrates how you can integrate KrakenD with RabbitMQ. For more information, please reach us at: <a href="mailto:hello@skalena.com">hello@skalena.com</a></p>
+<h2 id="bonus">Bonus</h2>
+<p>RabbitMQ Publisher written in Go Lang (sender.go):</p>
+<pre><code>package main
+
+  
+
+import (
+
+&quot;log&quot;
+
+&quot;os&quot;
+
+&quot;strings&quot;
+
+  
+
+&quot;github.com/streadway/amqp&quot;
+
+)
+
+  
+
+func failOnError(err error, msg string) {
+
+if err != nil {
+
+log.Fatalf(&quot;%s: %s&quot;, msg, err)
+
+}
+
+}
+
+  
+
+func main() {
+
+conn, err := amqp.Dial(&quot;amqp://guest:guest@localhost:5672/&quot;)
+
+failOnError(err, &quot;Failed to connect to RabbitMQ&quot;)
+
+defer conn.Close()
+
+  
+
+ch, err := conn.Channel()
+
+failOnError(err, &quot;Failed to open a channel&quot;)
+
+defer ch.Close()
+
+  
+
+err = ch.ExchangeDeclare(
+
+&quot;logs_topic&quot;, // name
+
+&quot;topic&quot;, // type
+
+true, // durable
+
+false, // auto-deleted
+
+false, // internal
+
+false, // no-wait
+
+nil, // arguments
+
+)
+
+failOnError(err, &quot;Failed to declare an exchange&quot;)
+
+  
+
+body := bodyFrom(os.Args)
+
+err = ch.Publish(
+
+&quot;logs_topic&quot;, // exchange
+
+severityFrom(os.Args), // routing key
+
+false, // mandatory
+
+false, // immediate
+
+amqp.Publishing{
+
+ContentType: &quot;text/plain&quot;,
+
+Body: []byte(body),
+
+})
+
+failOnError(err, &quot;Failed to publish a message&quot;)
+
+  
+
+log.Printf(&quot; [x] Sent %s&quot;, body)
+
+}
+
+  
+
+func bodyFrom(args []string) string {
+
+var s string
+
+if (len(args) &lt; 3) || os.Args[2] == &quot;&quot; {
+
+s = &quot;hello&quot;
+
+} else {
+
+s = strings.Join(args[2:], &quot; &quot;)
+
+}
+
+return s
+
+}
+
+  
+
+func severityFrom(args []string) string {
+
+var s string
+
+if (len(args) &lt; 2) || os.Args[1] == &quot;&quot; {
+
+s = &quot;anonymous.info&quot;
+
+} else {
+
+s = os.Args[1]
+
+}
+
+return s
+
+}
+</code></pre>
+<p>Here, you can see the receiver.go :</p>
+<pre><code>package main
+
+import (
+
+&quot;log&quot;
+
+&quot;os&quot;
+
+&quot;github.com/streadway/amqp&quot;
+
+)
+
+func failOnError(err error, msg string) {
+
+if err != nil {
+
+log.Fatalf(&quot;%s: %s&quot;, msg, err)
+
+}
+
+}
+
+func main() {
+
+conn, err := amqp.Dial(&quot;amqp://guest:guest@localhost:5672/&quot;)
+
+failOnError(err, &quot;Failed to connect to RabbitMQ&quot;)
+
+defer conn.Close()
+
+ch, err := conn.Channel()
+
+failOnError(err, &quot;Failed to open a channel&quot;)
+
+defer ch.Close()
+
+err = ch.ExchangeDeclare(
+
+&quot;logs_topic&quot;, // name
+
+&quot;topic&quot;, // type
+
+true, // durable
+
+false, // auto-deleted
+
+false, // internal
+
+false, // no-wait
+
+nil, // arguments
+
+)
+
+failOnError(err, &quot;Failed to declare an exchange&quot;)
+
+q, err := ch.QueueDeclare(
+
+&quot;&quot;, // name
+
+false, // durable
+
+false, // delete when unused
+
+true, // exclusive
+
+false, // no-wait
+
+nil, // arguments
+
+)
+
+failOnError(err, &quot;Failed to declare a queue&quot;)
+
+  
+
+if len(os.Args) &lt; 2 {
+
+log.Printf(&quot;Usage: %s [binding_key]...&quot;, os.Args[0])
+
+os.Exit(0)
+
+}
+
+for _, s := range os.Args[1:] {
+
+log.Printf(&quot;Binding queue %s to exchange %s with routing key %s&quot;,
+
+q.Name, &quot;logs_topic&quot;, s)
+
+err = ch.QueueBind(
+
+q.Name, // queue name
+
+s, // routing key
+
+&quot;logs_topic&quot;, // exchange
+
+false,
+
+nil)
+
+failOnError(err, &quot;Failed to bind a queue&quot;)
+
+}
+
+  
+
+msgs, err := ch.Consume(
+
+q.Name, // queue
+
+&quot;&quot;, // consumer
+
+true, // auto ack
+
+false, // exclusive
+
+false, // no local
+
+false, // no wait
+
+nil, // args
+
+)
+
+failOnError(err, &quot;Failed to register a consumer&quot;)
+
+  
+
+forever := make(chan  bool)
+
+  
+
+go  func() {
+
+for d := range msgs {
+
+log.Printf(&quot; [x] %s&quot;, d.Body)
+
+}
+
+}()
+
+  
+
+log.Printf(&quot; [*] Waiting for logs. To exit press CTRL+C&quot;)
+
+&lt;-forever
+
+}</code></pre>
 
 
 <footer class="footline">
@@ -988,6 +1304,22 @@ HTTP/1.1 200 OK
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1003,7 +1335,7 @@ HTTP/1.1 200 OK
 			<a class="nav nav-prev" href="/api-methodology/public/cont/wso2/" title="WSO2 Micro EI - Creating APIs"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/api-methodology/public/cont/markdown/" title="Markdown Syntax" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/api-methodology/public/cont/krakend-grafana-influxdb/" title="Configuring Grafana and InfluxDB for KrakenD" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1013,19 +1345,19 @@ HTTP/1.1 200 OK
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/api-methodology/public/js/clipboard.min.js?1605680548"></script>
-    <script src="/api-methodology/public/js/perfect-scrollbar.min.js?1605680548"></script>
-    <script src="/api-methodology/public/js/perfect-scrollbar.jquery.min.js?1605680548"></script>
-    <script src="/api-methodology/public/js/jquery.sticky.js?1605680548"></script>
-    <script src="/api-methodology/public/js/featherlight.min.js?1605680548"></script>
-    <script src="/api-methodology/public/js/highlight.pack.js?1605680548"></script>
+    <script src="/api-methodology/public/js/clipboard.min.js?1605831103"></script>
+    <script src="/api-methodology/public/js/perfect-scrollbar.min.js?1605831103"></script>
+    <script src="/api-methodology/public/js/perfect-scrollbar.jquery.min.js?1605831103"></script>
+    <script src="/api-methodology/public/js/jquery.sticky.js?1605831103"></script>
+    <script src="/api-methodology/public/js/featherlight.min.js?1605831103"></script>
+    <script src="/api-methodology/public/js/highlight.pack.js?1605831103"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/api-methodology/public/js/modernizr.custom-3.6.0.js?1605680548"></script>
-    <script src="/api-methodology/public/js/learn.js?1605680548"></script>
-    <script src="/api-methodology/public/js/hugo-learn.js?1605680548"></script>
+    <script src="/api-methodology/public/js/modernizr.custom-3.6.0.js?1605831103"></script>
+    <script src="/api-methodology/public/js/learn.js?1605831103"></script>
+    <script src="/api-methodology/public/js/hugo-learn.js?1605831103"></script>
     
         
-            <script src="/api-methodology/public/mermaid/mermaid.js?1605680548"></script>
+            <script src="/api-methodology/public/mermaid/mermaid.js?1605831103"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
